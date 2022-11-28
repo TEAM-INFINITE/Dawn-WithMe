@@ -1,6 +1,9 @@
-## 새벽 공부 하는 사람들을 위한 공간, Dawn, With Me?
+## 새벽 공부 하는 사람들을 위한 공간, Dawn, With Me? 🌙
 
-<img src='https://cdn.pixabay.com/photo/2015/04/23/21/59/tree-736877_960_720.jpg' />
+
+![ㅋㅋㅋ](https://user-images.githubusercontent.com/100748721/204194115-695a34c9-00e8-492e-87e5-f99ca1f34c5d.jpg)
+
+
 `(배너 느낌의 이미지 or 로고 디자인 후 추가)`
 
 #### 새벽에 집중안될 때, 다른 사람은 어떻게 할까?
