@@ -2,7 +2,7 @@
 name: "❌ Error"
 about: 해결하지 못한 에러, 버그 등 작성할 때 사용하시면 됩니다.
 title: ''
-labels: Error
+labels: ''
 assignees: ''
 
 ---

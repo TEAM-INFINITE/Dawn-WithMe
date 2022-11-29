@@ -2,7 +2,7 @@
 name: "✅ Feature"
 about: 기능구현 시 사용하시면 됩니다.
 title: ''
-labels: 기능구현
+labels: ''
 assignees: ''
 
 ---
