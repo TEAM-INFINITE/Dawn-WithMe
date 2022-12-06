@@ -6,7 +6,14 @@ const fontSizes = {
   xxl: '18px',
 };
 
-const darkColors = {};
+const darkColors = {
+  colorMain: '#FEAC23',
+  colorBg: '#212025',
+  colorText: 'FFFFFF',
+  ColorC4: 'c4c4c4',
+  ColorDB: 'dbdbdb',
+  color76: '767676',
+};
 
 const lightColors = {};
 
