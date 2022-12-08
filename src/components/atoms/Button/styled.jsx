@@ -31,14 +31,34 @@ const ButtonWrapper = styled.button`
     return css`
       width: ${(props) => props.width};
       background-color: ${theme.colors.colorMain};
-      font-size: 14px;
+      font-size: ${theme.fontSizes.base};
       padding: 7px 0;
       font-weight: 500;
       line-height: 18px;
+      color: ${theme.colors.colorWhite};
     `;
   }}
 
   ${({ size }) => setSize(size)}
+
+  &:disabled {
+    ${({ theme }) => {
+      return css`
+        background-color: ${theme.colors.colorC4};
+        cursor: not-allowed;
+      `;
+    }}
+  }
+
+  &.active {
+    ${({ theme }) => {
+      return css`
+        background-color: ${theme.colors.colorBg};
+        border: 1px solid ${theme.colors.colorC4};
+        cursor: not-allowed;
+      `;
+    }}
+  }
 `;
 
 export default ButtonWrapper;

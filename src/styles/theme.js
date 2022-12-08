@@ -9,10 +9,10 @@ const fontSizes = {
 const colors = {
   colorMain: '#FEAC23',
   colorBg: '#212025',
-  colorText: 'FFFFFF',
-  colorC4: 'c4c4c4',
-  colorDB: 'dbdbdb',
-  color76: '767676',
+  colorWhite: '#FFFFFF',
+  colorC4: '#c4c4c4',
+  colorDB: '#dbdbdb',
+  color76: '#767676',
 };
 
 // const lightColors = {
