@@ -20,6 +20,8 @@ module.exports = {
   },
   plugins: ['react', 'prettier'],
   rules: {
+    'react/jsx-boolean-value': { always: ['personal'] },
+    'react/prop-types': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [
