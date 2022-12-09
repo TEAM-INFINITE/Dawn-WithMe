@@ -48,7 +48,6 @@ const GlobalStyled = createGlobalStyle`
     font-display: swap;
 }
 
-
   ${reset}
 
   *{
