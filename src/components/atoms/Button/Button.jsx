@@ -44,17 +44,23 @@ const Button = styled.button`
   &:disabled {
     ${({ theme }) => {
       return css`
-        background-color: ${theme.colors.colorC4};
+        background-color: ${theme.colors.colorBorder};
         cursor: not-allowed;
       `;
     }}
   }
 
+  ${({ theme }) => {
+    return css`
+      border: 1px solid ${theme.colors.colorBorder};
+    `;
+  }}
+
   &.active {
     ${({ theme }) => {
       return css`
         background-color: ${theme.colors.colorBg};
-        border: 1px solid ${theme.colors.colorC4};
+        border: 1px solid ${theme.colors.colorBorder};
       `;
     }}
   }
