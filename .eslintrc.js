@@ -43,6 +43,7 @@ module.exports = {
         singleQuote: true,
         endOfLine: 'auto',
         trailingComma: 'all',
+        jsxSingleQuote: true,
       },
     ],
     'no-console': 'off',

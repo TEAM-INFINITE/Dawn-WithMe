@@ -1,10 +1,13 @@
-import Button from './components/atoms/Button/Button';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
 
 const App = () => {
   return (
-    <Button width="50px" disabled={true}>
-      버튼 테스트
-    </Button>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
