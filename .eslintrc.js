@@ -21,6 +21,7 @@ module.exports = {
   plugins: ['react', 'prettier'],
   rules: {
     'react/jsx-boolean-value': 0,
+    'no-param-reassign': 0,
     'react/prop-types': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -43,6 +44,7 @@ module.exports = {
         singleQuote: true,
         endOfLine: 'auto',
         trailingComma: 'all',
+        jsxSingleQuote: true,
       },
     ],
     'no-console': 'off',
