@@ -1,13 +1,22 @@
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
+        <ReactQueryDevtools />
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 };
 
