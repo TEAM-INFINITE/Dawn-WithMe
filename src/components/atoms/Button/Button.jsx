@@ -10,7 +10,7 @@ const setSize = (size) => {
     case 'medium':
       return css`
         padding: 8px 0;
-        border-radius: 34px;
+        border-radius: 30px;
       `;
     case 'ms':
       return css`
@@ -18,7 +18,7 @@ const setSize = (size) => {
       `;
     default:
       return css`
-        border-radius: 28px;
+        border-radius: 26px;
         font-weight: 400;
         font-size: 12px;
         line-height: 15px;
@@ -49,12 +49,6 @@ const Button = styled.button`
       `;
     }}
   }
-
-  ${({ theme }) => {
-    return css`
-      border: 1px solid ${theme.colors.colorBorder};
-    `;
-  }}
 
   &.active {
     ${({ theme }) => {

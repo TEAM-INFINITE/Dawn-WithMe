@@ -4,6 +4,7 @@ const fontSizes = {
   base: '14px',
   xl: '16px',
   xxl: '18px',
+  title: '24px',
 };
 
 const colors = {
