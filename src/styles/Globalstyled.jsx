@@ -53,6 +53,7 @@ const GlobalStyled = createGlobalStyle`
   *{
     font-family: "Spoqa Han Sans Neo", sans-serif;
     font-weight: 400;
+    box-sizing: border-box;
   }
 
   button{
@@ -64,6 +65,10 @@ const GlobalStyled = createGlobalStyle`
     overflow:visible;
     cursor:pointer
     
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .hidden {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const ImageIcon = styled.img`
+const Img = styled.img`
   width: ${(props) => props.width};
 `;
 
-export default ImageIcon;
+export default Img;

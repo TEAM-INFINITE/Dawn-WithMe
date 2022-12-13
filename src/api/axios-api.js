@@ -23,7 +23,7 @@ accessInstance.interceptors.request.use((config) => {
   if (!config.headers.Authorization) {
     config.headers = {
       ...config.headers,
-      Authorization: `JWT ${localStorage.getItem('token')}`,
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     };
   }
 
