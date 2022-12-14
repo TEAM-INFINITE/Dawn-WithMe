@@ -1,5 +1,5 @@
 import TextFiled from '../../atoms/Input/TextFiled/TextFiled';
-import TextLabel from '../../atoms/Label/TextLabel.jsx/TextLabel.jsx';
+import TextLabel from '../../atoms/Label/TextLabel/TextLabel';
 import TextFiledCardWrapper from './styled';
 
 const TextFiledCard = ({

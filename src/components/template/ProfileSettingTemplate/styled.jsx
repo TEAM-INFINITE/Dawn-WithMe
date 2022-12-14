@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const LoginWrapper = styled.section`
+const ProfileSettingWrapper = styled.section`
   ${({ theme }) => {
     return css`
       width: 600px;
@@ -15,18 +15,15 @@ const LoginWrapper = styled.section`
         font-weight: 500;
         font-size: ${theme.fontSizes.title};
         line-height: 30px;
-        margin-bottom: 40px;
+        margin-bottom: 12px;
+        text-align: center;
       }
-
-      a {
-        display: inline-block;
-        font-weight: 400;
-        font-size: ${theme.fontSizes.smallMid};
-        line-height: 15px;
-        color: ${theme.colors.colorWhite};
-        margin-top: 20px;
+      p {
+        color: ${theme.colors.color76};
+        font-weight: 400px;
+        text-align: center;
+        line-height: 14px;
       }
-
       img {
         display: block;
         margin: 30px auto 0;
@@ -35,4 +32,4 @@ const LoginWrapper = styled.section`
   }}
 `;
 
-export default LoginWrapper;
+export default ProfileSettingWrapper;
