@@ -3,58 +3,7 @@ import reset from 'styled-reset';
 
 const GlobalStyled = createGlobalStyle`
 
-@font-face {
-    font-family: 'Spoqa Han Sans Neo';
-    src: url('../assets/fonts/SpoqaHanSansNeo-Light.woff2') format('woff2'),
-        url('../assets/fonts/SpoqaHanSansNeo-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spoqa Han Sans Neo';
-    src: url('../assets/fonts/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
-        url('../assets/fonts/SpoqaHanSansNeo-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spoqa Han Sans Neo';
-    src: url('../assets/fonts/SpoqaHanSansNeo-Bold.woff2') format('woff2'),
-        url('../assets/fonts/SpoqaHanSansNeo-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spoqa Han Sans Neo';
-    src: url('../assets/fonts/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
-        url('../assets/fonts/SpoqaHanSansNeo-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spoqa Han Sans Neo';
-    src: url('../assets/fonts/SpoqaHanSansNeo-Thin.woff2') format('woff2'),
-        url('../assets/fonts/SpoqaHanSansNeo-Thin.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
   ${reset}
-
-  *{
-    font-family: "Spoqa Han Sans Neo", sans-serif;
-    font-weight: 400;
-    box-sizing: border-box;
-  }
 
   button{
     background: inherit;
@@ -64,6 +13,7 @@ const GlobalStyled = createGlobalStyle`
     padding:0;
     overflow:visible;
     cursor:pointer
+    
     
   }
 
@@ -84,6 +34,14 @@ const GlobalStyled = createGlobalStyle`
     word-break: initial;
     word-wrap: initial;
   }
+
+
+*,html {
+  font-family: 'Spoqa Han Sans Neo';
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
 `;
 
 export default GlobalStyled;
