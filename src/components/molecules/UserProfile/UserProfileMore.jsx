@@ -8,7 +8,7 @@ import { ProfileMoreWrapper } from './styled';
 const UserProfileMore = () => {
   return (
     <ProfileMoreWrapper>
-      <Link to='/myprofile'>
+      <Link to='/profile'>
         <UserProfile
           src={profileImg}
           userName='아산의 짱'
