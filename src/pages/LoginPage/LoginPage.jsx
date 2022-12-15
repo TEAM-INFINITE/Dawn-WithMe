@@ -14,9 +14,9 @@ const LoginPage = () => {
 
   const loginMutation = useMutation(postUserLogin, {
     onSuccess(data) {
-      console.log(data);
       if (data.status === 422) {
         setError(`${data.message}`);
+
         return;
       }
 
