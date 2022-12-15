@@ -5,7 +5,7 @@ import FeedContWrapper from './styled';
 const FeedCont = ({ children, src }) => {
   return (
     <FeedContWrapper>
-      <Link to='/boardDetail'>
+      <Link to='/FeedDetail'>
         <p>{children}</p>
         <Img src={src} alt='게시판 사진' width='100%' className='feedImg' />
       </Link>

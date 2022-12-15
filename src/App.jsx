@@ -4,8 +4,6 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import FreeBoard from './pages/FreeBoard/FreeBoard';
-import FeedDetail from './pages/FeedDetail/FeedDetail';
-import MyProfile from './pages/MyProfile/MyProfile';
 
 const queryClient = new QueryClient();
 
@@ -17,8 +15,8 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/freeboard' element={<FreeBoard />} />
-          <Route path='/myprofile' element={<MyProfile />} />
-          <Route path='/FeedDetail' element={<FeedDetail />} />
+          <Route path='/profile' element={<Home />} />
+          <Route path='/FeedDetail' element={<Home />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
