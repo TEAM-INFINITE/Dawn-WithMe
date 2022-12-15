@@ -3,6 +3,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+import FreeBoard from './pages/FreeBoard/FreeBoard';
+import FeedDetail from './pages/FeedDetail/FeedDetail';
+import MyProfile from './pages/MyProfile/MyProfile';
 
 const queryClient = new QueryClient();
 
@@ -13,6 +16,9 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/freeboard' element={<FreeBoard />} />
+          <Route path='/myprofile' element={<MyProfile />} />
+          <Route path='/FeedDetail' element={<FeedDetail />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
