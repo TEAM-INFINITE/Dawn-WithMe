@@ -1,7 +1,7 @@
 import FeedTemplate from '../../components/template/FeedTemplate/FeedTemplate';
 
-const FreeBoard = () => {
+const FreeBoardPage = () => {
   return <FeedTemplate />;
 };
 
-export default FreeBoard;
+export default FreeBoardPage;
