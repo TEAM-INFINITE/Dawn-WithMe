@@ -4,9 +4,9 @@ export const FeedWrapper = styled.section`
   ${({ theme }) => {
     return css`
       width: 600px;
-      margin: 0 auto;
-      border: 1px solid black;
+      height: 100vh;
       background-color: ${theme.colors.colorBg};
+      margin: 0 auto;
     `;
   }}
 `;
