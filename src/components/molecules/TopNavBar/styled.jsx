@@ -10,7 +10,7 @@ const TopNavBarWarpper = styled.nav`
     return css`
       border-bottom: 1px solid ${theme.colors.colorDB};
       h2 {
-        font-size: 18px;
+        font-size: ${theme.fontSizes.xxl};
         color: ${theme.colors.colorBorder};
       }
     `;
