@@ -19,9 +19,10 @@ const LoginPage = () => {
 
         return;
       }
-
+      console.log(data);
+      localStorage.setItem('accountname', data.user.accountname);
       localStorage.setItem('token', data.user.token);
-      navigate('/');
+      navigate('/home');
     },
     onError(err) {
       console.log(err);
