@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 
 export const FreePostWrap = styled.li`
-  padding: 20px 16px 12px 16px;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const TextWrap = styled.div`
