@@ -20,10 +20,14 @@ module.exports = {
   },
   plugins: ['react', 'prettier'],
   rules: {
-    'react/jsx-boolean-value': { always: ['personal'] },
+    'import/no-unresolved': [2, { caseSensitive: false }],
+    'react/jsx-boolean-value': 0,
+    'no-param-reassign': 0,
     'react/prop-types': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'no-unused-vars': 'warn',
+    // 'consistent-return': ['error', { treatUndefinedAsUnspecified: false }],
     'react/jsx-filename-extension': [
       'error',
       {
@@ -43,6 +47,7 @@ module.exports = {
         singleQuote: true,
         endOfLine: 'auto',
         trailingComma: 'all',
+        jsxSingleQuote: true,
       },
     ],
     'no-console': 'off',

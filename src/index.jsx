@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil';
 import GlobalStyled from './styles/Globalstyled';
 import App from './App';
 import theme from './styles/theme';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
