@@ -4,7 +4,7 @@ const CategoryButton = styled.button`
   ${({ theme }) => {
     return css`
       width: ${(props) => props.width};
-      height: ${(props) => props.height};
+      height: 150px;
       background-color: #333;
       color: ${theme.colors.colorWhite};
     `;
