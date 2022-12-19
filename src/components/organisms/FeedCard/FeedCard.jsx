@@ -18,7 +18,7 @@ const FeedCard = () => {
         </FeedCont>
         <FeedMoreIconWrap>
           <FeedMoreIcon src={HeartIcon} alt='좋아요' count={22} />
-          <Link to='/FeedDetail'>
+          <Link to='/feeddetail'>
             <FeedMoreIcon src={MessageIcon} alt='댓글' count={7} />
           </Link>
         </FeedMoreIconWrap>
