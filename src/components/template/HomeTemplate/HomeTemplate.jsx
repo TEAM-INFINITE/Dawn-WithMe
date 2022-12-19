@@ -2,10 +2,10 @@ import CategoryButtonBox from '../../molecules/CategoryButtonBox/CategoryButtonB
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import HomeTemplateWrapper from './styled';
 
-const HomeTemplate = () => {
+const HomeTemplate = ({ onClickCategory }) => {
   return (
     <HomeTemplateWrapper>
-      <CategoryButtonBox />
+      <CategoryButtonBox onClickCategory={onClickCategory} />
       <TabMenu />
     </HomeTemplateWrapper>
   );

@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import FreeBoardPage from './pages/FreeBoardPage/FreeBoardPage';
+import CategoryPage from './pages/CategoryPage/CategoryPage';
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='/freeboard' element={<FreeBoardPage />} />
           <Route path='/profile' element={<HomePage />} />
           <Route path='/feeddetail/:id' element={<HomePage />} />
+          <Route path='/category/:name' element={<CategoryPage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
