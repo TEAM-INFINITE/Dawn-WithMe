@@ -3,10 +3,12 @@ import styled, { css } from 'styled-components';
 export const FeedWrapper = styled.section`
   ${({ theme }) => {
     return css`
-      width: 600px;
+      max-width: 600px;
       height: 100vh;
       background-color: ${theme.colors.colorBg};
       margin: 0 auto;
+      position: relative;
+      overflow: hidden;
     `;
   }}
 `;
