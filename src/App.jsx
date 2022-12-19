@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import Home from './pages/HomePage/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import FreeBoardPage from './pages/FreeBoardPage/FreeBoardPage';
 
@@ -12,12 +12,12 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/home' element={<HomePage />} />
           <Route path='/freeboard' element={<FreeBoardPage />} />
-          <Route path='/profile' element={<Home />} />
-          <Route path='/feeddetail/:id' element={<Home />} />
+          <Route path='/profile' element={<HomePage />} />
+          <Route path='/feeddetail/:id' element={<HomePage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
