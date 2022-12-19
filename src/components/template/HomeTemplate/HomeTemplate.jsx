@@ -14,8 +14,8 @@ const HomeTemplate = ({ onClickCategory }) => {
       <MainWrapper>
         <HomeTemplateWrapper>
           <CategoryButtonBox onClickCategory={onClickCategory} />
-          <TabMenu />
         </HomeTemplateWrapper>
+        <TabMenu />
       </MainWrapper>
     </>
   );
