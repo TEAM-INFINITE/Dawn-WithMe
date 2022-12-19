@@ -4,7 +4,7 @@ import CategoryTemplate from '../../components/template/CategoryTemplate/Categor
 const CategoryPage = () => {
   const location = useLocation();
   const postListData = location.state.data;
-
+  console.log(location);
   return <CategoryTemplate postListData={postListData} />;
 };
 

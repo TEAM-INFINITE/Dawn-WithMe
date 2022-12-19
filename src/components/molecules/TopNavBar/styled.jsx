@@ -4,7 +4,7 @@ const TopNavBarWarpper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 13px 16px;
+  padding: 12px 16px;
 
   ${({ theme }) => {
     return css`
@@ -12,6 +12,15 @@ const TopNavBarWarpper = styled.nav`
       h2 {
         font-size: ${theme.fontSizes.xxl};
         color: ${theme.colors.colorBorder};
+        line-height: 22px;
+      }
+      button {
+        display: flex;
+        align-items: center;
+      }
+      a {
+        display: flex;
+        align-items: center;
       }
     `;
   }}

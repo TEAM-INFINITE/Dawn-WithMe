@@ -5,13 +5,6 @@ const GlobalStyled = createGlobalStyle`
 
   ${reset}
 
-  *{
-    font-family: "Spoqa Han Sans Neo", sans-serif;
-    font-weight: 400;
-    box-sizing: border-box;
-  }
-
-
   button{
     background: inherit;
     border:none;
@@ -20,12 +13,6 @@ const GlobalStyled = createGlobalStyle`
     padding:0;
     overflow:visible;
     cursor:pointer
-    
-    
-  }
-
-  a {
-    text-decoration: none;
   }
 
   a {
@@ -52,7 +39,9 @@ const GlobalStyled = createGlobalStyle`
   font-weight: 400;
   box-sizing: border-box;
 }
-
+#root {
+  height: 100vh;
+}
 `;
 
 export default GlobalStyled;
