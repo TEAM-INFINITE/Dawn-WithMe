@@ -1,15 +1,15 @@
 import styled, { css } from 'styled-components';
 
-export const CategoryFreePostWrapper = styled.li`
+const CategoryDetailFeedWrapper = styled.div`
   margin-bottom: 20px;
-
+  padding: 16px;
   &:last-child {
     margin-bottom: 0;
   }
-`;
 
-export const CategoryTextWrapper = styled.div`
-  padding-left: 54px;
+  > p {
+    margin-top: 20px;
+  }
 
   ${({ theme }) => {
     return css`
@@ -17,10 +17,8 @@ export const CategoryTextWrapper = styled.div`
         color: ${theme.colors.colorBorder};
         font-size: ${theme.fontSizes.small};
       }
-
-      > p {
-        margin-top: 20px;
-      }
     `;
   }}
 `;
+
+export default CategoryDetailFeedWrapper;
