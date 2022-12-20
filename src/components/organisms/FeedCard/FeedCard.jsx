@@ -7,7 +7,6 @@ import HeartIcon from '../../../assets/images/icon-heart.png';
 import MessageIcon from '../../../assets/images/icon-message-circle.png';
 
 const FeedCard = ({ data }) => {
-  console.log(data.image);
   return (
     <FreePostWrap>
       <UserProfileMore data={data} />
@@ -17,10 +16,14 @@ const FeedCard = ({ data }) => {
           {data.content}
         </FeedCont>
         <FeedMoreIconWrap>
-          <FeedMoreIcon src={HeartIcon} alt='좋아요' count={22} />
+          <FeedMoreIcon src={HeartIcon} alt='좋아요' count={data.heartCount} />
           {/* id 바꾸기 */}
           <Link to={`/feeddetail/${data.id}`}>
-            <FeedMoreIcon src={MessageIcon} alt='댓글' count={7} />
+            <FeedMoreIcon
+              src={MessageIcon}
+              alt='댓글'
+              count={data.commentCount}
+            />
           </Link>
         </FeedMoreIconWrap>
         {/* 작성일에 맞추어 날짜 변경 */}
