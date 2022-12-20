@@ -1,8 +1,8 @@
 import TextFiled from '../../atoms/Input/TextFiled/TextFiled';
 import TextLabel from '../../atoms/Label/TextLabel/TextLabel';
-import TextFiledCardWrapper from './styled';
+import SignFiledCardWrapper from './styled';
 
-const TextFiledCard = ({
+const SignUpFiredCard = ({
   children,
   type,
   onChange,
@@ -14,7 +14,7 @@ const TextFiledCard = ({
   autoFocus,
 }) => {
   return (
-    <TextFiledCardWrapper>
+    <SignFiledCardWrapper>
       <TextLabel htmlFor={id}>{children}</TextLabel>
       <TextFiled
         name={name}
@@ -26,8 +26,8 @@ const TextFiledCard = ({
         ref={refValue}
         autoFocus={autoFocus}
       />
-    </TextFiledCardWrapper>
+    </SignFiledCardWrapper>
   );
 };
 
-export default TextFiledCard;
+export default SignUpFiredCard;
