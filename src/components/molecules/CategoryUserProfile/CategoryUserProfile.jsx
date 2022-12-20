@@ -2,7 +2,7 @@ import Img from '../../atoms/Img/Img';
 import FeedText from '../../atoms/P/Feed/FeedText';
 import CategoryUserProfileWrapper from './styled';
 
-const UserProfile = ({ userName, userId, src }) => {
+const CategoryUserProfile = ({ userName, userId, src }) => {
   return (
     <CategoryUserProfileWrapper>
       <Img src={src} alt='프로필 사진' width='42px' />
@@ -14,4 +14,4 @@ const UserProfile = ({ userName, userId, src }) => {
   );
 };
 
-export default UserProfile;
+export default CategoryUserProfile;

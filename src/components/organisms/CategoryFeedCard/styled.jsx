@@ -18,7 +18,7 @@ export const CategoryTextWrapper = styled.div`
         font-size: ${theme.fontSizes.small};
       }
 
-      p {
+      > p {
         margin-top: 20px;
       }
     `;

@@ -4,12 +4,11 @@ import CategoryUserProfileMore from '../../molecules/CategoryUserProfileMore/Cat
 import profileImg from '../../../assets/images/profile-logo.png';
 
 const CategoryFeedCard = ({ data }) => {
-  const { itemImage, link, updatedAt, id } = data;
+  const { itemImage, link, updatedAt, id, itemName, price } = data;
   const { accountname, username, image } = data.author;
   const basicProfileImg =
     image === 'http://146.56.183.55:5050/Ellipse.png' ? profileImg : image;
   const postDate = updatedAt.split('-');
-  console.log(data);
 
   return (
     <CategoryFreePostWrapper>
@@ -17,13 +16,19 @@ const CategoryFeedCard = ({ data }) => {
         userName={username}
         userId={accountname}
         src={basicProfileImg}
+        type={itemName}
       />
       <CategoryTextWrapper>
-        <CategoryFeedCont src={itemImage} id={id}>
+        <CategoryFeedCont
+          src={itemImage}
+          id={id}
+          type={itemName}
+          people={price}
+        >
           {link}
         </CategoryFeedCont>
         <p>
-          {postDate[0]}년 {postDate[1]}월 {postDate[2].slice(0, 2)}일
+          {postDate[0]}년 {postDate[1]}월 {parseInt(postDate[2], 10)}일
         </p>
       </CategoryTextWrapper>
     </CategoryFreePostWrapper>
