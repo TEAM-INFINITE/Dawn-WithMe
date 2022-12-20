@@ -9,7 +9,6 @@ const CategoryDetailFeed = ({ data }) => {
   const basicProfileImg =
     image === 'http://146.56.183.55:5050/Ellipse.png' ? profileImg : image;
   const postDate = updatedAt.split('-');
-  console.log(Number(postDate[2]));
   return (
     <CategoryDetailFeedWrapper>
       <CategoryDetailUserProfile
@@ -22,7 +21,7 @@ const CategoryDetailFeed = ({ data }) => {
         {link}
       </CategoryFeedCont>
       <p>
-        {postDate[0]}년 {postDate[1]}월 {postDate[2].slice(0, 2)}일
+        {postDate[0]}년 {postDate[1]}월 {parseInt(postDate[2], 10)}일
       </p>
     </CategoryDetailFeedWrapper>
   );
