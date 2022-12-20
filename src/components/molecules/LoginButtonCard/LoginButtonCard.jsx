@@ -1,13 +1,13 @@
 import Button from '../../atoms/Button/Button';
-import ButtonLoginCardWrapper from './styled';
+import LoginButtonCardWrapper from './styled';
 import Img from '../../atoms/Img/Img';
 import iconKakaotalk from '../../../assets/images/icon-kakaotalk.png';
 import iconGoogle from '../../../assets/images/icon-google.png';
 import iconFacebook from '../../../assets/images/icon-facebook.png';
 
-const ButtonLoginCard = () => {
+const LoginButtonCard = () => {
   return (
-    <ButtonLoginCardWrapper>
+    <LoginButtonCardWrapper>
       <Button width='100%' size='large' type='submit'>
         <Img src={iconKakaotalk} width='18px' alt='카카오톡' />
         카카오톡 계정으로 로그인
@@ -20,8 +20,8 @@ const ButtonLoginCard = () => {
         <Img src={iconFacebook} width='11px' alt='페이스북' />
         페이스북 계정으로 로그인
       </Button>
-    </ButtonLoginCardWrapper>
+    </LoginButtonCardWrapper>
   );
 };
 
-export default ButtonLoginCard;
+export default LoginButtonCard;

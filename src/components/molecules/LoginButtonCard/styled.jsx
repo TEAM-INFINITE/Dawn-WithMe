@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const ButtonLoginCardWrapper = styled.div`
+const LoginButtonCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   button + button {
@@ -34,4 +34,4 @@ const ButtonLoginCardWrapper = styled.div`
   }
 `;
 
-export default ButtonLoginCardWrapper;
+export default LoginButtonCardWrapper;
