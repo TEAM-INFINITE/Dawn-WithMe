@@ -26,6 +26,15 @@ const LoginButtonFormWrapper = styled.div`
         color: ${theme.colors.color76};
         margin: 20px 12px 0;
       }
+
+      .moon {
+        width: 16px;
+        height: 22px;
+        border-radius: 41% 59% 100% 0% / 0% 34% 66% 100%;
+        top: 375px;
+        left: 247px;
+        animation: none;
+      }
     `;
   }}
 `;
