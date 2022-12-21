@@ -9,6 +9,7 @@ const LoginButtonFormWrapper = styled.div`
       margin: 0 auto;
       padding: 50px 34px 0;
       text-align: center;
+      border-radius: 20px 20px 0 0;
 
       span {
         font-weight: 400;
