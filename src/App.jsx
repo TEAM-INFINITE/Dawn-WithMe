@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import FreeBoardPage from './pages/FreeBoardPage/FreeBoardPage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
 import CategoryDetailPage from './pages/CategoryDetailPage/CategoryDetailPage';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/feeddetail/:id' element={<HomePage />} />
           <Route path='/category/:name' element={<CategoryPage />} />
           <Route path='/category/:name/:id' element={<CategoryDetailPage />} />
+          <Route path='/signup' element={<SignUpPage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
