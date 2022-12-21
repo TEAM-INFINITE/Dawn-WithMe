@@ -22,14 +22,17 @@ const LoginButtonCardWrapper = styled.div`
     &:nth-child(1) {
       border: 1px solid #f2c94c;
       padding-left: 17px;
+      padding-right: 17px;
     }
     &:nth-child(2) {
       border: 1px solid #767676;
       padding-left: 17px;
+      padding-right: 17px;
     }
     &:nth-child(3) {
       border: 1px solid #2d9cdb;
       padding-left: 20px;
+      padding-right: 20px;
     }
   }
 `;
