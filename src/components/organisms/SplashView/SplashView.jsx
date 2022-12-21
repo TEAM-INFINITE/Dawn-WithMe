@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import SymbolLogoCard from '../../molecules/SymbolLogoCard/SymbolLogoCard';
 import SplashViewWrapper from './styled';
+import grayFullLogo from '../../../assets/images/gray-full-logo.png';
 
 const sunset = keyframes`
     0% {
@@ -27,7 +28,7 @@ const SplashViewAnimation = styled.div`
 const SplashView = () => {
   return (
     <SplashViewWrapper>
-      <SymbolLogoCard />
+      <SymbolLogoCard src={grayFullLogo} />
       <SplashViewAnimation />
     </SplashViewWrapper>
   );
