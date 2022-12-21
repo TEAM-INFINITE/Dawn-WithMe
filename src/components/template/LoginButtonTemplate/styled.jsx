@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import LoginButtonBackground from '../../../assets/images/login-button-background.png';
 
 const LoginButtonWrapper = styled.section`
+  position: relative;
   width: 600px;
   height: 100vh;
   margin: 0 auto;

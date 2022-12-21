@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import LoginButtonCard from '../../molecules/LoginButtonCard/LoginButtonCard';
 import LoginButtonFormWrapper from './styled';
+import StarCard from '../../molecules/StarCard/StarCard';
 
 const LoginButtonForm = () => {
   return (
     <LoginButtonFormWrapper>
+      <StarCard />
       <LoginButtonCard />
       <Link to='/login'>이메일로 로그인</Link>
       <span>|</span>
