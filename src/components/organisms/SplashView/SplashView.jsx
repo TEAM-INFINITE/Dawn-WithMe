@@ -22,7 +22,7 @@ const SplashViewAnimation = styled.div`
   top: 510px;
   left: 293px;
   border-radius: 0% 100% 100% 0% / 46% 47% 53% 54%;
-  animation: ${sunset} 5s forwards;
+  animation: ${sunset} 2s forwards;
 `;
 
 const SplashView = () => {
