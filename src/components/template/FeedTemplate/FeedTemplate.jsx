@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { FeedWrapper } from './styled';
 import FeedCard from '../../organisms/FeedCard/FeedCard';
@@ -6,21 +5,15 @@ import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
-import getFollowFeedDeatail from '../../../api/feed/getFollowFeedDetail';
+import getFollowFeed from '../../../api/feed/getFollowFeed';
 
 const PostTemplate = () => {
-  const { id } = useParams();
-  console.log(id);
-  const { data, isLoading, isError } = useQuery(['detailfeed', id], () => {
-    return getFollowFeedDeatail(id);
-  });
+  const { data, isLoading, isError } = useQuery('feed', getFollowFeed);
 
   if (isLoading) return <p>로딩 중...</p>;
   if (isError) return <p>에러 발생!</p>;
 
-  console.log(data);
   const { posts } = data;
-  console.log(posts);
   return (
     <>
       <HeaderWrapper>
