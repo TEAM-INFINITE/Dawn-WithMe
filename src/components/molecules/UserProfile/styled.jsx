@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ProfileMoreWrapper = styled.div`
   display: flex;
@@ -19,6 +19,26 @@ export const UserProfileWrapper = styled.div`
   .profile-text {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    align-items: center;
+    gap: 6px;
   }
+
+  .comment-profile-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  ${({ theme }) => {
+    return css`
+      .comment-profile-text span {
+        color: ${theme.colors.color76};
+        font-size: ${theme.fontSizes.small};
+      }
+
+      .comment-profile-text span::before {
+        content: '· ';
+      }
+    `;
+  }}
 `;
