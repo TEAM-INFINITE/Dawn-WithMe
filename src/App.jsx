@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import FreeBoardPage from './pages/FreeBoardPage/FreeBoardPage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
+import SplashPage from './pages/SplashPage/SplashPage';
 
 const queryClient = new QueryClient();
 
@@ -13,7 +14,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<SplashPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/home' element={<HomePage />} />
           <Route path='/freeboard' element={<FreeBoardPage />} />
