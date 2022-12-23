@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CommentListWrapper = styled.div`
+const CommentItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
@@ -11,4 +11,4 @@ const CommentListWrapper = styled.div`
   }
 `;
 
-export default CommentListWrapper;
+export default CommentItemWrapper;

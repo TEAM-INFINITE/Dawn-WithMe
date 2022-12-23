@@ -1,14 +1,14 @@
 import FeedText from '../../atoms/P/Feed/FeedText';
 import UserCommentProfileMore from '../../molecules/UserProfile/UserCommentProfileMore';
-import CommentListWrapper from './styled';
+import CommentItemWrapper from './styled';
 
-const CommentList = ({ data }) => {
+const CommentItem = ({ data }) => {
   return (
-    <CommentListWrapper>
+    <CommentItemWrapper>
       <UserCommentProfileMore data={data} />
       <FeedText className='commentText'>{data.content}</FeedText>
-    </CommentListWrapper>
+    </CommentItemWrapper>
   );
 };
 
-export default CommentList;
+export default CommentItem;
