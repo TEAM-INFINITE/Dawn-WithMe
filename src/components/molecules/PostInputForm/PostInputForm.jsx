@@ -5,9 +5,9 @@ const PostInputForm = ({
   onChangeInputHandler,
   onBlurInputHandler,
   errorMessage,
+  postValue,
 }) => {
   const { itemName, link, price } = errorMessage;
-
   return (
     <PostInputBoxWrapper id='postForm'>
       <select
@@ -30,16 +30,18 @@ const PostInputForm = ({
         내용
       </TextFiledCard>
       {link && <p>{link}</p>}
-      <TextFiledCard
-        type='text'
-        name='price'
-        min={1}
-        max={10}
-        onBlur={onBlurInputHandler}
-        onChange={onChangeInputHandler}
-      >
-        모집 인원
-      </TextFiledCard>
+      {postValue.itemName === 'study' && (
+        <TextFiledCard
+          type='text'
+          name='price'
+          min={1}
+          max={10}
+          onBlur={onBlurInputHandler}
+          onChange={onChangeInputHandler}
+        >
+          모집 인원
+        </TextFiledCard>
+      )}
       {price && <p>{price}</p>}
     </PostInputBoxWrapper>
   );
