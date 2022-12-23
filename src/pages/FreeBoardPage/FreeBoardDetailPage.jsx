@@ -16,8 +16,6 @@ const FreeBoardDetail = () => {
     getUserInfo,
   );
 
-  //
-
   // 게시물 불러오기
   const {
     data: postdata,
@@ -28,19 +26,15 @@ const FreeBoardDetail = () => {
   });
 
   // 댓글 입력
-  const [commentCount, setCommentCount] = useState();
   const [commentList, setCommentList] = useState([]);
   const [inputText, setInputText] = useState({
     content: '',
   });
 
-  const [error, setError] = useState('');
-
   const commentMutation = useMutation(postCommentWrite, {
     onSuccess(data) {
       console.log(data);
       setCommentList([data.comment, ...commentList]);
-      // setCommentCount()
       setInputText({ content: '' });
     },
     onError(err) {
@@ -79,13 +73,11 @@ const FreeBoardDetail = () => {
   const { post } = postdata;
 
   // 댓글 삭제
-
   return (
     <FeedDetailTemplate
       onChangeInputHandler={onChangeInputHandler}
       onSubmitButtonHandler={onSubmitButtonHandler}
       inputText={inputText.content}
-      error={error}
       commentList={commentList}
       post={post}
       user={user}
