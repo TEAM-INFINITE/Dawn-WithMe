@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import deleteComment from '../../api/comment/deleteComment';
 import getCommentList from '../../api/comment/getCommentList';
 import postCommentWrite from '../../api/comment/postCommentWrite';
 import getFollowFeedDeatail from '../../api/feed/getFollowFeedDetail';
 import getUserInfo from '../../api/user/getUserInfo';
 import FeedDetailTemplate from '../../components/template/FeedTemplate/FeedDetailTemplate';
 
-const FreeBoardDetail = () => {
+const FeedDetailPage = () => {
   const { id } = useParams();
 
   // 유저 정보 불러오기
@@ -73,6 +74,7 @@ const FreeBoardDetail = () => {
   const { post } = postdata;
 
   // 댓글 삭제
+
   return (
     <FeedDetailTemplate
       onChangeInputHandler={onChangeInputHandler}
@@ -85,4 +87,4 @@ const FreeBoardDetail = () => {
   );
 };
 
-export default FreeBoardDetail;
+export default FeedDetailPage;

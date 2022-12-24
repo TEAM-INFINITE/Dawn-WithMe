@@ -14,7 +14,9 @@ const UserCommentProfileMore = ({ data }) => {
           time={data.createdAt}
         />
       </Link>
-      <Img src={MoreIcon} alt='게시글 설정' width='18px' height='18px' />
+      <button type='button'>
+        <Img src={MoreIcon} alt='게시글 설정' width='18px' height='18px' />
+      </button>
     </ProfileMoreWrapper>
   );
 };
