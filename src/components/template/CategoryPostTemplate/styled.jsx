@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 
-const HomeTemplateWrapper = styled.section`
+const CategoryPostTemplateWrapper = styled.section`
   max-width: 600px;
   height: 100%;
   margin: 0 auto;
   position: relative;
+  padding: 30px 34px 0;
 
   ${({ theme }) => {
     return css`
@@ -12,5 +13,4 @@ const HomeTemplateWrapper = styled.section`
     `;
   }}
 `;
-
-export default HomeTemplateWrapper;
+export default CategoryPostTemplateWrapper;
