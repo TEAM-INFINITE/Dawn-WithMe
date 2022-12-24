@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { url } from '../../api/axios-api';
-import createCategoryPost from '../../api/category/createCategoryPost';
+import createCategoryPost from '../../api/Category/createCategoryPost';
 import postImage from '../../api/imgUpload/postImage';
 import CategoryPostTemplate from '../../components/template/CategoryPostTemplate/CategoryPostTemplate';
 

@@ -10,7 +10,6 @@ import CategoryPostPage from './pages/CategoryPostPage/CategoryPostPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SplashPage from './pages/SplashPage/SplashPage';
 
-
 const queryClient = new QueryClient();
 
 const App = () => {
