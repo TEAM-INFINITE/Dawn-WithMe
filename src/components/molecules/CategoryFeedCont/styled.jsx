@@ -11,13 +11,12 @@ const CategoryFeedContWrapper = styled.div`
         &:last-child {
           text-align: right;
         }
-
-        span {
-          color: ${theme.colors.colorMain};
-        }
       }
       .feedImg {
         border-radius: 10px;
+      }
+      span {
+        color: ${theme.colors.colorMain};
       }
     `;
   }}
