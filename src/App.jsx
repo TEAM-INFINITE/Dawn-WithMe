@@ -7,6 +7,9 @@ import FreeBoardPage from './pages/FreeBoardPage/FreeBoardPage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
 import CategoryDetailPage from './pages/CategoryDetailPage/CategoryDetailPage';
 import CategoryPostPage from './pages/CategoryPostPage/CategoryPostPage';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
+import SplashPage from './pages/SplashPage/SplashPage';
+
 
 const queryClient = new QueryClient();
 
@@ -15,7 +18,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<SplashPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/home' element={<HomePage />} />
           <Route path='/freeboard' element={<FreeBoardPage />} />
@@ -24,6 +27,7 @@ const App = () => {
           <Route path='/category/:name' element={<CategoryPage />} />
           <Route path='/category/:name/:id' element={<CategoryDetailPage />} />
           <Route path='/category/post' element={<CategoryPostPage />} />
+          <Route path='/signup' element={<SignUpPage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
