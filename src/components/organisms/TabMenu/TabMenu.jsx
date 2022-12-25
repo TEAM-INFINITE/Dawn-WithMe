@@ -28,8 +28,8 @@ const TabMenu = () => {
         <Img src={pathname === '/chat' ? messageImgOn : messageImg} />
         <p>채팅</p>
       </TabNavLink>
-      <TabNavLink to='/profile'>
-        <Img src={pathname === '/profile' ? profileImgOn : profileImg} />
+      <TabNavLink to='/myprofile'>
+        <Img src={pathname === '/myprofile' ? profileImgOn : profileImg} />
         <p>프로필</p>
       </TabNavLink>
     </BottomNavBarWrapper>
