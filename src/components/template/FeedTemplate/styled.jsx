@@ -3,10 +3,13 @@ import styled, { css } from 'styled-components';
 export const FeedWrapper = styled.section`
   ${({ theme }) => {
     return css`
-      width: 600px;
-      height: 100vh;
+      max-width: 600px;
+      height: 100%;
       background-color: ${theme.colors.colorBg};
       margin: 0 auto;
+      padding: 20px 16px 90px;
+      position: relative;
+      overflow: auto;
     `;
   }}
 `;

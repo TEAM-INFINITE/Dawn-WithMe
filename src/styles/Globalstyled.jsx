@@ -5,13 +5,6 @@ const GlobalStyled = createGlobalStyle`
 
   ${reset}
 
-  *{
-    font-family: "Spoqa Han Sans Neo", sans-serif;
-    font-weight: 400;
-    box-sizing: border-box;
-  }
-
-
   button{
     background: inherit;
     border:none;
@@ -20,12 +13,6 @@ const GlobalStyled = createGlobalStyle`
     padding:0;
     overflow:visible;
     cursor:pointer
-    
-    
-  }
-
-  a {
-    text-decoration: none;
   }
 
   a {
@@ -46,13 +33,32 @@ const GlobalStyled = createGlobalStyle`
     word-wrap: initial;
   }
 
+  input {
+    &:focus {
+      outline:none;
+    }
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 30px #212025 inset;
+      -webkit-text-fill-color: #fff;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      transition: background-color 5000s ease-in-out 0s;
+    }
+    
+  }
+
 
 *,html {
   font-family: 'Spoqa Han Sans Neo';
   font-weight: 400;
   box-sizing: border-box;
 }
-
+#root {
+  height: 100vh;
+}
 `;
 
 export default GlobalStyled;

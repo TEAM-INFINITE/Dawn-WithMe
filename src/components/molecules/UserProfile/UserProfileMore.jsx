@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import UserProfile from './UserProfile';
 import profileImg from '../../../assets/images/profile-logo.png';
 import Img from '../../atoms/Img/Img';
-import MoreIcon from '../../../assets/images/icon- more-vertical.png';
+import MoreIcon from '../../../assets/images/icon-more-vertical.png';
 import { ProfileMoreWrapper } from './styled';
 
 const UserProfileMore = () => {
