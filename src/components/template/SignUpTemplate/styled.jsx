@@ -15,7 +15,6 @@ const SignUpWrapper = styled.section`
         font-weight: 500;
         font-size: ${theme.fontSizes.title};
         line-height: 30px;
-
         margin-bottom: 40px;
       }
 

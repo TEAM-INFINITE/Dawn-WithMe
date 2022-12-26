@@ -15,28 +15,27 @@ const ProfileSettingWrapper = styled.section`
         font-weight: 500;
         font-size: ${theme.fontSizes.title};
         line-height: 30px;
-        margin-bottom: 30px;
       }
 
-      p {
+      .profile-subtit {
         color: ${theme.colors.color76};
         font-weight: 400;
         font-size: ${theme.fontSizes.base};
         line-height: 14px;
-        margin-bottom: 12px;
+        margin-top: 12px;
       }
     `;
   }}
 `;
 
 const ImgWrapper = styled.div`
+  width: 110px;
+  margin: 0 auto;
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 30px;
 
   .defaultProfilePhoto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 30px;
     width: 110px;
     height: 110px;
     object-fit: cover;
@@ -45,10 +44,10 @@ const ImgWrapper = styled.div`
 
   .fileUploadButton {
     position: absolute;
-    width: 36px;
-    height: 36px;
     right: 0;
     bottom: 0;
+    width: 36px;
+    height: 36px;
     cursor: pointer;
   }
 

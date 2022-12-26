@@ -39,6 +39,22 @@ const GlobalStyled = createGlobalStyle`
   font-weight: 400;
   box-sizing: border-box;
 }
+
+input {
+    &:focus {
+      outline:none;
+    }
+    &:-webkit-autofill {
+      -webkit-box-shadow: inset 0 0 0 30px #fff inset;
+      -webkit-text-fill-color: #fff;
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+      transition: background-color 5000s ease-in-out 0s;
+    }
+    
+  }
 #root {
   height: 100vh;
 }
