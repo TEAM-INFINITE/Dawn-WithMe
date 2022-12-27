@@ -11,7 +11,7 @@ import CategoryPostPage from './pages/CategoryPage/CategoryPostPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SplashPage from './pages/SplashPage/SplashPage';
 import MyProfilePage from './pages/ProfilePage/MyProfilePage';
-
+import TimerPage from './pages/TimerPage/TimerPage';
 
 const queryClient = new QueryClient();
 
@@ -30,6 +30,7 @@ const App = () => {
           <Route path='/category/:name/:id' element={<CategoryDetailPage />} />
           <Route path='/category/post' element={<CategoryPostPage />} />
           <Route path='/signup' element={<SignUpPage />} />
+          <Route path='/timer' element={<TimerPage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
