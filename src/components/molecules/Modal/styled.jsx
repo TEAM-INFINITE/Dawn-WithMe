@@ -55,6 +55,9 @@ const ModalWrapper = styled.div`
           line-height: 17.5px;
         }
 
+        .btn-modal:hover {
+          color: ${theme.colors.colorWarning};
+        }
         .report {
           color: ${theme.colors.colorWarning};
         }
