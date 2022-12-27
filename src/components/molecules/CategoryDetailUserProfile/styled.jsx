@@ -1,18 +1,26 @@
 import styled from 'styled-components';
 
-const CategoryUserProfileWrapper = styled.div`
+const CategoryDetailUserProfileWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 13px;
+
+  .profile-btn {
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 13px;
+    }
+  }
 
   > div {
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
-  a {
+  .chat-btn {
     margin-left: auto;
   }
 `;
 
-export default CategoryUserProfileWrapper;
+export default CategoryDetailUserProfileWrapper;

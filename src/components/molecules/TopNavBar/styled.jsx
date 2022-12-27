@@ -5,7 +5,6 @@ const TopNavBarWarpper = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-
   ${({ theme }) => {
     return css`
       border-bottom: 1px solid ${theme.colors.colorDB};
@@ -15,7 +14,7 @@ const TopNavBarWarpper = styled.nav`
         line-height: 22px;
         margin-right: auto;
       }
-      button {
+      button.search {
         display: flex;
         align-items: center;
       }

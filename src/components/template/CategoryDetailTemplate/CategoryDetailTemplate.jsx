@@ -6,7 +6,6 @@ import TabMenu from '../../organisms/TabMenu/TabMenu';
 import CategoryDetailTemplateWrapper from './styled';
 
 const CategoryDetailTemplate = ({ detailData }) => {
-  console.log(detailData);
   return (
     <>
       <HeaderWrapper>

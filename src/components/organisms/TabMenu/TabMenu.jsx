@@ -20,16 +20,16 @@ const TabMenu = () => {
         <Img src={pathname === '/home' ? homeImgOn : homeImg} />
         <p>홈</p>
       </TabNavLink>
-      <TabNavLink to='/freeboard'>
-        <Img src={pathname === '/freeboard' ? noticeImgOn : noticeImg} />
+      <TabNavLink to='/feed'>
+        <Img src={pathname === '/feed' ? noticeImgOn : noticeImg} />
         <p>자유게시판</p>
       </TabNavLink>
       <TabNavLink to='/chat'>
         <Img src={pathname === '/chat' ? messageImgOn : messageImg} />
         <p>채팅</p>
       </TabNavLink>
-      <TabNavLink to='/profile'>
-        <Img src={pathname === '/profile' ? profileImgOn : profileImg} />
+      <TabNavLink to='/myprofile'>
+        <Img src={pathname === '/myprofile' ? profileImgOn : profileImg} />
         <p>프로필</p>
       </TabNavLink>
     </BottomNavBarWrapper>

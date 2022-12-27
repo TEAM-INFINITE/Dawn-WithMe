@@ -10,6 +10,8 @@ const FeedContWrapper = styled.div`
       }
       .feedImg {
         border-radius: 10px;
+        max-height: 250px;
+        object-fit: cover;
       }
     `;
   }}

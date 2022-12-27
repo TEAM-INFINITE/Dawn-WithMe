@@ -20,7 +20,7 @@ const GlobalStyled = createGlobalStyle`
   }
 
   .hidden {
-    position: relative;
+    position: absolute;
     z-index: -1px;
     display: inline-block;
     overflow: hidden;
@@ -31,6 +31,23 @@ const GlobalStyled = createGlobalStyle`
     clip-path: inset(50%);
     word-break: initial;
     word-wrap: initial;
+  }
+
+  input {
+    &:focus {
+      outline:none;
+    }
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 30px #212025 inset;
+      -webkit-text-fill-color: #fff;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      transition: background-color 5000s ease-in-out 0s;
+    }
+    
   }
 
 
