@@ -23,6 +23,15 @@ const ModalWrapper = styled.div`
         margin-top: 16px;
         border-radius: 5px;
       }
+
+      li {
+        margin-bottom: 8px;
+        button {
+          display: block;
+          color: white;
+          font-size: 18px;
+        }
+      }
     `;
   }}
 `;

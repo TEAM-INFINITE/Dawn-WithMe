@@ -12,7 +12,6 @@ import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SplashPage from './pages/SplashPage/SplashPage';
 import MyProfilePage from './pages/ProfilePage/MyProfilePage';
 
-
 const queryClient = new QueryClient();
 
 const App = () => {

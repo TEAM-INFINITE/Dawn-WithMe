@@ -8,16 +8,15 @@ import Modal from '../Modal/Modal';
 
 const UserCommentProfileMore = ({
   id,
-  accountName,
+  postId,
   src,
   userName,
   time,
-  handleDelete,
+  onClickDeleteComment,
+  accountName,
 }) => {
   // 모달창 열리고 닫히는
   const [onModal, setOnModal] = useState(false);
-
-  const currentAccountName = localStorage.getItem('accountname');
   return (
     <>
       <ProfileMoreWrapper>
@@ -33,7 +32,14 @@ const UserCommentProfileMore = ({
           <Img src={MoreIcon} alt='게시글 설정' width='18px' height='18px' />
         </button>
       </ProfileMoreWrapper>
-      {onModal && <Modal />}
+      {onModal && (
+        <Modal
+          onClickDeleteComment={onClickDeleteComment}
+          postId={postId}
+          commentId={id}
+          accountName={accountName}
+        />
+      )}
     </>
   );
 };

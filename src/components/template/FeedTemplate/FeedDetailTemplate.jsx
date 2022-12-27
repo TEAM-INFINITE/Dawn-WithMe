@@ -14,7 +14,7 @@ const FeedDetailTemplate = ({
   post,
   user,
   onClickModal,
-  handleDelete,
+  onClickDeleteComment,
 }) => {
   return (
     <>
@@ -34,14 +34,10 @@ const FeedDetailTemplate = ({
               .map((item) => {
                 return (
                   <CommentItem
-                    id={item.id}
+                    data={item}
+                    postId={post.id}
                     key={item.id}
-                    accountName={item.author.accountname}
-                    text={item.content}
-                    src={item.author.image}
-                    userName={item.author.username}
-                    time={item.createdAt}
-                    handleDelete={handleDelete}
+                    onClickDeleteComment={onClickDeleteComment}
                   />
                 );
               })

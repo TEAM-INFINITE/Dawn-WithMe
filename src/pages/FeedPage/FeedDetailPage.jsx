@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useParams } from 'react-router-dom';
 import deleteComment from '../../api/comment/deleteComment';
 import getCommentList from '../../api/comment/getCommentList';
@@ -11,7 +11,6 @@ import FeedDetailTemplate from '../../components/template/FeedTemplate/FeedDetai
 
 const FeedDetailPage = () => {
   const { id } = useParams();
-
   // 유저 정보 불러오기
   const { data: userdata, isLoading: isProfileDataLoading } = useQuery(
     ['userInfo'],
@@ -67,6 +66,21 @@ const FeedDetailPage = () => {
     },
   );
 
+  // 댓글 삭제
+  const deleteCommentMutation = useMutation(deleteComment, {
+    onSuccess(data) {
+      console.log(data);
+      if (data.data.status === '200') {
+        setCommentList((prev) =>
+          [...prev].filter((item) => item.id !== data.id),
+        );
+      }
+    },
+    onError(err) {
+      console.log(err);
+    },
+  });
+
   if (isLoading) return <p>로딩 중...</p>;
   if (isCommentLoading) return <p>로딩 중...</p>;
   if (isError) return <p>에러 발생!</p>;
@@ -74,18 +88,8 @@ const FeedDetailPage = () => {
   const { user } = userdata;
   const { post } = postdata;
 
-  // 댓글 삭제
-  const deleteCommentMutation = useMutation(deleteComment, {
-    onSuccess(data) {
-      console.log(data);
-    },
-    onError(err) {
-      console.log(err);
-    },
-  });
-
-  const onClickDeleteComment = (event) => {
-    // deleteCommentMutation.mutate(post.id);
+  const onClickDeleteComment = (postId, commentId) => {
+    deleteCommentMutation.mutate({ postId, commentId });
   };
 
   // 댓글 신고
@@ -106,6 +110,7 @@ const FeedDetailPage = () => {
     <FeedDetailTemplate
       onChangeInputHandler={onChangeInputHandler}
       onSubmitButtonHandler={onSubmitButtonHandler}
+      onClickDeleteComment={onClickDeleteComment}
       inputText={inputText.content}
       commentList={commentList}
       post={post}
