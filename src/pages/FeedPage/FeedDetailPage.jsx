@@ -3,6 +3,7 @@ import { useMutation, useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import deleteComment from '../../api/comment/deleteComment';
 import getCommentList from '../../api/comment/getCommentList';
+import postCommentReport from '../../api/comment/postCommentReport';
 import postCommentWrite from '../../api/comment/postCommentWrite';
 import getFollowFeedDeatail from '../../api/feed/getFollowFeedDetail';
 import getUserInfo from '../../api/user/getUserInfo';
@@ -53,7 +54,7 @@ const FeedDetailPage = () => {
   };
 
   // 댓글 리스트
-  const { isLoading: isCommentLoading } = useQuery(
+  const { data: commentdata, isLoading: isCommentLoading } = useQuery(
     ['commentlist', id],
     () => {
       return getCommentList(id);
@@ -74,6 +75,32 @@ const FeedDetailPage = () => {
   const { post } = postdata;
 
   // 댓글 삭제
+  const deleteCommentMutation = useMutation(deleteComment, {
+    onSuccess(data) {
+      console.log(data);
+    },
+    onError(err) {
+      console.log(err);
+    },
+  });
+
+  const onClickDeleteComment = (event) => {
+    // deleteCommentMutation.mutate(post.id);
+  };
+
+  // 댓글 신고
+  // const [resport, setResport] = useState([]);
+  // const reportCommentMutation = useMutation(postCommentReport, {
+  //   onSuccess(data) {
+  //     setResport(data.report.comment);
+  //   },
+  //   onError(err) {
+  //     console.log(err);
+  //   },
+  // });
+  // const handleReport = () => {
+  //   reportCommentMutation.mutate([...resport]);
+  // };
 
   return (
     <FeedDetailTemplate
@@ -83,6 +110,8 @@ const FeedDetailPage = () => {
       commentList={commentList}
       post={post}
       user={user}
+      // handleDelete={handleDelete}
+      // handleReport={handleReport}
     />
   );
 };
