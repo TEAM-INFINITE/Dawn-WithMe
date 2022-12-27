@@ -19,6 +19,7 @@ const SignUpPage = () => {
 
   const SignUpMutation = useMutation(postUserSignUp, {
     onSuccess(data) {
+      console.log(data);
       if (data.message === '사용 가능한 이메일 입니다.') {
         setEmailMessage(data.message);
         navigate('/profilesetting', { state: loginValue });
