@@ -36,9 +36,9 @@ const ModalWrapper = styled.div`
       animation: ${fadeInUp} 0.5s;
 
       .bar {
-        width: 200px;
+        width: 100px;
         height: 5px;
-        background-color: ${theme.colors.colorDB};
+        background-color: #feac23;
         margin: 0 auto;
         margin-top: 16px;
         border-radius: 5px;
