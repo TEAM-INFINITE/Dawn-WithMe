@@ -2,15 +2,26 @@ import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import postProfileImg from '../../api/ProfileSetting/postProfileImg';
-import postUserAccountNameValid from '../../api/ProfileSetting/postUserProfileSetting';
+import postAccountNameValid from '../../api/ProfileSetting/postAccountNameValid';
 import ProfileSettingTemplate from '../../components/template/ProfileSettingTemplate/ProfileSettingTemplate';
+import postProfileInfo from '../../api/ProfileSetting/postProfileInfo';
 import { url } from '../../api/axios-api';
 
 const ProfileSettingPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const Useremail = location.state.email;
+  const userPassword = location.state.password;
+  console.log(Useremail);
+  console.log(userPassword);
+
   const [inputValue, setInputValue] = useState({
     username: '',
     accountname: '',
+    email: Useremail,
+    password: userPassword,
     intro: '',
+    image: '',
   });
 
   const [imgSrc, setImgSrc] = useState('');
@@ -18,9 +29,6 @@ const ProfileSettingPage = () => {
   const [isValidUseID, setIsValidUseID] = useState(false);
   const [userNameMessage, setUserNameMessage] = useState('');
   const [userIdMessage, setUserIdMessage] = useState('');
-  const navigate = useNavigate();
-  const location = useLocation();
-  console.log(location);
 
   const isValid = (target, value) => {
     if (target === 'username') {
@@ -52,11 +60,10 @@ const ProfileSettingPage = () => {
     },
   });
 
-  const accountNameVaildMutaion = useMutation(postUserAccountNameValid, {
+  const accountNameVaildMutaion = useMutation(postAccountNameValid, {
     onSuccess(data) {
       if (data.message === '사용 가능한 계정ID 입니다.') {
         setUserIdMessage(data.message);
-        console.log(data);
         navigate('/login', {
           state: inputValue.accountname,
         });
@@ -64,11 +71,19 @@ const ProfileSettingPage = () => {
         console.log(navigate);
       } else if (data.message === '이미 가입된 계정ID 입니다.') {
         setUserIdMessage(data.message);
-        console.log(data);
       }
     },
     onError(data) {
       console.log(data.response.data.message);
+    },
+  });
+
+  const ProfileInfoMutaion = useMutation(postProfileInfo, {
+    onSuccess(data) {
+      console.log(data);
+    },
+    onError(err) {
+      console.log(err);
     },
   });
 
@@ -83,6 +98,7 @@ const ProfileSettingPage = () => {
     accountNameVaildMutaion.mutate({
       user: { accountname: inputValue.accountname },
     });
+    ProfileInfoMutaion.mutate({ user: { ...inputValue } });
   };
 
   const onChangeImg = (event) => {
