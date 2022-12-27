@@ -4,6 +4,7 @@ import PostInputBoxWrapper from './styled';
 const PostInputForm = ({
   onChangeInputHandler,
   onBlurInputHandler,
+  onChangeSelectBoxHandler,
   errorMessage,
   postValue,
 }) => {
@@ -13,7 +14,7 @@ const PostInputForm = ({
       <select
         name='itemName'
         id='itemName'
-        onChange={onChangeInputHandler}
+        onChange={onChangeSelectBoxHandler}
         onBlur={onBlurInputHandler}
       >
         <option value=''>카테고리 선택</option>

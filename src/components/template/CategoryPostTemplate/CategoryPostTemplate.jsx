@@ -11,6 +11,7 @@ const CategoryPostTemplate = ({
   onChangeInputHandler,
   onBlurInputHandler,
   onClickSubmitHandler,
+  onChangeSelectBoxHandler,
   imgSrc,
   errorMessage,
   postValue,
@@ -46,6 +47,7 @@ const CategoryPostTemplate = ({
           />
           <PostInputForm
             onChangeInputHandler={onChangeInputHandler}
+            onChangeSelectBoxHandler={onChangeSelectBoxHandler}
             onBlurInputHandler={onBlurInputHandler}
             errorMessage={errorMessage}
             postValue={postValue}

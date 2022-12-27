@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { url } from '../../api/axios-api';
-import createCategoryPost from '../../api/Category/createCategoryPost';
+import createCategoryPost from '../../api/category/createCategoryPost';
 import postImage from '../../api/imgUpload/postImage';
 import CategoryPostTemplate from '../../components/template/CategoryPostTemplate/CategoryPostTemplate';
 
@@ -74,8 +74,20 @@ const CategoryPostPage = () => {
     imageUploadMutation.mutate(formData);
   };
 
+  const onChangeSelectBoxHandler = (event) => {
+    const { value } = event.target;
+
+    if (value === 'study') {
+      setPostValue({ ...postValue, itemName: value, price: 0 });
+    } else {
+      setPostValue({ ...postValue, itemName: value, price: 2 });
+      setErrorMessage({ ...errorMessage, price: '' });
+    }
+  };
+
   const onChangeInputHandler = (event) => {
     const { name, value } = event.target;
+
     setPostValue({ ...postValue, [name]: value });
 
     if (!isValids(value, name)) {
@@ -94,9 +106,11 @@ const CategoryPostPage = () => {
     event.preventDefault();
 
     createCategoryPostMutation.mutate({
-      product: { ...postValue, price: +postValue.price || 1 },
+      product: { ...postValue, price: +postValue.price },
     });
   };
+
+  console.log(postValue);
 
   return (
     <CategoryPostTemplate
@@ -104,6 +118,7 @@ const CategoryPostPage = () => {
       onChangeImageUpload={onChangeImageUpload}
       onBlurInputHandler={onBlurInputHandler}
       onClickSubmitHandler={onClickSubmitHandler}
+      onChangeSelectBoxHandler={onChangeSelectBoxHandler}
       imgSrc={imgSrc}
       errorMessage={errorMessage}
       postValue={postValue}
