@@ -20,7 +20,7 @@ const GlobalStyled = createGlobalStyle`
   }
 
   .hidden {
-    position: relative;
+    position: absolute;
     z-index: -1px;
     display: inline-block;
     overflow: hidden;
