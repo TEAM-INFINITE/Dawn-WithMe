@@ -1,28 +1,45 @@
-import ModalWrapper from './styled';
+import ModalWrapper, { OpacityBg } from './styled';
 
-const Modal = ({ onClickDeleteComment, postId, commentId, accountName }) => {
+const Modal = ({
+  onClose,
+  onClickDeleteComment,
+  onClickReportComment,
+  postId,
+  commentId,
+  accountName,
+}) => {
   const currentAccountName = localStorage.getItem('accountname');
-  console.log(postId, commentId);
+
   return (
-    <ModalWrapper>
-      <div className='bar'> </div>
-      <ul>
-        {currentAccountName === accountName ? (
-          <li>
-            <button
-              type='button'
-              onClick={() => onClickDeleteComment(postId, commentId)}
-            >
-              삭제
-            </button>
-          </li>
-        ) : (
-          <li>
-            <button type='button'>신고</button>
-          </li>
-        )}
-      </ul>
-    </ModalWrapper>
+    <>
+      <OpacityBg onClick={onClose} />
+      <ModalWrapper>
+        <div className='bar'> </div>
+        <ul>
+          {currentAccountName === accountName ? (
+            <li>
+              <button
+                className='btn-modal'
+                type='button'
+                onClick={() => onClickDeleteComment(postId, commentId)}
+              >
+                삭제
+              </button>
+            </li>
+          ) : (
+            <li>
+              <button
+                type='button'
+                className='btn-modal report'
+                onClick={() => onClickReportComment(postId, commentId)}
+              >
+                신고하기
+              </button>
+            </li>
+          )}
+        </ul>
+      </ModalWrapper>
+    </>
   );
 };
 
