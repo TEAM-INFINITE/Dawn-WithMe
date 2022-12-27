@@ -8,6 +8,8 @@ import CategoryPage from './pages/CategoryPage/CategoryPage';
 import CategoryDetailPage from './pages/CategoryDetailPage/CategoryDetailPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SplashPage from './pages/SplashPage/SplashPage';
+import ChatPage from './pages/ChatPage/ChatPage';
+import ChatDetailPage from './pages/ChatPage/ChatDetailPage';
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => {
           <Route path='/category/:name' element={<CategoryPage />} />
           <Route path='/category/:name/:id' element={<CategoryDetailPage />} />
           <Route path='/signup' element={<SignUpPage />} />
+          <Route path='/chat' element={<ChatPage />} />
+          <Route path='/chatdetail' element={<ChatDetailPage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
