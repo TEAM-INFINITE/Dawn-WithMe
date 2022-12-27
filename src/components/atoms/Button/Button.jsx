@@ -10,7 +10,7 @@ const setSize = (size) => {
     case 'medium':
       return css`
         padding: 8px 0;
-        border-radius: 30px;
+        border-radius: 34px;
       `;
     case 'ms':
       return css`
