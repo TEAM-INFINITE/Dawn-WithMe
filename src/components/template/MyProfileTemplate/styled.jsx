@@ -7,7 +7,7 @@ const MyProfileTemplateWrapper = styled.section`
       height: 100%;
       background-color: ${theme.colors.colorBg};
       margin: 0 auto;
-      padding: 30px 16px 0;
+      padding: 30px 0 0;
       text-align: center;
     `;
   }}

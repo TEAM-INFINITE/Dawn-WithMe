@@ -1,16 +1,48 @@
+import { useState } from 'react';
 import { useQuery } from 'react-query';
+import getMyPost from '../../api/profile/getMyPost';
+import getMyProduct from '../../api/profile/getMyProduct';
 import getMyProfile from '../../api/profile/getMyProfile';
 import MyProfileTemplate from '../../components/template/MyProfileTemplate/MyProfileTemplate';
 
 const MyProfilePage = () => {
-  const { data, isLoading, isError } = useQuery('myprofile', getMyProfile);
+  const myAccountName = localStorage.getItem('accountname');
+  const [category, setCategory] = useState('study');
+  const {
+    data: profileData,
+    isLoading,
+    isError,
+  } = useQuery('myProfile', getMyProfile);
+  const {
+    data: categoryPostData,
+    isLoading: isCategoryLoading,
+    isError: isCategoryError,
+  } = useQuery('myCategoryPost', () => getMyProduct(myAccountName));
+  const { data: postData, isLoading: isPostLoading } = useQuery('myPost', () =>
+    getMyPost(myAccountName),
+  );
 
   if (isLoading) return <p>로딩 중</p>;
-  if (isError) return <p>에러 발생</p>;
+  if (isCategoryLoading) return <p>로딩 중</p>;
+  if (isPostLoading) return <p>로딩 중</p>;
 
-  console.log(data);
+  const onChangeSelectBoxHandler = (event) => {
+    const { value } = event.target;
+    setCategory(value);
+  };
 
-  return <MyProfileTemplate data={data} />;
+  const selectCategoryData = categoryPostData.product.filter(
+    (el) => el.itemName === category,
+  );
+
+  return (
+    <MyProfileTemplate
+      profileData={profileData}
+      selectCategoryData={selectCategoryData}
+      myPostData={postData}
+      onChangeSelectBoxHandler={onChangeSelectBoxHandler}
+    />
+  );
 };
 
 export default MyProfilePage;
