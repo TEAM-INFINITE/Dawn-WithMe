@@ -17,3 +17,5 @@ export const FeedWrapper = styled.section`
 export const FeedCard = styled.li`
   padding: 20px 16px 16px 0;
 `;
+
+export const CommentListWrapper = styled.div``;

@@ -20,8 +20,8 @@ const TabMenu = () => {
         <Img src={pathname === '/home' ? homeImgOn : homeImg} />
         <p>홈</p>
       </TabNavLink>
-      <TabNavLink to='/freeboard'>
-        <Img src={pathname === '/freeboard' ? noticeImgOn : noticeImg} />
+      <TabNavLink to='/feed'>
+        <Img src={pathname === '/feed' ? noticeImgOn : noticeImg} />
         <p>자유게시판</p>
       </TabNavLink>
       <TabNavLink to='/chat'>
