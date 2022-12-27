@@ -2,7 +2,6 @@ import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import ProfileCategoryPostCard from '../../organisms/ProfileCategoryPostCard/ProfileCategoryPostCard';
-import ProfileFeedCard from '../../organisms/ProfileFeedCard/ProfileFeedCard';
 import ProfileInfoCard from '../../organisms/ProfileInfoCard/ProfileInfoCard';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import MyProfileTemplateWrapper from './styled';
@@ -26,9 +25,9 @@ const MyProfileTemplate = ({
             onChange={onChangeSelectBoxHandler}
             selectCategoryData={selectCategoryData}
           />
-          {myPostData.post.map((item) => (
+          {/* {myPostData.post.map((item) => (
             <ProfileFeedCard data={item} key={item.id} />
-          ))}
+          ))} */}
         </MyProfileTemplateWrapper>
         <TabMenu />
       </MainWrapper>
