@@ -64,7 +64,7 @@ const FeedCard = ({ data, commentList }) => {
               src={MessageIcon}
               alt='댓글'
               count={
-                location.pathname === '/feed'
+                location.pathname === '/feed' || '/myprofile'
                   ? data.commentCount
                   : commentList.length
               }
