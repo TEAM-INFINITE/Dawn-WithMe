@@ -13,6 +13,7 @@ const TopNavBarWarpper = styled.nav`
         font-size: ${theme.fontSizes.xxl};
         color: ${theme.colors.colorBorder};
         line-height: 22px;
+        margin-right: auto;
       }
       button {
         display: flex;
@@ -21,6 +22,7 @@ const TopNavBarWarpper = styled.nav`
       a {
         display: flex;
         align-items: center;
+        margin-right: 10px;
       }
     `;
   }}
