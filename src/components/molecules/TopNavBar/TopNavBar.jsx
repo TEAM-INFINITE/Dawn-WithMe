@@ -5,6 +5,7 @@ import backIcon from '../../../assets/images/icon-arrow-left.png';
 import moreIcon from '../../../assets/images/icon-more-vertical.png';
 import Button from '../../atoms/Button/Button';
 
+
 const TopNavBar = ({
   children,
   onClick,
@@ -13,15 +14,17 @@ const TopNavBar = ({
   disabled,
   size,
   width,
+  text
 }) => {
+
   return (
     <TopNavBarWarpper>
-      {cont === 'text' && <h2>{children}</h2>}
       {cont === 'back' && (
         <Link to={-1}>
           <Img src={backIcon} width='22px' />
         </Link>
       )}
+      {text === 'text' && <h2>{children}</h2>}
       {more ? (
         <button className='search' type='button' onClick={onClick}>
           <Img src={moreIcon} alt='검색' width='24px' />
