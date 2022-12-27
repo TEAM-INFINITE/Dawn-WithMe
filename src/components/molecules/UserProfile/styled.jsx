@@ -19,7 +19,7 @@ export const UserProfileWrapper = styled.div`
   .profile-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
   }
 

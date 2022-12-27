@@ -13,6 +13,8 @@ const FeedDetailTemplate = ({
   commentList,
   post,
   user,
+  onClickModal,
+  handleDelete,
 }) => {
   return (
     <>
@@ -21,12 +23,27 @@ const FeedDetailTemplate = ({
       </HeaderWrapper>
       <MainWrapper>
         <FeedWrapper>
-          <FeedCard data={post} commentList={commentList} />
+          <FeedCard
+            data={post}
+            commentList={commentList}
+            onClickModal={onClickModal}
+          />
           {/* map으로 실행 */}
           <CommentListWrapper>
             {commentList
               .map((item) => {
-                return <CommentItem data={item} key={item.id} />;
+                return (
+                  <CommentItem
+                    id={item.id}
+                    key={item.id}
+                    accountName={item.author.accountname}
+                    text={item.content}
+                    src={item.author.image}
+                    userName={item.author.username}
+                    time={item.createdAt}
+                    handleDelete={handleDelete}
+                  />
+                );
               })
               .reverse()}
           </CommentListWrapper>
