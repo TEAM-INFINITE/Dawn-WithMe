@@ -15,6 +15,7 @@ const FeedDetailTemplate = ({
   user,
   onClickModal,
   onClickDeleteComment,
+  onClickReportComment,
 }) => {
   return (
     <>
@@ -38,6 +39,7 @@ const FeedDetailTemplate = ({
                     postId={post.id}
                     key={item.id}
                     onClickDeleteComment={onClickDeleteComment}
+                    onClickReportComment={onClickReportComment}
                   />
                 );
               })

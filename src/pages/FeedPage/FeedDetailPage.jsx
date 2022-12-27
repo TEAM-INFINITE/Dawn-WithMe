@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import deleteComment from '../../api/comment/deleteComment';
 import getCommentList from '../../api/comment/getCommentList';
@@ -53,7 +53,7 @@ const FeedDetailPage = () => {
   };
 
   // 댓글 리스트
-  const { data: commentdata, isLoading: isCommentLoading } = useQuery(
+  const { isLoading: isCommentLoading } = useQuery(
     ['commentlist', id],
     () => {
       return getCommentList(id);
@@ -69,12 +69,21 @@ const FeedDetailPage = () => {
   // 댓글 삭제
   const deleteCommentMutation = useMutation(deleteComment, {
     onSuccess(data) {
-      console.log(data);
       if (data.data.status === '200') {
         setCommentList((prev) =>
           [...prev].filter((item) => item.id !== data.id),
         );
       }
+    },
+    onError(err) {
+      console.log(err);
+    },
+  });
+  // 댓글 신고
+
+  const reportCommentMutation = useMutation(postCommentReport, {
+    onSuccess(data) {
+      console.log(data);
     },
     onError(err) {
       console.log(err);
@@ -92,25 +101,16 @@ const FeedDetailPage = () => {
     deleteCommentMutation.mutate({ postId, commentId });
   };
 
-  // 댓글 신고
-  // const [resport, setResport] = useState([]);
-  // const reportCommentMutation = useMutation(postCommentReport, {
-  //   onSuccess(data) {
-  //     setResport(data.report.comment);
-  //   },
-  //   onError(err) {
-  //     console.log(err);
-  //   },
-  // });
-  // const handleReport = () => {
-  //   reportCommentMutation.mutate([...resport]);
-  // };
+  const onClickReportComment = (postId, commentId) => {
+    reportCommentMutation.mutate({ postId, commentId });
+  };
 
   return (
     <FeedDetailTemplate
       onChangeInputHandler={onChangeInputHandler}
       onSubmitButtonHandler={onSubmitButtonHandler}
       onClickDeleteComment={onClickDeleteComment}
+      onClickReportComment={onClickReportComment}
       inputText={inputText.content}
       commentList={commentList}
       post={post}

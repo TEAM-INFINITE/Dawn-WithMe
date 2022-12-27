@@ -13,6 +13,7 @@ const UserCommentProfileMore = ({
   userName,
   time,
   onClickDeleteComment,
+  onClickReportComment,
   accountName,
 }) => {
   // 모달창 열리고 닫히는
@@ -34,7 +35,9 @@ const UserCommentProfileMore = ({
       </ProfileMoreWrapper>
       {onModal && (
         <Modal
+          onClose={() => setOnModal(false)}
           onClickDeleteComment={onClickDeleteComment}
+          onClickReportComment={onClickReportComment}
           postId={postId}
           commentId={id}
           accountName={accountName}
