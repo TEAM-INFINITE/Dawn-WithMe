@@ -10,7 +10,7 @@ const HomeTemplate = ({ onClickCategory }) => {
   return (
     <>
       <HeaderWrapper>
-        <TopNavBar cont='text' more>
+        <TopNavBar text='text' more>
           카테고리 게시판 홈
         </TopNavBar>
       </HeaderWrapper>
