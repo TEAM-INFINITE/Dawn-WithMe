@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
-import FeedPage from './pages/FeedPage/FeedPage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
 import FeedDetailPage from './pages/FeedPage/FeedDetailPage';
 import CategoryDetailPage from './pages/CategoryPage/CategoryDetailPage';
@@ -13,6 +12,7 @@ import SplashPage from './pages/SplashPage/SplashPage';
 import ChatPage from './pages/ChatPage/ChatPage';
 import ChatDetailPage from './pages/ChatPage/ChatDetailPage';
 import MyProfilePage from './pages/ProfilePage/MyProfilePage';
+import FeedPage from './pages/FeedPage/FeedPage';
 
 const queryClient = new QueryClient();
 
