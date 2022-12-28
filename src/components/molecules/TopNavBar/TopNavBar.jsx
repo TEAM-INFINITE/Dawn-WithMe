@@ -5,7 +5,6 @@ import backIcon from '../../../assets/images/icon-arrow-left.png';
 import moreIcon from '../../../assets/images/icon-more-vertical.png';
 import Button from '../../atoms/Button/Button';
 
-
 const TopNavBar = ({
   children,
   onClick,
@@ -14,9 +13,8 @@ const TopNavBar = ({
   disabled,
   size,
   width,
-  text
+  text,
 }) => {
-
   return (
     <TopNavBarWarpper>
       {cont === 'back' && (
