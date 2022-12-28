@@ -49,7 +49,7 @@ const FeedCard = ({ data, commentList }) => {
       <UserProfileMore data={data} />
       <TextWrap>
         {/* 자유게시판 상세페이지로 이동 */}
-        <FeedCont src={data.image} data={data}>
+        <FeedCont src={data.image.split(', ')[0]} data={data}>
           {data.content}
         </FeedCont>
         <FeedMoreIconWrap>
