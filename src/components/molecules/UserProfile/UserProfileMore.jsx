@@ -6,9 +6,17 @@ import { ProfileMoreWrapper } from './styled';
 
 const UserProfileMore = ({ data }) => {
   const { author } = data;
+  const myAccountName = localStorage.getItem('accountname');
+
   return (
     <ProfileMoreWrapper>
-      <Link to='/profile'>
+      <Link
+        to={
+          myAccountName === author.accountname
+            ? `/myprofile`
+            : `/userprofile/${author.accountname}`
+        }
+      >
         <UserProfile
           src={author.image}
           userName={author.username}
