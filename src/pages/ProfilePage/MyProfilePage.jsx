@@ -1,33 +1,26 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import getMyPost from '../../api/profile/getMyPost';
-import getMyProduct from '../../api/profile/getMyProduct';
+import getUserProduct from '../../api/profile/getUserProduct';
 import getMyProfile from '../../api/profile/getMyProfile';
 import MyProfileTemplate from '../../components/template/MyProfileTemplate/MyProfileTemplate';
-import getMyFeed from '../../api/profile/getMyFeed';
+import getUserFeedData from '../../api/profile/getUserFeedData';
 
 const MyProfilePage = () => {
   const myAccountName = localStorage.getItem('accountname');
-  const [myPost, setMyPost] = useState([]);
   const [category, setCategory] = useState('study');
-  const [PostShowType, setPostShowType] = useState('list');
+  const [postShowType, setPostShowType] = useState('list');
   const { data: profileData, isLoading } = useQuery('myProfile', getMyProfile);
   const { data: categoryPostData, isLoading: isCategoryLoading } = useQuery(
     'myCategoryPost',
-    () => getMyProduct(myAccountName),
+    () => getUserProduct(myAccountName),
   );
   const { data: postData, isLoading: isPostLoading } = useQuery('myPost', () =>
     getMyPost(myAccountName),
   );
   const { data: feedData, isLoading: isfeedLoading } = useQuery(
     ['myFeed', myAccountName],
-    () => getMyFeed(myAccountName),
-    {
-      onSuccess(successData) {
-        // setMyPost([...successData]);
-        console.log(successData);
-      },
-    },
+    () => getUserFeedData(myAccountName),
   );
 
   if (isLoading) return <p>로딩 중...</p>;
@@ -55,7 +48,7 @@ const MyProfilePage = () => {
       selectCategoryData={selectCategoryData}
       myCategoryPostData={postData}
       postData={post}
-      PostShowType={PostShowType}
+      postShowType={postShowType}
       onClickShowTypeChange={onClickShowTypeChange}
       onChangeSelectBoxHandler={onChangeSelectBoxHandler}
     />
