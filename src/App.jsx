@@ -13,6 +13,7 @@ import ChatPage from './pages/ChatPage/ChatPage';
 import ChatDetailPage from './pages/ChatPage/ChatDetailPage';
 import MyProfilePage from './pages/ProfilePage/MyProfilePage';
 import FeedPage from './pages/FeedPage/FeedPage';
+import UserProfilePage from './pages/ProfilePage/UserProfilePage';
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,10 @@ const App = () => {
           <Route path='/feed' element={<FeedPage />} />
           <Route path='/feeddetail/:id' element={<FeedDetailPage />} />
           <Route path='/myprofile' element={<MyProfilePage />} />
+          <Route
+            path='/userprofile/:accountname'
+            element={<UserProfilePage />}
+          />
           <Route path='/category/:name' element={<CategoryPage />} />
           <Route path='/category/:name/:id' element={<CategoryDetailPage />} />
           <Route path='/category/post' element={<CategoryPostPage />} />
