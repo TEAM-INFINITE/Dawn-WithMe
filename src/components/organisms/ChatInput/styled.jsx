@@ -60,22 +60,25 @@ const ChatInputWrapper = styled.form`
         background-color: ${theme.colors.colorBg};
         color: ${theme.colors.colorBorder};
       `;
-    }}/* &:disabled {
-      ${({ theme }) => {
-      return css`
-        color: ${theme.colors.color76};
-        cursor: not-allowed;
-      `;
     }}
+
+    &:disabled {
+      ${({ theme }) => {
+        return css`
+          color: ${theme.colors.color76};
+          cursor: not-allowed;
+        `;
+      }}
     }
-    &.active {
+
+    &:active {
       ${({ theme }) => {
-      return css`
-        background-color: ${theme.colors.colorBg};
-        color: ${theme.colors.colorBorder};
-      `;
-    }}
-    } */
+        return css`
+          background-color: ${theme.colors.colorBg};
+          color: ${theme.colors.colorBorder};
+        `;
+      }}
+    }
   }
 `;
 

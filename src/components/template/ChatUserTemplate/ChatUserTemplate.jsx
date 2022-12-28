@@ -8,19 +8,23 @@ import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import Img from '../../atoms/Img/Img';
 import imgBoard from '../../../assets/images/img-board.jpeg';
 
-const ChatUserTemplate = () => {
+const ChatUserTemplate = ({
+  chatValue,
+  onChangeInputHandler,
+  onSubmitButtonHandler,
+}) => {
   return (
     <>
       <HeaderWrapper>
         <TopNavBar cont='back' text='text' more>
-          {/* {username} */}
           김부엉
         </TopNavBar>
       </HeaderWrapper>
       <MainWrapper>
         <ChatUserWrapper>
           <YouBubbleCard time='12:39'>
-            부엉부엉부엉부엉부엉부엉부엉부엉부엉부엉부엉부엉부엉이부어어어어어엉이부엉부엉부엉부엉부엉
+            부엉부엉부엉부엉부엉부엉부엉부엉 부어어어어어어엉이
+            부엉부엉부엉부엉부엉
           </YouBubbleCard>
           <YouBubbleCard time='12:40'>안녕하세요! 김부엉입니다.</YouBubbleCard>
           <YouBubbleCard time='12:40'>우리 같이 공부해요 😀</YouBubbleCard>
@@ -34,7 +38,11 @@ const ChatUserTemplate = () => {
             alt=''
           />
         </ChatUserWrapper>
-        <ChatInput />
+        <ChatInput
+          chatValue={chatValue}
+          onChange={onChangeInputHandler}
+          onSubmit={onSubmitButtonHandler}
+        />
       </MainWrapper>
     </>
   );

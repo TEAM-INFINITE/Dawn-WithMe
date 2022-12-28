@@ -1,16 +1,38 @@
 import ChatInputWrapper from './styled';
 
-const ChatInput = () => {
+const ChatInput = ({ chatValue, onChange, onSubmit }) => {
+  const { image, text } = chatValue;
+  console.log(chatValue);
+
   return (
     <ChatInputWrapper>
-      <div>
+      <div onSubmit={onSubmit}>
         <label htmlFor='input-file'>
-          <input type='file' id='input-file' />
+          <input
+            type='file'
+            accept='image/*'
+            name='image'
+            id='input-file'
+            defaultValue={image}
+            onChange={onChange}
+          />
         </label>
       </div>
       <div>
-        <input type='text' placeholder='메시지 입력하기...' />
-        <button type='submit'>전송</button>
+        <input
+          type='text'
+          name='text'
+          id='input-text'
+          placeholder='메시지 입력하기...'
+          defaultValue={text}
+          onChange={onChange}
+        />
+        <button
+          type='submit'
+          disabled={chatValue.image.length < 1 && chatValue.text.length < 1}
+        >
+          전송
+        </button>
       </div>
     </ChatInputWrapper>
   );
