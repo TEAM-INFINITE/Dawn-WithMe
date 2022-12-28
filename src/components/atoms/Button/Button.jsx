@@ -54,7 +54,7 @@ const Button = styled.button`
     ${({ theme }) => {
       return css`
         background-color: ${theme.colors.colorBg};
-        border: 1px solid ${theme.colors.colorBorder};
+        outline: 1px solid ${theme.colors.colorBorder};
       `;
     }}
   }
