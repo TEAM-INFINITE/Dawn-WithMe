@@ -14,6 +14,8 @@ import ChatDetailPage from './pages/ChatPage/ChatDetailPage';
 import MyProfilePage from './pages/ProfilePage/MyProfilePage';
 import FeedPage from './pages/FeedPage/FeedPage';
 import UserProfilePage from './pages/ProfilePage/UserProfilePage';
+import FollowerPage from './pages/FollowPage/FollowersPage';
+import FollowingPage from './pages/FollowPage/FollowingsPage';
 
 const queryClient = new QueryClient();
 
@@ -38,8 +40,8 @@ const App = () => {
           <Route path='/signup' element={<SignUpPage />} />
           <Route path='/chat' element={<ChatPage />} />
           <Route path='/chatdetail' element={<ChatDetailPage />} />
-          {/* <Route path='/follower/:accountname' element={} />
-          <Route path='/following/:accountname' element={} /> */}
+          <Route path='/followers/:accountname' element={<FollowerPage />} />
+          <Route path='/followings/:accountname' element={<FollowingPage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
