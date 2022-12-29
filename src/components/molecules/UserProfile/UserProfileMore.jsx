@@ -43,12 +43,12 @@ const UserProfileMore = ({
     <>
       <ProfileMoreWrapper>
         <Link
-        to={
-          myAccountName === author.accountname
-            ? `/myprofile`
-            : `/userprofile/${author.accountname}`
-        }
-      >
+          to={
+            myAccountName === author.accountname
+              ? `/myprofile`
+              : `/userprofile/${author.accountname}`
+          }
+        >
           <UserProfile
             src={author.image}
             userName={author.username}
@@ -83,7 +83,6 @@ const UserProfileMore = ({
           onClickReportPost={onClickReportPost}
           feedId={feedId}
           postId={postId}
-
         />
       )}
     </>
