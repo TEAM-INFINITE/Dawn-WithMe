@@ -13,21 +13,29 @@ const FeedDetailTemplate = ({
   commentList,
   post,
   user,
-  onClickModal,
+  onClickDeletePost,
+  onClickReportPost,
   onClickDeleteComment,
   onClickReportComment,
 }) => {
   return (
     <>
       <HeaderWrapper>
-        <TopNavBar cont='back' more />
+        <TopNavBar
+          cont='back'
+          more
+          onClickReportComment={onClickReportComment}
+          accountname={user.accountname}
+        />
       </HeaderWrapper>
       <MainWrapper>
         <FeedWrapper>
           <FeedCard
             data={post}
             commentList={commentList}
-            onClickModal={onClickModal}
+            postId={post.id}
+            onClickDeletePost={onClickDeletePost}
+            onClickReportPost={onClickReportPost}
           />
           {/* map으로 실행 */}
           <CommentListWrapper>
