@@ -1,32 +1,26 @@
-import { useState } from 'react';
+/* eslint-disable jsx-a11y/no-autofocus */
 import TimerFormWrapper from './styled';
 
-const TimerForm = ({ handleOnInput }) => {
-  const [hour, setHour] = useState('');
-  const [min, setMin] = useState('');
-  const [sec, setSec] = useState('');
-
-  const onHourChange = (event) => {
-    setHour(event.target.value);
-  };
-
-  const onMinChange = (event) => {
-    setMin(event.target.value);
-  };
-
-  const onSecChange = (event) => {
-    setSec(event.target.value);
-  };
-
+const TimerForm = ({
+  handleOnInput,
+  hour,
+  min,
+  sec,
+  onHourChange,
+  onMinChange,
+  onSecChange,
+}) => {
   return (
     <TimerFormWrapper>
       <input
         type='number'
         placeholder='00'
         id='hour'
+        name='hour'
         value={hour}
         onInput={handleOnInput}
         onChange={onHourChange}
+        autoFocus
         required
       />
       <span>시간</span>
@@ -35,6 +29,7 @@ const TimerForm = ({ handleOnInput }) => {
         placeholder='00'
         value={min}
         id='min'
+        name='min'
         required
         onInput={handleOnInput}
         onChange={onMinChange}
@@ -45,6 +40,7 @@ const TimerForm = ({ handleOnInput }) => {
         value={sec}
         placeholder='00'
         id='sec'
+        name='sec'
         required
         onInput={handleOnInput}
         onChange={onSecChange}

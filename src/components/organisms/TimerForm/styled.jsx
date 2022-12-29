@@ -4,15 +4,15 @@ const TimerFormWrapper = styled.div`
   ${({ theme }) => {
     return css`
       input {
-        margin-top: 30px;
         border: none;
         border-radius: 10px;
         background-color: ${theme.colors.colorBg};
         color: ${theme.colors.colorMain};
         font-size: ${theme.fontSizes.xl};
-        width: 100px;
+        width: 50px;
         height: 30px;
         text-align: center;
+        margin-top: 30px;
         ::-webkit-outer-spin-button,
         ::-webkit-inner-spin-button {
           -webkit-appearance: none;
@@ -20,6 +20,9 @@ const TimerFormWrapper = styled.div`
         }
       }
 
+      h2 {
+        color: ${theme.colors.color76};
+      }
       span {
         color: ${theme.colors.color76};
       }
