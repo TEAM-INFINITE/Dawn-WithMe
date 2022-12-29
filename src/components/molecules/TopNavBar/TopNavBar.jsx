@@ -8,7 +8,7 @@ import searchIcon from '../../../assets/images/icon-search.png';
 import Modal from '../Modal/Modal';
 import Alert from '../Alert/Alert';
 
-const TopNavBar = ({ children, onClick, cont, more, search }) => {
+const TopNavBar = ({ children, onClick, cont, more, search,disabled,size,width,text }) => {
   // 모달창 열리고 닫히는
   const [onModal, setOnModal] = useState(false);
   const [onAlert, setOnAlert] = useState(false);
@@ -31,31 +31,33 @@ const TopNavBar = ({ children, onClick, cont, more, search }) => {
 
   const modalCont = modalObj[0];
 
+
   return (
     <>
       <TopNavBarWarpper>
-        {cont === 'text' && <h2>{children}</h2>}
         {cont === 'back' && (
-          <Link to={-1}>
-            <Img src={backIcon} width='22px' />
-          </Link>
-        )}
+        <Link to={-1}>
+          <Img src={backIcon} width='22px' />
+        </Link>
+      )}
+      {text === 'text' && <h2>{children}</h2>}
         {search && (
           <button className='search' type='button' onClick={onClick}>
             <Img src={searchIcon} alt='검색' width='24px' />
           </button>
         )}
-        {more && (
-          <button
-            className='more'
-            type='button'
-            onClick={() => {
+              {more ? (
+        <button className='search' type='button' onClick={() => {
               setOnModal((prev) => !prev);
-            }}
-          >
-            <Img src={moreIcon} alt='더보기' width='24px' />
-          </button>
-        )}
+            }}>
+          <Img src={moreIcon} alt='더보기' width='24px' />
+        </button>
+      ) : (
+        <Button onClick={onClick} disabled={disabled} size={size} width={width}>
+          {children}
+        </Button>
+
+      )}
       </TopNavBarWarpper>
       {onModal && (
         <Modal
@@ -72,7 +74,6 @@ const TopNavBar = ({ children, onClick, cont, more, search }) => {
           onClose={() => setOnAlert(false)}
           setOnModal={setOnModal}
         />
-      )}
     </>
   );
 };

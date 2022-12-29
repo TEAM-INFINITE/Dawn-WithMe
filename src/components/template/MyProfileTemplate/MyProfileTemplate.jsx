@@ -5,12 +5,17 @@ import ProfileCategoryPostCard from '../../organisms/ProfileCategoryPostCard/Pro
 import ProfileInfoCard from '../../organisms/ProfileInfoCard/ProfileInfoCard';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import MyProfileTemplateWrapper from './styled';
+import ProfileFeedShowSelectBox from '../../molecules/ProfileFeedShowSelectBox/ProfileFeedShowSelectBox';
+import ProfileFeedListCard from '../../organisms/ProfileFeedListCard/ProfileFeedListCard';
+import ProfileFeedAlbumCard from '../../organisms/ProfileFeedAlbumCard/ProfileFeedAlbumCard';
 
 const MyProfileTemplate = ({
   profileData,
-  myPostData,
+  postData,
   selectCategoryData,
   onChangeSelectBoxHandler,
+  onClickShowTypeChange,
+  postShowType,
 }) => {
   return (
     <>
@@ -25,9 +30,16 @@ const MyProfileTemplate = ({
             onChange={onChangeSelectBoxHandler}
             selectCategoryData={selectCategoryData}
           />
-          {/* {myPostData.post.map((item) => (
-            <ProfileFeedCard data={item} key={item.id} />
-          ))} */}
+          <ProfileFeedShowSelectBox
+            onClickShowTypeChange={onClickShowTypeChange}
+            postShowType={postShowType}
+          />
+          {postShowType === 'list' && (
+            <ProfileFeedListCard postData={postData} />
+          )}
+          {postShowType === 'album' && (
+            <ProfileFeedAlbumCard postData={postData} />
+          )}
         </MyProfileTemplateWrapper>
         <TabMenu />
       </MainWrapper>

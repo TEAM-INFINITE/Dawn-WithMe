@@ -14,15 +14,16 @@ const UserProfileMore = ({
   feedId,
   postId,
 }) => {
-  const currentAccountName = localStorage.getItem('accountname');
+  const myAccountName = localStorage.getItem('accountname');
   const { author } = data;
+
   // 모달창 열리고 닫히는
   const [onModal, setOnModal] = useState(false);
   const [onAlert, setOnAlert] = useState(false);
 
   // 모달 내용
   const modalObj = [];
-  if (currentAccountName === author.accountname) {
+  if (myAccountName === author.accountname) {
     modalObj.push({
       type: 'feedpost',
       text: { 삭제: '', 수정: '' },
@@ -41,7 +42,13 @@ const UserProfileMore = ({
   return (
     <>
       <ProfileMoreWrapper>
-        <Link to='/profile'>
+        <Link
+        to={
+          myAccountName === author.accountname
+            ? `/myprofile`
+            : `/userprofile/${author.accountname}`
+        }
+      >
           <UserProfile
             src={author.image}
             userName={author.username}
@@ -76,6 +83,7 @@ const UserProfileMore = ({
           onClickReportPost={onClickReportPost}
           feedId={feedId}
           postId={postId}
+
         />
       )}
     </>

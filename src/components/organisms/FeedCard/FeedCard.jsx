@@ -62,7 +62,7 @@ const FeedCard = ({
       />
       <TextWrap>
         {/* 자유게시판 상세페이지로 이동 */}
-        <FeedCont src={data.image} data={data}>
+        <FeedCont src={data.image.split(', ')[0]} data={data}>
           {data.content}
         </FeedCont>
         <FeedMoreIconWrap>
@@ -77,7 +77,7 @@ const FeedCard = ({
               src={MessageIcon}
               alt='댓글'
               count={
-                location.pathname === '/feed'
+                location.pathname === '/feed' || '/myprofile'
                   ? data.commentCount
                   : commentList.length
               }
