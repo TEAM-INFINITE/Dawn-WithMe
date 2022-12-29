@@ -13,15 +13,16 @@ const TopNavBar = ({
   disabled,
   size,
   width,
+  text,
 }) => {
   return (
     <TopNavBarWarpper>
-      {cont === 'text' && <h2>{children}</h2>}
       {cont === 'back' && (
         <Link to={-1}>
           <Img src={backIcon} width='22px' />
         </Link>
       )}
+      {text === 'text' && <h2>{children}</h2>}
       {more ? (
         <button className='search' type='button' onClick={onClick}>
           <Img src={moreIcon} alt='검색' width='24px' />

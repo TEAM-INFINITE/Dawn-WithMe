@@ -10,7 +10,7 @@ const setSize = (size) => {
     case 'medium':
       return css`
         padding: 8px 0;
-        border-radius: 30px;
+        border-radius: 34px;
       `;
     case 'ms':
       return css`
@@ -54,7 +54,7 @@ const Button = styled.button`
     ${({ theme }) => {
       return css`
         background-color: ${theme.colors.colorBg};
-        border: 1px solid ${theme.colors.colorBorder};
+        outline: 1px solid ${theme.colors.colorBorder};
       `;
     }}
   }

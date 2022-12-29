@@ -10,7 +10,7 @@ const CategoryButtonBox = ({ onClickCategory }) => {
           onClickCategory('study');
         }}
       >
-        최상단 카테고리하하
+        {' '}
       </CategoryButton>
       <CategoryButton
         width='calc(50% - 12px)'
@@ -18,7 +18,7 @@ const CategoryButtonBox = ({ onClickCategory }) => {
           onClickCategory('music');
         }}
       >
-        좌측 카테고리
+        {' '}
       </CategoryButton>
       <CategoryButton
         width='calc(50% - 12px)'
@@ -26,7 +26,7 @@ const CategoryButtonBox = ({ onClickCategory }) => {
           onClickCategory('tips');
         }}
       >
-        우측 카테고리
+        {' '}
       </CategoryButton>
     </CategoryBoxWrapper>
   );

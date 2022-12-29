@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import getCategoryDetail from '../../api/Category/getCategoryDetail';
+import getCategoryDetail from '../../api/category/getCategoryDetail';
 
 import CategoryDetailTemplate from '../../components/template/CategoryDetailTemplate/CategoryDetailTemplate';
 

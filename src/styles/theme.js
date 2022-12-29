@@ -29,14 +29,14 @@ const colors = {
 
 const size = {
   mobile: '390px',
-  // tablet: '768px',
-  // desktop: '1440px',
+  mobileMid: '500px',
+  tablet: '600px',
 };
 
 const device = {
   mobile: `@media only screen and (max-width: ${size.mobile})`,
-  // tablet: `@media only screen and (max-width: ${size.tablet})`,
-  // desktopL: `@media only screen and (max-width: ${size.desktop})`,
+  mobileMid: `@media only screen and (max-width: ${size.mobileMid})`,
+  tablet: `@media only screen and (max-width: ${size.tablet})`,
 };
 
 const darkTheme = {

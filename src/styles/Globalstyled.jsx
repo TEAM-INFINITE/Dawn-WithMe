@@ -19,8 +19,12 @@ const GlobalStyled = createGlobalStyle`
     text-decoration: none;
   }
 
+  li{
+    list-style: none;
+  }
+
   .hidden {
-    position: relative;
+    position: absolute;
     z-index: -1px;
     display: inline-block;
     overflow: hidden;
