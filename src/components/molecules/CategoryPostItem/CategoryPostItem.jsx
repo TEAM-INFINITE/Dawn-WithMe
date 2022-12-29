@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Img from '../../Img/Img';
-import ProfileText from '../../P/Profile/ProfileText';
+import Img from '../../atoms/Img/Img';
+import ProfileText from '../../atoms/P/Profile/ProfileText';
 import MyCategoryPostItemWrapper from './styled';
 
 const CategoryPostItem = ({ data }) => {
