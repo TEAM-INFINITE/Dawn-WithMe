@@ -9,7 +9,7 @@ const FeedTemplate = ({ posts, onClickDeletePost, onClickReportPost }) => {
   return (
     <>
       <HeaderWrapper>
-        <TopNavBar cont='text' 감귤마켓 피드 search>
+        <TopNavBar text='text' search>
           감귤마켓 피드
         </TopNavBar>
       </HeaderWrapper>

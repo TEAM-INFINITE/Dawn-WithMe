@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ProfileMoreWrapper } from './styled';
 import Img from '../../atoms/Img/Img';
 import MoreIcon from '../../../assets/images/icon-more-vertical.png';
