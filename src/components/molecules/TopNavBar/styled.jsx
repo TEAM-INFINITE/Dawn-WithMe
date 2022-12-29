@@ -13,7 +13,7 @@ const TopNavBarWarpper = styled.nav`
         color: ${theme.colors.colorBorder};
         line-height: 22px;
       }
-      button.search {
+      button.more button.search {
         display: flex;
         align-items: center;
       }
