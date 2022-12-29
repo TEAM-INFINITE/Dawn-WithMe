@@ -38,6 +38,8 @@ const App = () => {
           <Route path='/signup' element={<SignUpPage />} />
           <Route path='/chat' element={<ChatPage />} />
           <Route path='/chatdetail' element={<ChatDetailPage />} />
+          {/* <Route path='/follower/:accountname' element={} />
+          <Route path='/following/:accountname' element={} /> */}
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
