@@ -10,12 +10,12 @@ const CategoryFeedCont = ({ children, src, id, type, people }) => {
       <Link to={`${location.pathname}/${id}`}>
         <p>{children}</p>
         <Img src={src} alt='게시판 사진' width='100%' className='feedImg' />
-        {type === 'study' && (
-          <p>
-            참여 인원 {Math.ceil(people / 2)}/<span>{people}</span>
-          </p>
-        )}
       </Link>
+      {type === 'study' && (
+        <p>
+          참여 인원 {Math.ceil(people / 2)}/<span>{people}</span>
+        </p>
+      )}
     </CategoryFeedContWrapper>
   );
 };

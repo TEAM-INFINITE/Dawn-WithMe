@@ -18,7 +18,7 @@ const SplashViewWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  animation: ${darker} 5s ease-in;
+  animation: ${darker} 4s ease-in;
 `;
 
 export default SplashViewWrapper;

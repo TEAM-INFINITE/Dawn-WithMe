@@ -6,12 +6,15 @@ const TextFiledCard = ({
   children,
   type,
   onChange,
+  onBlur,
   value,
   placeholder,
   id,
   name,
   refValue,
   autoFocus,
+  min,
+  max,
 }) => {
   return (
     <TextFiledCardWrapper>
@@ -21,10 +24,13 @@ const TextFiledCard = ({
         id={id}
         type={type}
         onChange={onChange}
+        onBlur={onBlur}
         value={value}
         placeholder={placeholder}
         ref={refValue}
         autoFocus={autoFocus}
+        min={min}
+        max={max}
       />
     </TextFiledCardWrapper>
   );
