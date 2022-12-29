@@ -45,7 +45,7 @@ const ProfileInfoCard = ({
   return (
     <ProfileInfoCardWrapper>
       <ProfileImgTextWrapper>
-        <Link to='/myprofile/followers'>
+        <Link to={`/followers/${accountname}`}>
           <ProfileText fontColor='white' fontWeight='700'>
             {isAccountName ? followerCount : followCount}
           </ProfileText>
@@ -54,7 +54,7 @@ const ProfileInfoCard = ({
           </ProfileText>
         </Link>
         <Img src={basicProfileImg} />
-        <Link to='/myprofile/followings'>
+        <Link to={`/followings/${accountname}`}>
           <ProfileText fontColor='white' fontWeight='700'>
             {followingCount}
           </ProfileText>
