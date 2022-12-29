@@ -14,7 +14,7 @@ const TopNavBarWarpper = styled.nav`
         line-height: 22px;
         margin-right: auto;
       }
-      button.search {
+      button.more button.search {
         display: flex;
         align-items: center;
       }

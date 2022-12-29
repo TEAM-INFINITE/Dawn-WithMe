@@ -1,29 +1,29 @@
-import ModalWrapper from './styled';
+import { Link } from 'react-router-dom';
+import { ModalList, ModalWrapper, OpacityBg } from './styled';
 
-const Modal = ({ onClickDeleteComment, postId, commentId, accountName }) => {
-  const currentAccountName = localStorage.getItem('accountname');
-  console.log(postId, commentId);
+const Modal = ({ onClose, setOnModal, setOnAlert, modalCont }) => {
+  const { text } = modalCont;
   return (
-    <ModalWrapper>
-      <div className='bar'> </div>
-      <ul>
-        {currentAccountName === accountName ? (
-          <li>
-            <button
-              type='button'
-              onClick={() => onClickDeleteComment(postId, commentId)}
-            >
-              삭제
-            </button>
-          </li>
-        ) : (
-          <li>
-            <button type='button'>신고</button>
-          </li>
-        )}
-      </ul>
-    </ModalWrapper>
+    <OpacityBg onClick={onClose}>
+      <ModalWrapper>
+        <div className='bar' />
+        <ul>
+          {Object.keys(text).map((textName) => (
+            <Link to={text[textName]} key={textName}>
+              <ModalList
+                textName={textName}
+                onClick={() => {
+                  setOnModal((prev) => !prev);
+                  setOnAlert((prev) => !prev);
+                }}
+              >
+                {textName}
+              </ModalList>
+            </Link>
+          ))}
+        </ul>
+      </ModalWrapper>
+    </OpacityBg>
   );
 };
-
 export default Modal;
