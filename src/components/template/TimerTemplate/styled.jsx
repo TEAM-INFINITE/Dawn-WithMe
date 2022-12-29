@@ -22,8 +22,10 @@ const TimerWrapper = styled.section`
         font-size: ${theme.fontSizes.smallMid};
         line-height: 15px;
         color: ${theme.colors.colorWhite};
-        margin-top: 20px;
+        margin: 5px;
+        margin-top: 30px;
       }
+
       img {
         display: block;
         margin: 30px auto 0;
