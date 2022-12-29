@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const MyProfileTemplateWrapper = styled.section`
+const UserProfileTemplateWrapper = styled.section`
   ${({ theme }) => {
     return css`
       max-width: 600px;
@@ -18,4 +18,4 @@ const MyProfileTemplateWrapper = styled.section`
   }}
 `;
 
-export default MyProfileTemplateWrapper;
+export default UserProfileTemplateWrapper;

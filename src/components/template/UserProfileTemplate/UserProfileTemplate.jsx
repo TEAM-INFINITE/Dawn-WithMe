@@ -1,21 +1,24 @@
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
-import ProfileCategoryPostCard from '../../organisms/ProfileCategoryPostCard/ProfileCategoryPostCard';
-import ProfileInfoCard from '../../organisms/ProfileInfoCard/ProfileInfoCard';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
-import MyProfileTemplateWrapper from './styled';
+import UserProfileTemplateWrapper from './styled';
+import ProfileInfoCard from '../../organisms/ProfileInfoCard/ProfileInfoCard';
+import ProfileCategoryPostCard from '../../organisms/ProfileCategoryPostCard/ProfileCategoryPostCard';
 import ProfileFeedShowSelectBox from '../../molecules/ProfileFeedShowSelectBox/ProfileFeedShowSelectBox';
 import ProfileFeedListCard from '../../organisms/ProfileFeedListCard/ProfileFeedListCard';
 import ProfileFeedAlbumCard from '../../organisms/ProfileFeedAlbumCard/ProfileFeedAlbumCard';
 
-const MyProfileTemplate = ({
+const UserProfileTemplate = ({
   profileData,
-  postData,
+  isFollow,
+  followCount,
   selectCategoryData,
+  postShowType,
+  onClickFollowToggle,
   onChangeSelectBoxHandler,
   onClickShowTypeChange,
-  postShowType,
+  postData,
 }) => {
   return (
     <>
@@ -23,9 +26,14 @@ const MyProfileTemplate = ({
         <TopNavBar cont='back' more />
       </HeaderWrapper>
       <MainWrapper>
-        <MyProfileTemplateWrapper>
-          <h2 className='hidden'>내 프로필</h2>
-          <ProfileInfoCard profileData={profileData} />
+        <UserProfileTemplateWrapper>
+          <h2 className='hidden'>유저 프로필</h2>
+          <ProfileInfoCard
+            profileData={profileData}
+            isFollow={isFollow}
+            followCount={followCount}
+            onClickFollowToggle={onClickFollowToggle}
+          />
           <ProfileCategoryPostCard
             onChange={onChangeSelectBoxHandler}
             selectCategoryData={selectCategoryData}
@@ -40,11 +48,11 @@ const MyProfileTemplate = ({
           {postShowType === 'album' && (
             <ProfileFeedAlbumCard postData={postData} />
           )}
-        </MyProfileTemplateWrapper>
+        </UserProfileTemplateWrapper>
         <TabMenu />
       </MainWrapper>
     </>
   );
 };
 
-export default MyProfileTemplate;
+export default UserProfileTemplate;
