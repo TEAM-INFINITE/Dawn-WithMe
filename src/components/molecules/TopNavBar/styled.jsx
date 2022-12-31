@@ -12,14 +12,16 @@ const TopNavBarWarpper = styled.nav`
         font-size: ${theme.fontSizes.xxl};
         color: ${theme.colors.colorBorder};
         line-height: 22px;
+        margin-right: auto;
       }
-      button.search {
+      button.more button.search {
         display: flex;
         align-items: center;
       }
       a {
         display: flex;
         align-items: center;
+        margin-right: 10px;
       }
     `;
   }}

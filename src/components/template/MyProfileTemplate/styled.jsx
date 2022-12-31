@@ -9,6 +9,11 @@ const MyProfileTemplateWrapper = styled.section`
       margin: 0 auto;
       padding: 30px 0 0;
       text-align: center;
+      overflow: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     `;
   }}
 `;

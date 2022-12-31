@@ -1,15 +1,29 @@
-import ModalWrapper from './styled';
+import { Link } from 'react-router-dom';
+import { ModalList, ModalWrapper, OpacityBg } from './styled';
 
-const Modal = () => {
+const Modal = ({ onClose, setOnModal, setOnAlert, modalCont }) => {
+  const { text } = modalCont;
   return (
-    <ModalWrapper>
-      <div className='bar'> </div>
-      <ul>
-        <li>삭제</li>
-        <li>신고</li>
-      </ul>
-    </ModalWrapper>
+    <OpacityBg onClick={onClose}>
+      <ModalWrapper>
+        <div className='bar' />
+        <ul>
+          {Object.keys(text).map((textName) => (
+            <Link to={text[textName]} key={textName}>
+              <ModalList
+                textName={textName}
+                onClick={() => {
+                  setOnModal((prev) => !prev);
+                  setOnAlert((prev) => !prev);
+                }}
+              >
+                {textName}
+              </ModalList>
+            </Link>
+          ))}
+        </ul>
+      </ModalWrapper>
+    </OpacityBg>
   );
 };
-
 export default Modal;

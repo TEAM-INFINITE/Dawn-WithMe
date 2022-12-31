@@ -10,7 +10,6 @@ import { url } from '../../api/axios-api';
 const ProfileSettingPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const Useremail = location.state.email;
   const userPassword = location.state.password;
   console.log(Useremail);

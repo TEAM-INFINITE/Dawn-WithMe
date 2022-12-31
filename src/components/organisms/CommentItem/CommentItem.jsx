@@ -3,25 +3,25 @@ import UserCommentProfileMore from '../../molecules/UserProfile/UserCommentProfi
 import CommentItemWrapper from './styled';
 
 const CommentItem = ({
-  id,
-  accountName,
-  text,
-  src,
-  userName,
-  time,
-  handleDelete,
+  data,
+  postId,
+  onClickDeleteComment,
+  onClickReportComment,
 }) => {
+  const { image, accountname, username } = data.author;
   return (
     <CommentItemWrapper>
       <UserCommentProfileMore
-        id={id}
-        accountName={accountName}
-        src={src}
-        userName={userName}
-        time={time}
-        handleDelete={handleDelete}
+        id={data.id}
+        postId={postId}
+        accountName={accountname}
+        src={image}
+        userName={username}
+        time={data.createdAt}
+        onClickDeleteComment={onClickDeleteComment}
+        onClickReportComment={onClickReportComment}
       />
-      <FeedText className='commentText'>{text}</FeedText>
+      <FeedText className='commentText'>{data.content}</FeedText>
     </CommentItemWrapper>
   );
 };

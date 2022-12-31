@@ -1,4 +1,4 @@
-import CategoryPostItem from '../../atoms/Li/CategoryPostItem/CategoryPostItem';
+import CategoryPostItem from '../../molecules/CategoryPostItem/CategoryPostItem';
 import ProfileCategoryPostCardWrapper from './styled';
 
 const ProfileCategoryPostCard = ({ selectCategoryData, onChange }) => {

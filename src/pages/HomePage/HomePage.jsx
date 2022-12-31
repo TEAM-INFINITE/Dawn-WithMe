@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import getFollowingList from '../../api/following/getFollowingList';
-import getFollowingProduct from '../../api/following/getFollowingProduct';
+import getFollowingList from '../../api/follow/getFollowingList';
+import getFollowingProduct from '../../api/follow/getFollowingProduct';
 import HomeTemplate from '../../components/template/HomeTemplate/HomeTemplate';
 
 const HomePage = () => {

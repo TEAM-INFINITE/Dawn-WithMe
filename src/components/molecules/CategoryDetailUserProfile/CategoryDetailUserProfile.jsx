@@ -16,7 +16,7 @@ const CategoryDetailUserProfile = ({ userName, userId, src, type }) => {
         </div>
       </Link>
       {type === 'study' && (
-        <ChatButton className='chat-btn' to='/chat'>
+        <ChatButton className='chat-btn' to='/chatdetail'>
           참여하기
         </ChatButton>
       )}
