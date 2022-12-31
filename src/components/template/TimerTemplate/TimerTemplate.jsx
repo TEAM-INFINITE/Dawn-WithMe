@@ -6,8 +6,8 @@ import titleLogo from '../../../assets/images/title-logo.png';
 
 const TimerTemplate = ({
   handleOnInput,
-  handleStart,
-  handlePause,
+  handleButtonStart,
+  handleButtonPause,
   handleReset,
   onHourChange,
   onMinChange,
@@ -31,7 +31,7 @@ const TimerTemplate = ({
       <Button
         width='30%'
         size='large'
-        onClick={handleStart}
+        onClick={handleButtonStart}
         disabled={!hour && !min && !sec}
       >
         공부 시작
@@ -40,7 +40,7 @@ const TimerTemplate = ({
       <Button
         width='30%'
         size='large'
-        onClick={handlePause}
+        onClick={handleButtonPause}
         disabled={!hour && !min && !sec}
       >
         정지
