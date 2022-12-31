@@ -10,7 +10,7 @@ const FeedTemplate = ({ posts, onClickDeletePost, onClickReportPost }) => {
     <>
       <HeaderWrapper>
         <TopNavBar text='text' search>
-          감귤마켓 피드
+          자유게시판 피드
         </TopNavBar>
       </HeaderWrapper>
       <MainWrapper>
@@ -21,7 +21,7 @@ const FeedTemplate = ({ posts, onClickDeletePost, onClickReportPost }) => {
               return (
                 <FeedCard
                   data={item}
-                  feedId={item.id}
+                  postId={item.id}
                   key={item.id}
                   onClickDeletePost={onClickDeletePost}
                   onClickReportPost={onClickReportPost}
