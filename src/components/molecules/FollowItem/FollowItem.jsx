@@ -8,7 +8,7 @@ const FollowItem = ({ data, onClickFollowToggle }) => {
   const { username, intro, image, isfollow, accountname } = data;
   const basicProfileImg =
     image === 'http://146.56.183.55:5050/Ellipse.png' ? profileImg : image;
-  console.log(data);
+
   return (
     <FollowItemWrapper>
       <Link

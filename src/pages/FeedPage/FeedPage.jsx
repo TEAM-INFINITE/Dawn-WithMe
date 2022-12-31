@@ -39,7 +39,6 @@ const FeedPage = () => {
   if (isLoading) return <p>로딩 중...</p>;
   if (isError) return <p>에러 발생!</p>;
 
-  console.log(followpostdata);
   const { posts } = followpostdata;
 
   const onClickDeletePost = (postId) => {
