@@ -5,7 +5,7 @@ const TimerPage = () => {
   const [hour, setHour] = useState('');
   const [min, setMin] = useState('');
   const [sec, setSec] = useState('');
-  const [start, setStart] = useState(false);
+  const [counter, setCounter] = useState(false);
 
   const onHourChange = (event) => {
     setHour(event.target.value);
@@ -23,7 +23,7 @@ const TimerPage = () => {
   const interval = useRef(null);
 
   useEffect(() => {
-    if (start === true) {
+    if (counter === true) {
       interval.current = setInterval(() => {
         initialTime.current -= 1;
         setHour(parseInt(initialTime.current / 60 / 60, 10));
@@ -33,7 +33,7 @@ const TimerPage = () => {
     } else {
       clearInterval(interval.current);
     }
-  }, [start]);
+  }, [counter]);
 
   useEffect(() => {
     if (initialTime.current <= 0) {
@@ -41,17 +41,17 @@ const TimerPage = () => {
     }
   }, [sec]);
 
-  const handleStart = (event) => {
+  const handleButtonStart = (event) => {
     event.preventDefault();
     initialTime.current =
       Number(hour) * 60 * 60 + Number(min) * 60 + Number(sec);
-    setStart(true);
+    setCounter(true);
   };
   console.log(initialTime.current);
 
-  const handlePause = (event) => {
+  const handleButtonPause = (event) => {
     event.preventDefault();
-    setStart(false);
+    setCounter(false);
   };
 
   const handleReset = (event) => {
@@ -59,7 +59,7 @@ const TimerPage = () => {
     setHour('');
     setMin('');
     setSec('');
-    setStart(false);
+    setCounter(false);
   };
 
   const handleOnInput = (el) => {
@@ -72,8 +72,8 @@ const TimerPage = () => {
   return (
     <TimerTemplate
       handleOnInput={handleOnInput}
-      handleStart={handleStart}
-      handlePause={handlePause}
+      handleButtonStart={handleButtonStart}
+      handleButtonPause={handleButtonPause}
       handleReset={handleReset}
       onHourChange={onHourChange}
       onMinChange={onMinChange}
