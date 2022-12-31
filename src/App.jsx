@@ -19,7 +19,6 @@ import UserProfilePage from './pages/ProfilePage/UserProfilePage';
 import FollowerPage from './pages/FollowPage/FollowersPage';
 import FollowingPage from './pages/FollowPage/FollowingsPage';
 
-
 const queryClient = new QueryClient();
 
 const App = () => {
