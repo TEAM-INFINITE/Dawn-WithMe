@@ -18,6 +18,9 @@ const TopNavBarWarpper = styled.nav`
         display: flex;
         align-items: center;
       }
+      button {
+        height: 24px;
+      }
       a {
         display: flex;
         align-items: center;

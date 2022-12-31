@@ -28,7 +28,7 @@ const TopNavBar = ({
   // 모달 내용
   const modalObj = [];
   const pathName = useLocation().pathname;
-  console.log(pathName);
+
   if (pathName.includes('chatdetail')) {
     modalObj.push({
       text: { '채팅방 나가기': '/chat' },
