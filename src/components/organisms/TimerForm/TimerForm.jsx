@@ -45,7 +45,7 @@ const TimerForm = ({
         onInput={handleOnInput}
         onChange={onSecChange}
       />
-      <span className='lee'>초</span>
+      <span>초</span>
     </TimerFormWrapper>
   );
 };
