@@ -13,10 +13,12 @@ import SplashPage from './pages/SplashPage/SplashPage';
 import ChatPage from './pages/ChatPage/ChatPage';
 import ChatDetailPage from './pages/ChatPage/ChatDetailPage';
 import MyProfilePage from './pages/ProfilePage/MyProfilePage';
+import TimerPage from './pages/TimerPage/TimerPage';
 import FeedPage from './pages/FeedPage/FeedPage';
 import UserProfilePage from './pages/ProfilePage/UserProfilePage';
 import FollowerPage from './pages/FollowPage/FollowersPage';
 import FollowingPage from './pages/FollowPage/FollowingsPage';
+
 
 const queryClient = new QueryClient();
 
@@ -39,6 +41,7 @@ const App = () => {
           <Route path='/category/:name/:id' element={<CategoryDetailPage />} />
           <Route path='/category/post' element={<CategoryPostPage />} />
           <Route path='/signup' element={<SignUpPage />} />
+          <Route path='/timer' element={<TimerPage />} />
           <Route path='/profilesetting' element={<ProfileSettingPage />} />
           <Route path='/chat' element={<ChatPage />} />
           <Route path='/chatdetail' element={<ChatDetailPage />} />
