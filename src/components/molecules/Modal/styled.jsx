@@ -29,7 +29,6 @@ const setTextName = (textName) => {
       return css`
         border-radius: 26px;
         font-weight: 400;
-        font-size: 18px;
         line-height: 15px;
         color: #fff;
       `;
@@ -48,9 +47,9 @@ export const OpacityBg = styled.div`
 export const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   max-width: 600px;
-  height: 122px;
+  height: 160px;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -79,7 +78,7 @@ export const ModalWrapper = styled.div`
 export const ModalList = styled.li`
   padding: 14px 26px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
   color: white;
   margin: 16px 0 10px 0;
   ${({ theme }) => {
