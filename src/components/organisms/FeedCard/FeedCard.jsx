@@ -75,7 +75,8 @@ const FeedCard = ({
               src={MessageIcon}
               alt='댓글'
               count={
-                location.pathname === ('/feed' || '/myprofile')
+                // eslint-disable-next-line no-constant-condition
+                location.pathname === '/feed' || '/myprofile'
                   ? data.commentCount
                   : commentList.length
               }
