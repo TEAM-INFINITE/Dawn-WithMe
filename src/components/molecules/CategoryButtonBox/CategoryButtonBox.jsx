@@ -28,6 +28,14 @@ const CategoryButtonBox = ({ onClickCategory }) => {
       >
         {' '}
       </CategoryButton>
+      <CategoryButton
+        width='100%'
+        onClick={() => {
+          onClickCategory('map');
+        }}
+      >
+        {' '}
+      </CategoryButton>
     </CategoryBoxWrapper>
   );
 };
