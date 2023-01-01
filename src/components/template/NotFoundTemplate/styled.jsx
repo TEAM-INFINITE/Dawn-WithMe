@@ -16,18 +16,18 @@ const NotFoundTemplateWrapper = styled.section`
         display: none;
       }
 
-      p {
+      > p {
         color: ${theme.colors.colorBorder};
         font-size: ${theme.fontSizes.xl};
         line-height: 14px;
         margin-top: 20px;
       }
-      img {
+      > img {
         width: 200px;
         margin: 0 auto;
       }
 
-      a {
+      > a {
         width: 120px;
         padding: 13px 0;
         margin: 20px auto 0;

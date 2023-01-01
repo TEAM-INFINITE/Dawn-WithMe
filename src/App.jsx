@@ -22,7 +22,6 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
-
 const queryClient = new QueryClient();
 
 const App = () => {
