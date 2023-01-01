@@ -1,7 +1,11 @@
 import TextFiledCard from '../../molecules/TextFiledCard/TextFiledCard';
 import EditProfileFormWrapper from './styled';
 
-const EditProfileForm = ({ profileData, onChangeInputHandler }) => {
+const EditProfileForm = ({
+  profileData,
+  errorMessage,
+  onChangeInputHandler,
+}) => {
   const { username, accountname, intro } = profileData;
   return (
     <EditProfileFormWrapper id='editProfile'>
@@ -17,6 +21,7 @@ const EditProfileForm = ({ profileData, onChangeInputHandler }) => {
       >
         사용자 이름
       </TextFiledCard>
+      {errorMessage.username && <p>{errorMessage.username}</p>}
       <TextFiledCard
         value={accountname}
         type='text'
@@ -28,6 +33,7 @@ const EditProfileForm = ({ profileData, onChangeInputHandler }) => {
       >
         계정 ID
       </TextFiledCard>
+      {errorMessage.accountname && <p>{errorMessage.accountname}</p>}
       <TextFiledCard
         value={intro}
         type='text'
