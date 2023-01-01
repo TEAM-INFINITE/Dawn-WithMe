@@ -75,9 +75,9 @@ const FeedCard = ({
               src={MessageIcon}
               alt='댓글'
               count={
-                location.pathname === ('/feed' || '/myprofile')
-                  ? data.commentCount
-                  : commentList.length
+                location.pathname.includes('feeddetail')
+                  ? commentList.length
+                  : data.commentCount
               }
             />
           </Link>
