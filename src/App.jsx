@@ -19,6 +19,8 @@ import UserProfilePage from './pages/ProfilePage/UserProfilePage';
 import FollowerPage from './pages/FollowPage/FollowersPage';
 import FollowingPage from './pages/FollowPage/FollowingsPage';
 import SearchPage from './pages/SearchPage/SearchPage';
+import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
+
 
 const queryClient = new QueryClient();
 
@@ -33,6 +35,7 @@ const App = () => {
           <Route path='/feed' element={<FeedPage />} />
           <Route path='/feeddetail/:id' element={<FeedDetailPage />} />
           <Route path='/myprofile' element={<MyProfilePage />} />
+          <Route path='/myprofile/editprofile' element={<EditProfilePage />} />
           <Route
             path='/userprofile/:accountname'
             element={<UserProfilePage />}
