@@ -75,10 +75,9 @@ const FeedCard = ({
               src={MessageIcon}
               alt='댓글'
               count={
-                // eslint-disable-next-line no-constant-condition
-                location.pathname === '/feed' || '/myprofile'
-                  ? data.commentCount
-                  : commentList.length
+                location.pathname.includes('feeddetail')
+                  ? commentList.length
+                  : data.commentCount
               }
             />
           </Link>
