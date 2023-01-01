@@ -21,24 +21,23 @@ const AlertWrapper = styled.article`
   div {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-self: center;
+    justify-items: center;
+    align-items: center;
   }
 
   strong {
-    padding: 22px 50px;
+    margin: 22px 0;
     grid-column: 1/3;
-    ${({ theme }) => {
-      return css`
-        border-bottom: 1px solid ${theme.colors.colorDB};
-      `;
-    }}
   }
 
   button {
-    padding: 14px 50px;
+    width: 126px;
+    height: 46px;
     ${({ theme }) => {
       return css`
         color: ${theme.colors.colorBorder};
+        border-top: 1px solid ${theme.colors.colorDB};
+        font-size: ${theme.fontSizes.base};
         &.right {
           color: ${theme.colors.colorWarning};
           border-left: 1px solid ${theme.colors.colorDB};

@@ -11,7 +11,6 @@ const Alert = ({
   onClickReportPost,
   onClickDeleteComment,
   onClickReportComment,
-  feedId,
   postId,
   commentId,
 }) => {
@@ -35,12 +34,12 @@ const Alert = ({
 
     // 피드 게시글 삭제
     if (type === 'feedpost' && rightBtnText === '삭제') {
-      onClickDeletePost(feedId);
+      onClickDeletePost(postId);
     }
 
     // 피드 게시글 신고
     if (type === 'feedpost' && rightBtnText === '신고') {
-      onClickReportPost(feedId);
+      onClickReportPost(postId);
       onClose();
     }
 

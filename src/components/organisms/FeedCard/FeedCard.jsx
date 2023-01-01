@@ -14,7 +14,6 @@ import deleteLiked from '../../../api/feed/deleteLiked';
 const FeedCard = ({
   data,
   commentList,
-  feedId,
   postId,
   onClickDeletePost,
   onClickReportPost,
@@ -55,7 +54,6 @@ const FeedCard = ({
     <FreePostWrap>
       <UserProfileMore
         data={data}
-        feedId={feedId}
         postId={postId}
         onClickDeletePost={onClickDeletePost}
         onClickReportPost={onClickReportPost}
@@ -77,7 +75,7 @@ const FeedCard = ({
               src={MessageIcon}
               alt='댓글'
               count={
-                location.pathname === '/feed' || '/myprofile'
+                location.pathname === ('/feed' || '/myprofile')
                   ? data.commentCount
                   : commentList.length
               }
