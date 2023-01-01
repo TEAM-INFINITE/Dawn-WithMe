@@ -3,7 +3,6 @@ import Img from '../../atoms/Img/Img';
 import FeedContWrapper from './styled';
 
 const FeedCont = ({ children, src, data }) => {
-  console.log(src);
   return (
     <FeedContWrapper>
       <Link to={`/feeddetail/${data.id}`}>
