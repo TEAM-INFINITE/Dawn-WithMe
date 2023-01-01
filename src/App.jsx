@@ -20,6 +20,7 @@ import FollowerPage from './pages/FollowPage/FollowersPage';
 import FollowingPage from './pages/FollowPage/FollowingsPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ const App = () => {
           <Route path='/followers/:accountname' element={<FollowerPage />} />
           <Route path='/followings/:accountname' element={<FollowingPage />} />
           <Route path='/search' element={<SearchPage />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
