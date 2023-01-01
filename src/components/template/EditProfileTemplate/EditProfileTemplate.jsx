@@ -36,6 +36,7 @@ const EditProfileTemplate = ({
       </HeaderWrapper>
       <MainWrapper>
         <EditProfileTemplateWrapper>
+          <h2 className='hidden'>프로필 수정 페이지</h2>
           <PostImgBox
             onChangeImageUpload={onChangeImageUpload}
             imgSrc={profileData.image}
