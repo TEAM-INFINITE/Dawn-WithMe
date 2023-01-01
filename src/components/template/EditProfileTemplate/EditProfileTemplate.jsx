@@ -12,6 +12,8 @@ const EditProfileTemplate = ({
   onClickSubmitHandler,
   errorMessage,
 }) => {
+  const { accountname, image, intro, username } = profileData;
+
   return (
     <>
       <HeaderWrapper>
@@ -20,6 +22,14 @@ const EditProfileTemplate = ({
           width='90px'
           form='editProfile'
           onClick={onClickSubmitHandler}
+          disabled={
+            !accountname ||
+            !image ||
+            !intro ||
+            !username ||
+            errorMessage.username ||
+            errorMessage.accountname
+          }
         >
           저장
         </TopNavButtonBar>
@@ -33,6 +43,7 @@ const EditProfileTemplate = ({
           />
           <EditProfileForm
             profileData={profileData}
+            errorMessage={errorMessage}
             onChangeInputHandler={onChangeInputHandler}
           />
         </EditProfileTemplateWrapper>
