@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { OpacityBg } from '../Modal/styled';
 import AlertWrapper from './styled';
 
