@@ -5,6 +5,7 @@ const MainWrapper = styled.main`
   height: 100vh;
   margin: 0 auto;
   position: relative;
+  background-color: ${(props) => props.backgroundColor};
 `;
 
 export default MainWrapper;
