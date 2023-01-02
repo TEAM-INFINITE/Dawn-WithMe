@@ -58,12 +58,11 @@ const FollowersPage = () => {
     }
   };
 
-  if (isLoading) return <p>로딩</p>;
-
   return (
     <FollowersTemplate
       followersData={followData}
       onClickFollowToggle={onClickFollowToggle}
+      isLoading={isLoading}
     />
   );
 };
