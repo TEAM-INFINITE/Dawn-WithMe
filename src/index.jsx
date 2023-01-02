@@ -9,12 +9,12 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-  <ThemeProvider theme={theme}>
-    <RecoilRoot>
-      <GlobalStyled />
-      <App />
-    </RecoilRoot>
-  </ThemeProvider>,
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <RecoilRoot>
+        <GlobalStyled />
+        <App />
+      </RecoilRoot>
+    </ThemeProvider>
+  </React.StrictMode>,
 );
