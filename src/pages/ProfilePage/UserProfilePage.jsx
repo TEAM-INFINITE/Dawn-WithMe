@@ -73,12 +73,7 @@ const UserProfilePage = () => {
     setPostShowType(type);
   };
 
-  if (isProfileLoading) return <p>로딩 중</p>;
-  if (isCategoryLoading) return <p>로딩 중</p>;
-  if (isfeedLoading) return <p>로딩 중</p>;
-
-  const { post } = feedData;
-  const selectCategoryData = categoryPostData.product.filter(
+  const selectCategoryData = categoryPostData?.product.filter(
     (el) => el.itemName === category,
   );
 
@@ -87,12 +82,15 @@ const UserProfilePage = () => {
       profileData={profileData}
       isFollow={isFollow}
       followCount={followCount}
-      postData={post}
+      postData={feedData}
       onClickFollowToggle={onClickFollowToggle}
       onChangeSelectBoxHandler={onChangeSelectBoxHandler}
       onClickShowTypeChange={onClickShowTypeChange}
       selectCategoryData={selectCategoryData}
       postShowType={postShowType}
+      isProfileLoading={isProfileLoading}
+      isCategoryLoading={isCategoryLoading}
+      isfeedLoading={isfeedLoading}
     />
   );
 };
