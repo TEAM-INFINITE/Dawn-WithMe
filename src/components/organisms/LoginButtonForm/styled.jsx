@@ -4,7 +4,6 @@ const LoginButtonFormWrapper = styled.div`
   ${({ theme }) => {
     return css`
       width: 100%;
-      // 높이, 포지션, 바텀, 레프트, 트렌스폼 수정됨.
       height: 319px;
       position: absolute;
       bottom: 0;
@@ -31,15 +30,6 @@ const LoginButtonFormWrapper = styled.div`
         color: ${theme.colors.color76};
         margin: 20px 12px 0;
       }
-
-      /* .moon {
-        width: 16px;
-        height: 22px;
-        border-radius: 41% 59% 100% 0% / 0% 34% 66% 100%;
-        top: 375px;
-        left: 247px;
-        animation: none;
-      } */
     `;
   }}
 `;
