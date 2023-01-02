@@ -10,6 +10,12 @@ const CategoryUserProfileWrapper = styled.div`
     flex-direction: column;
     gap: 2px;
   }
+  > img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: fill;
+  }
 `;
 
 export default CategoryUserProfileWrapper;

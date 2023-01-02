@@ -11,8 +11,14 @@ import MessageIcon from '../../../assets/images/icon-message-circle.png';
 import postLiked from '../../../api/feed/postLiked';
 import deleteLiked from '../../../api/feed/deleteLiked';
 
-// 좋아요 관련
-const FeedCard = ({ data, commentList }) => {
+const FeedCard = ({
+  data,
+  commentList,
+  postId,
+  onClickDeletePost,
+  onClickReportPost,
+}) => {
+  // 좋아요 관련
   const location = useLocation();
   const [liked, setLiked] = useState(data.hearted);
   const [heartCount, setHeartCount] = useState(data.heartCount);
@@ -46,10 +52,15 @@ const FeedCard = ({ data, commentList }) => {
 
   return (
     <FreePostWrap>
-      <UserProfileMore data={data} />
+      <UserProfileMore
+        data={data}
+        postId={postId}
+        onClickDeletePost={onClickDeletePost}
+        onClickReportPost={onClickReportPost}
+      />
       <TextWrap>
         {/* 자유게시판 상세페이지로 이동 */}
-        <FeedCont src={data.image.split(', ')[0]} data={data}>
+        <FeedCont src={data.image && data.image.split(',')} data={data}>
           {data.content}
         </FeedCont>
         <FeedMoreIconWrap>
@@ -64,9 +75,9 @@ const FeedCard = ({ data, commentList }) => {
               src={MessageIcon}
               alt='댓글'
               count={
-                location.pathname === '/feed' || '/myprofile'
-                  ? data.commentCount
-                  : commentList.length
+                location.pathname.includes('feeddetail')
+                  ? commentList.length
+                  : data.commentCount
               }
             />
           </Link>

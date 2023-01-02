@@ -14,7 +14,8 @@ const TopNavBarWarpper = styled.nav`
         line-height: 22px;
         margin-right: auto;
       }
-      button.search {
+      button {
+        height: 24px;
         display: flex;
         align-items: center;
       }
@@ -23,6 +24,19 @@ const TopNavBarWarpper = styled.nav`
         align-items: center;
         margin-right: 10px;
       }
+      .search {
+        margin-right: 0;
+      }
+      
+      input {
+        margin-left: 20px;
+        padding: 7px 16px;
+        border-radius: 32px;
+        border: 1px solid ${theme.colors.colorBorder};
+
+        &:focus {
+          border: 1px solid ${theme.colors.colorMain};
+        }
     `;
   }}
 `;

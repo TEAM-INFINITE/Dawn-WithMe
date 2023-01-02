@@ -1,5 +1,5 @@
+import { SplashWrapper } from './styled';
 import SplashView from '../../organisms/SplashView/SplashView';
-import SplashWrapper from './styled';
 
 const SplashTemplate = () => {
   return (

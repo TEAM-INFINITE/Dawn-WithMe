@@ -28,6 +28,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-unused-vars': 'warn',
     // 'consistent-return': ['error', { treatUndefinedAsUnspecified: false }],
+    'react/jsx-props-no-spreading': ['warn'],
     'react/jsx-filename-extension': [
       'error',
       {

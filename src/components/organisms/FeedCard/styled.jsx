@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const FreePostWrap = styled.li`
   margin-bottom: 20px;
+  list-style: none;
 
   &:last-child {
     margin-bottom: 0;

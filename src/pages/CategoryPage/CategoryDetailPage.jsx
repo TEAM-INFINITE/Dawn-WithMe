@@ -12,12 +12,14 @@ const CategoryDetailPage = () => {
     isError,
   } = useQuery(['categoryDetail', id], () => getCategoryDetail(id));
 
-  if (isLoading) return <p>로딩</p>;
   if (isError) return <p>에러</p>;
 
-  const { product } = detailData;
-
-  return <CategoryDetailTemplate detailData={product} />;
+  return (
+    <CategoryDetailTemplate
+      detailData={detailData?.product}
+      isLoading={isLoading}
+    />
+  );
 };
 
 export default CategoryDetailPage;

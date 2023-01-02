@@ -14,7 +14,7 @@ const CategoryUserProfileMore = ({ userName, userId, src, type }) => {
       {type !== 'study' && (
         <Img src={MoreIcon} alt='게시글 설정' width='18px' height='18px' />
       )}
-      {type === 'study' && <ChatButton to='/chat'>참여하기</ChatButton>}
+      {type === 'study' && <ChatButton to='/chatdetail'>참여하기</ChatButton>}
     </CategoryUserProfileMoreWrapper>
   );
 };
