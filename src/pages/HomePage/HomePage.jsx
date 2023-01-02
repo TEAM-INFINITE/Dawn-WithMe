@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import getFollowingList from '../../api/follow/getFollowingList';
 import getFollowingProduct from '../../api/follow/getFollowingProduct';
