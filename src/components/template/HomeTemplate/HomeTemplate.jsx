@@ -7,13 +7,7 @@ import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import HomeTemplateWrapper from './styled';
 
-const HomeTemplate = ({
-  onClickCategory,
-  isFollowingProductListLoading,
-  isFollowingListLoading,
-}) => {
-  const isLoading = isFollowingListLoading || isFollowingProductListLoading;
-
+const HomeTemplate = ({ onClickCategory, isLoading }) => {
   return (
     <>
       <HeaderWrapper>

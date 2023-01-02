@@ -20,11 +20,8 @@ const UserProfileTemplate = ({
   onChangeSelectBoxHandler,
   onClickShowTypeChange,
   postData,
-  isProfileLoading,
-  isCategoryLoading,
-  isfeedLoading,
+  isLoading,
 }) => {
-  const isLoading = isProfileLoading || isCategoryLoading || isfeedLoading;
   return (
     <>
       <HeaderWrapper>

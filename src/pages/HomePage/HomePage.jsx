@@ -12,9 +12,7 @@ const HomePage = () => {
     isLoading: isFollowingListLoading,
     isError: isFollowingListError,
   } = useQuery('followingList', () => getFollowingList(accountName), {});
-
   const followingList = data?.map((user) => user.accountname);
-
   const {
     data: categoryPostData,
     isLoading: isFollowingProductListLoading,
@@ -26,6 +24,7 @@ const HomePage = () => {
       enabled: !!followingList,
     },
   );
+  const isLoading = isFollowingListLoading || isFollowingProductListLoading;
 
   if (isError) return <p>에러 발생!</p>;
   if (isFollowingListError) return <p>에러</p>;
@@ -43,11 +42,7 @@ const HomePage = () => {
   };
 
   return (
-    <HomeTemplate
-      onClickCategory={onClickCategory}
-      isFollowingProductListLoading={isFollowingProductListLoading}
-      isFollowingListLoading={isFollowingListLoading}
-    />
+    <HomeTemplate onClickCategory={onClickCategory} isLoading={isLoading} />
   );
 };
 

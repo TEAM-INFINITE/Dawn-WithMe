@@ -15,7 +15,6 @@ const UserProfilePage = () => {
   const [followCount, setFollowerCount] = useState();
   const [category, setCategory] = useState('study');
   const [postShowType, setPostShowType] = useState('list');
-
   const { data: profileData, isLoading: isProfileLoading } = useQuery(
     ['userProfile', accountname],
     () => getUserProfile(accountname),
@@ -27,17 +26,16 @@ const UserProfilePage = () => {
       },
     },
   );
-
   const { data: categoryPostData, isLoading: isCategoryLoading } = useQuery(
     'categoryPost',
     () => getUserProduct(profileData.profile.accountname),
     { enabled: !!profileData },
   );
-
   const { data: feedData, isLoading: isfeedLoading } = useQuery(
     ['feedData', accountname],
     () => getUserFeedData(accountname),
   );
+  const isLoading = isProfileLoading || isCategoryLoading || isfeedLoading;
 
   const addFollowMutation = useMutation(addFollow, {
     onSuccess(resData) {
@@ -88,9 +86,7 @@ const UserProfilePage = () => {
       onClickShowTypeChange={onClickShowTypeChange}
       selectCategoryData={selectCategoryData}
       postShowType={postShowType}
-      isProfileLoading={isProfileLoading}
-      isCategoryLoading={isCategoryLoading}
-      isfeedLoading={isfeedLoading}
+      isLoading={isLoading}
     />
   );
 };
