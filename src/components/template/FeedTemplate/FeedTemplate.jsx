@@ -4,6 +4,7 @@ import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
+import PostMenu from '../../molecules/PostMenu/PostMenu';
 
 const FeedTemplate = ({ posts, onClickDeletePost, onClickReportPost }) => {
   return (
@@ -29,6 +30,7 @@ const FeedTemplate = ({ posts, onClickDeletePost, onClickReportPost }) => {
               );
             })}
           </ul>
+          <PostMenu postPath='/feed/upload' />
         </FeedWrapper>
         <TabMenu />
       </MainWrapper>
