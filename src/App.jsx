@@ -65,8 +65,8 @@ const App = () => {
               element={<FollowingPage />}
             />
             <Route path='/search' element={<SearchPage />} />
-            <Route path='*' element={<NotFoundPage />} />
           </Route>
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>
