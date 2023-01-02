@@ -8,6 +8,7 @@ import ProfileCategoryPostCard from '../../organisms/ProfileCategoryPostCard/Pro
 import ProfileFeedShowSelectBox from '../../molecules/ProfileFeedShowSelectBox/ProfileFeedShowSelectBox';
 import ProfileFeedListCard from '../../organisms/ProfileFeedListCard/ProfileFeedListCard';
 import ProfileFeedAlbumCard from '../../organisms/ProfileFeedAlbumCard/ProfileFeedAlbumCard';
+import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
 
 const UserProfileTemplate = ({
   profileData,
@@ -19,6 +20,7 @@ const UserProfileTemplate = ({
   onChangeSelectBoxHandler,
   onClickShowTypeChange,
   postData,
+  isLoading,
 }) => {
   return (
     <>
@@ -28,26 +30,31 @@ const UserProfileTemplate = ({
       <MainWrapper>
         <UserProfileTemplateWrapper>
           <h2 className='hidden'>유저 프로필</h2>
-          <ProfileInfoCard
-            profileData={profileData}
-            isFollow={isFollow}
-            followCount={followCount}
-            onClickFollowToggle={onClickFollowToggle}
-          />
-          <ProfileCategoryPostCard
-            onChange={onChangeSelectBoxHandler}
-            selectCategoryData={selectCategoryData}
-          />
-          <ProfileFeedShowSelectBox
-            onClickShowTypeChange={onClickShowTypeChange}
-            postShowType={postShowType}
-          />
-          {postShowType === 'list' && (
-            <ProfileFeedListCard postData={postData} />
+          {!isLoading && (
+            <>
+              <ProfileInfoCard
+                profileData={profileData}
+                isFollow={isFollow}
+                followCount={followCount}
+                onClickFollowToggle={onClickFollowToggle}
+              />
+              <ProfileCategoryPostCard
+                onChange={onChangeSelectBoxHandler}
+                selectCategoryData={selectCategoryData}
+              />
+              <ProfileFeedShowSelectBox
+                onClickShowTypeChange={onClickShowTypeChange}
+                postShowType={postShowType}
+              />
+              {postShowType === 'list' && (
+                <ProfileFeedListCard postData={postData.post} />
+              )}
+              {postShowType === 'album' && (
+                <ProfileFeedAlbumCard postData={postData.post} />
+              )}
+            </>
           )}
-          {postShowType === 'album' && (
-            <ProfileFeedAlbumCard postData={postData} />
-          )}
+          {isLoading && <LoadingSpinner />}
         </UserProfileTemplateWrapper>
         <TabMenu />
       </MainWrapper>

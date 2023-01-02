@@ -13,7 +13,10 @@ export const UserProfileWrapper = styled.div`
   gap: 13px;
 
   img {
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
+    object-fit: fill;
   }
 
   .profile-text {

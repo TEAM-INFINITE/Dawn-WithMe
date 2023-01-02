@@ -13,6 +13,11 @@ import FeedDetailTemplate from '../../components/template/FeedTemplate/FeedDetai
 
 const FeedDetailPage = () => {
   const { id } = useParams();
+  const [postList, setPostList] = useState([]);
+  const [commentList, setCommentList] = useState([]);
+  const [inputText, setInputText] = useState({
+    content: '',
+  });
 
   // 유저 정보 불러오기
   const { data: userdata, isLoading: isProfileDataLoading } = useQuery(
@@ -23,14 +28,27 @@ const FeedDetailPage = () => {
   // 게시물 불러오기
   const {
     data: postdata,
-    isLoading,
+    isLoading: isPostLoading,
     isError,
   } = useQuery(['detailfeed', id], () => {
     return getFollowFeedDeatail(id);
   });
 
-  // 게시물 삭제
-  const [postList, setPostList] = useState([]);
+  // 댓글 리스트
+  const { isLoading: isCommentLoading } = useQuery(
+    ['commentlist', id],
+    () => {
+      return getCommentList(id);
+    },
+    {
+      enabled: !!postdata,
+      onSuccess(resData) {
+        setCommentList(resData.comments);
+      },
+    },
+  );
+  const isLoading = isProfileDataLoading || isPostLoading || isCommentLoading;
+
   const deletePostMutation = useMutation(deletePost, {
     onSuccess(data) {
       console.log(data);
@@ -54,11 +72,6 @@ const FeedDetailPage = () => {
   });
 
   // 댓글 입력
-  const [commentList, setCommentList] = useState([]);
-  const [inputText, setInputText] = useState({
-    content: '',
-  });
-
   const commentMutation = useMutation(postCommentWrite, {
     onSuccess(data) {
       console.log(data);
@@ -69,29 +82,6 @@ const FeedDetailPage = () => {
       console.log(err);
     },
   });
-
-  const onChangeInputHandler = (event) => {
-    setInputText({ ...inputText, content: event.target.value });
-  };
-
-  const onSubmitButtonHandler = (event) => {
-    event.preventDefault();
-    commentMutation.mutate({ postId: id, comment: inputText });
-  };
-
-  // 댓글 리스트
-  const { isLoading: isCommentLoading } = useQuery(
-    ['commentlist', id],
-    () => {
-      return getCommentList(id);
-    },
-    {
-      enabled: !!postdata,
-      onSuccess(resData) {
-        setCommentList(resData.comments);
-      },
-    },
-  );
 
   // 댓글 삭제
   const deleteCommentMutation = useMutation(deleteComment, {
@@ -118,12 +108,14 @@ const FeedDetailPage = () => {
     },
   });
 
-  if (isLoading) return <p>로딩 중...</p>;
-  if (isCommentLoading) return <p>로딩 중...</p>;
-  if (isError) return <p>에러 발생!</p>;
-  if (isProfileDataLoading) return <p>로딩 중...</p>;
-  const { user } = userdata;
-  const { post } = postdata;
+  const onChangeInputHandler = (event) => {
+    setInputText({ ...inputText, content: event.target.value });
+  };
+
+  const onSubmitButtonHandler = (event) => {
+    event.preventDefault();
+    commentMutation.mutate({ postId: id, comment: inputText });
+  };
 
   const onClickDeletePost = (postId) => {
     deletePostMutation.mutate({ postId });
@@ -140,6 +132,8 @@ const FeedDetailPage = () => {
   const onClickReportComment = (postId, commentId) => {
     reportCommentMutation.mutate({ postId, commentId });
   };
+  console.log(postdata);
+  if (isError) return <p>에러 발생!</p>;
 
   return (
     <FeedDetailTemplate
@@ -151,8 +145,9 @@ const FeedDetailPage = () => {
       onClickReportComment={onClickReportComment}
       inputText={inputText.content}
       commentList={commentList}
-      post={post}
-      user={user}
+      post={postdata?.post}
+      user={userdata?.user}
+      isLoading={isLoading}
     />
   );
 };

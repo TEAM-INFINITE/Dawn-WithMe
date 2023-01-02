@@ -7,14 +7,15 @@ import HomeTemplate from '../../components/template/HomeTemplate/HomeTemplate';
 const HomePage = () => {
   const accountName = localStorage.getItem('accountname');
   const navigate = useNavigate();
-  const { data } = useQuery('followingList', () =>
-    getFollowingList(accountName),
-  );
+  const {
+    data,
+    isLoading: isFollowingListLoading,
+    isError: isFollowingListError,
+  } = useQuery('followingList', () => getFollowingList(accountName), {});
   const followingList = data?.map((user) => user.accountname);
-
   const {
     data: categoryPostData,
-    isLoading,
+    isLoading: isFollowingProductListLoading,
     isError,
   } = useQuery(
     'followingProductList',
@@ -23,9 +24,10 @@ const HomePage = () => {
       enabled: !!followingList,
     },
   );
+  const isLoading = isFollowingListLoading || isFollowingProductListLoading;
 
-  if (isLoading) return <p>로딩 중...</p>;
   if (isError) return <p>에러 발생!</p>;
+  if (isFollowingListError) return <p>에러</p>;
 
   const onClickCategory = (category) => {
     const filterPostData = categoryPostData.filter(
@@ -39,7 +41,9 @@ const HomePage = () => {
     });
   };
 
-  return <HomeTemplate onClickCategory={onClickCategory} />;
+  return (
+    <HomeTemplate onClickCategory={onClickCategory} isLoading={isLoading} />
+  );
 };
 
 export default HomePage;
