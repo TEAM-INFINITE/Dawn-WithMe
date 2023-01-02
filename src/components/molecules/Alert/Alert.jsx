@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { OpacityBg } from '../Modal/styled';
 import AlertWrapper from './styled';
 
@@ -14,10 +14,12 @@ const Alert = ({
   postId,
   commentId,
 }) => {
+  const navigate = useNavigate();
   // 로그아웃
   const removeInfo = () => {
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('accountname');
+    navigate('/');
   };
 
   function onClickDeleteBtn() {
@@ -51,16 +53,13 @@ const Alert = ({
       <AlertWrapper>
         <div>
           <strong>{questionText}</strong>
-
           <button type='button' onClick={onClose}>
             취소
           </button>
           {rightBtnText === '로그아웃' ? (
-            <Link to='/login'>
-              <button type='button' onClick={removeInfo} className='right'>
-                {rightBtnText}
-              </button>
-            </Link>
+            <button type='button' onClick={removeInfo} className='right'>
+              {rightBtnText}
+            </button>
           ) : (
             <button type='button' onClick={onClickDeleteBtn} className='right'>
               {rightBtnText}
