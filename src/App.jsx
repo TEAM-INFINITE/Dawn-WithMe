@@ -24,7 +24,15 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import NotAuthRoutes from './router/NotAuthRoutes';
 import PrivateRoute from './router/PrivateRoute';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      staleTime: 2000,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => {
   return (
