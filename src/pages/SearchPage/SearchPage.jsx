@@ -16,8 +16,6 @@ const SearchPage = () => {
     return getSearchUser(keyword);
   });
 
-  // if (isLoading) return <p>로딩 중...</p>;
-
   const onChangeSearch = (event) => {
     const searchText = event.target.value;
     if (!searchText) {
@@ -33,6 +31,7 @@ const SearchPage = () => {
       onChangeSearch={onChangeSearch}
       searchResult={searchResult}
       keyword={keyword}
+      isLoading={isLoading}
     />
   );
 };
