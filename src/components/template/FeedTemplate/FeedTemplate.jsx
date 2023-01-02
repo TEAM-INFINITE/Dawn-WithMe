@@ -4,8 +4,14 @@ import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
+import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
 
-const FeedTemplate = ({ posts, onClickDeletePost, onClickReportPost }) => {
+const FeedTemplate = ({
+  posts,
+  onClickDeletePost,
+  onClickReportPost,
+  isLoading,
+}) => {
   return (
     <>
       <HeaderWrapper>
@@ -15,20 +21,23 @@ const FeedTemplate = ({ posts, onClickDeletePost, onClickReportPost }) => {
       </HeaderWrapper>
       <MainWrapper>
         <FeedWrapper>
-          <ul>
-            {/* map으로 실행 */}
-            {posts.map((item) => {
-              return (
-                <FeedCard
-                  data={item}
-                  postId={item.id}
-                  key={item.id}
-                  onClickDeletePost={onClickDeletePost}
-                  onClickReportPost={onClickReportPost}
-                />
-              );
-            })}
-          </ul>
+          {!isLoading && (
+            <ul>
+              {/* map으로 실행 */}
+              {posts.map((item) => {
+                return (
+                  <FeedCard
+                    data={item}
+                    postId={item.id}
+                    key={item.id}
+                    onClickDeletePost={onClickDeletePost}
+                    onClickReportPost={onClickReportPost}
+                  />
+                );
+              })}
+            </ul>
+          )}
+          {isLoading && <LoadingSpinner />}
         </FeedWrapper>
         <TabMenu />
       </MainWrapper>
