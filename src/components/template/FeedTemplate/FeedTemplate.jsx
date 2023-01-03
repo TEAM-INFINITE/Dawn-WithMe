@@ -39,8 +39,8 @@ const FeedTemplate = ({
             </ul>
           )}
           {isLoading && <LoadingSpinner />}
-          <PostMenu postPath='/feed/upload' />
         </FeedWrapper>
+        <PostMenu postPath='/feed/upload' />
         <TabMenu />
       </MainWrapper>
     </>
