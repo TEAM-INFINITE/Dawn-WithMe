@@ -25,7 +25,15 @@ import NotAuthRoutes from './router/NotAuthRoutes';
 import PrivateRoute from './router/PrivateRoute';
 import FeedUploadPage from './pages/FeedUploadPage/FeedUploadPage';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      staleTime: 2000,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => {
   return (

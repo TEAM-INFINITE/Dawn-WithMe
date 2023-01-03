@@ -10,23 +10,19 @@ const MyProfilePage = () => {
   const myAccountName = localStorage.getItem('accountname');
   const [category, setCategory] = useState('study');
   const [postShowType, setPostShowType] = useState('list');
-  const { data: profileData, isLoading } = useQuery('myProfile', getMyProfile);
+  const { data: profileData, isLoading: isProfileLoading } = useQuery(
+    'myProfile',
+    getMyProfile,
+  );
   const { data: categoryPostData, isLoading: isCategoryLoading } = useQuery(
     'myCategoryPost',
     () => getUserProduct(myAccountName),
-  );
-  const { data: postData, isLoading: isPostLoading } = useQuery('myPost', () =>
-    getMyPost(myAccountName),
   );
   const { data: feedData, isLoading: isfeedLoading } = useQuery(
     ['myFeed', myAccountName],
     () => getUserFeedData(myAccountName),
   );
-
-  if (isLoading) return <p>로딩 중...</p>;
-  if (isfeedLoading) return <p>로딩 중</p>;
-  if (isCategoryLoading) return <p>로딩 중</p>;
-  if (isPostLoading) return <p>로딩 중</p>;
+  const isLoading = isProfileLoading || isfeedLoading || isCategoryLoading;
 
   const onChangeSelectBoxHandler = (event) => {
     const { value } = event.target;
@@ -37,8 +33,7 @@ const MyProfilePage = () => {
     setPostShowType(type);
   };
 
-  const { post } = feedData;
-  const selectCategoryData = categoryPostData.product.filter(
+  const selectCategoryData = categoryPostData?.product.filter(
     (el) => el.itemName === category,
   );
 
@@ -46,11 +41,11 @@ const MyProfilePage = () => {
     <MyProfileTemplate
       profileData={profileData}
       selectCategoryData={selectCategoryData}
-      myCategoryPostData={postData}
-      postData={post}
+      postData={feedData}
       postShowType={postShowType}
       onClickShowTypeChange={onClickShowTypeChange}
       onChangeSelectBoxHandler={onChangeSelectBoxHandler}
+      isLoading={isLoading}
     />
   );
 };

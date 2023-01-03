@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import SplashTemplate from '../../components/template/SplashTemplate/SplashTemplate';
-import LoginButtonTemplate from '../../components/template/LoginButtonTemplate/LoginButtonTemplate';
+import LoginButtonTemplate from '../../components/template/SplashTemplate/LoginButtonTemplate';
+import FullWrapper from '../../components/atoms/Wrapper/FullWrapper';
 
 const SplashPage = () => {
   const [loading, setLoading] = useState(true);
@@ -14,10 +15,10 @@ const SplashPage = () => {
   }, []);
 
   return (
-    <>
+    <FullWrapper backgroundColor='rgb(56, 28, 121)'>
       {loading && <SplashTemplate />}
       {!loading && <LoginButtonTemplate />}
-    </>
+    </FullWrapper>
   );
 };
 
