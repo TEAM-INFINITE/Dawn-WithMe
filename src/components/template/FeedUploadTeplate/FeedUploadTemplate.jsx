@@ -14,6 +14,7 @@ import {
 const FeedUploadTemplate = ({
   user,
   onChangeTextHandler,
+  onClickDeleteImg,
   onChangeImagesUpload,
   onClickSubmit,
   imgSrc,
@@ -41,10 +42,10 @@ const FeedUploadTemplate = ({
             />
             <ImgWrapper>
               <ul>
-                {imgSrc.map((image) => (
+                {imgSrc.map((image, index) => (
                   <li key={image.id}>
                     <Img src={image.src} className='priview-img' />
-                    <DeleteBtn />
+                    <DeleteBtn onClick={() => onClickDeleteImg(index)} />
                   </li>
                 ))}
               </ul>

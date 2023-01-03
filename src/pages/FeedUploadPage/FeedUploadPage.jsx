@@ -26,6 +26,7 @@ const FeedUploadPage = () => {
   // 여러개의 이미지 등록
   const imagesUploadMutation = useMutation(postImages, {
     onSuccess(resData) {
+      console.log(resData);
       setImgSrc([
         ...imgSrc,
         { id: resData[0].filename, src: `${url}/${resData[0].filename}` },
@@ -37,7 +38,7 @@ const FeedUploadPage = () => {
       console.log(err);
     },
   });
-
+  console.log(imgSrc);
   // 게시글 등록
   const createFeedPostMutation = useMutation(createFeedPost, {
     onSuccess(resData) {
@@ -68,6 +69,11 @@ const FeedUploadPage = () => {
     imagesUploadMutation.mutate(formData);
   };
 
+  const onClickDeleteImg = (id) => {
+    setImgSrc(imgSrc.filter((item, index) => index !== id));
+    setPostImg(postImg.filter((item, index) => index !== id));
+  };
+
   const onClickSubmit = (event) => {
     event.preventDefault();
 
@@ -83,6 +89,7 @@ const FeedUploadPage = () => {
     <FeedUploadTemplate
       user={user}
       onChangeTextHandler={onChangeTextHandler}
+      onClickDeleteImg={onClickDeleteImg}
       onChangeImagesUpload={onChangeImagesUpload}
       onClickSubmit={onClickSubmit}
       imgSrc={imgSrc}
