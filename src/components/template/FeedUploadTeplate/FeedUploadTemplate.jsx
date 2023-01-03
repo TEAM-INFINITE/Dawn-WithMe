@@ -18,6 +18,7 @@ const FeedUploadTemplate = ({
   onChangeImagesUpload,
   onClickSubmit,
   imgSrc,
+  postValue,
 }) => {
   return (
     <>
@@ -25,6 +26,7 @@ const FeedUploadTemplate = ({
         <TopNavButtonBar
           size='ms'
           width='90px'
+          disabled={!postValue.content}
           form='feedForm'
           type='submit'
           onClick={onClickSubmit}

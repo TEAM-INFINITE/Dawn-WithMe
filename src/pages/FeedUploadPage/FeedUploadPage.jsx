@@ -93,6 +93,7 @@ const FeedUploadPage = () => {
       onChangeImagesUpload={onChangeImagesUpload}
       onClickSubmit={onClickSubmit}
       imgSrc={imgSrc}
+      postValue={postValue}
     />
   );
 };
