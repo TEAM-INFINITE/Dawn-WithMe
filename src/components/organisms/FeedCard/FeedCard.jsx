@@ -60,7 +60,11 @@ const FeedCard = ({
       />
       <TextWrap>
         {/* 자유게시판 상세페이지로 이동 */}
-        <FeedCont src={data.image && data.image.split(',')} data={data}>
+        <FeedCont
+          location={location}
+          src={data.image && data.image.split(',')}
+          data={data}
+        >
           {data.content}
         </FeedCont>
         <FeedMoreIconWrap>
