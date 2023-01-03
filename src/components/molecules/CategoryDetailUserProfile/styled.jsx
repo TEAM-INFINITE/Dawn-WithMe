@@ -10,6 +10,10 @@ const CategoryDetailUserProfileWrapper = styled.div`
     align-items: center;
     img {
       margin-right: 13px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: fill;
     }
   }
 

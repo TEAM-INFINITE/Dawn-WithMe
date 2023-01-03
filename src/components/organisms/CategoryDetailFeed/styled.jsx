@@ -1,11 +1,8 @@
 import styled, { css } from 'styled-components';
 
 const CategoryDetailFeedWrapper = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 90px;
   padding: 16px;
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   ${({ theme }) => {
     return css`
@@ -28,7 +25,10 @@ const CategoryDetailFeedWrapper = styled.div`
       .date {
         margin-top: 20px;
       }
-
+      img {
+        max-height: 600px;
+        object-fit: contain;
+      }
       .date {
         color: ${theme.colors.colorBorder};
         font-size: ${theme.fontSizes.small};

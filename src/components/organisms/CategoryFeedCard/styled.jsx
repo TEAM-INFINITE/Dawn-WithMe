@@ -21,6 +21,10 @@ export const CategoryTextWrapper = styled.div`
       > p {
         margin-top: 20px;
       }
+      img {
+        max-height: 300px;
+        object-fit: cover;
+      }
     `;
   }}
 `;
