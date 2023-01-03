@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import Img from '../../atoms/Img/Img';
 import uploadIcon from '../../../assets/images/upload-file.png';
-import FeedImgBoxWrapper from './styled';
+import FileUploadWrapper from './styled';
 
-const FeedImgBox = () => {
+const FileUpload = ({ onChangeImagesUpload }) => {
   const fileRef = useRef(null);
 
   const onClickImgHandler = (event) => {
@@ -12,13 +12,20 @@ const FeedImgBox = () => {
   };
 
   return (
-    <FeedImgBoxWrapper>
-      <input type='file' accept='image/*' id='imageUpload' ref={fileRef} />
+    <FileUploadWrapper>
+      <input
+        type='file'
+        accept='image/*'
+        id='feedimageUpload'
+        multiple
+        ref={fileRef}
+        onChange={onChangeImagesUpload}
+      />
       <button type='button' onClick={onClickImgHandler}>
         <Img src={uploadIcon} />
       </button>
-    </FeedImgBoxWrapper>
+    </FileUploadWrapper>
   );
 };
 
-export default FeedImgBox;
+export default FileUpload;

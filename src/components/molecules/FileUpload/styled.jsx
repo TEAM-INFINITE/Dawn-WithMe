@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const FeedImgBoxWrapper = styled.div`
+const FileUploadWrapper = styled.div`
   position: absolute;
   width: 36px;
   height: 36px;
@@ -21,14 +21,4 @@ const FeedImgBoxWrapper = styled.div`
   }}
 `;
 
-export const ImgBackground = styled.div`
-  background: ${({ backBg }) => (backBg ? `url(${backBg})` : '#f2f2f2')};
-  background-position: center, center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 300px;
-  border-radius: 12px;
-  position: relative;
-`;
-
-export default FeedImgBoxWrapper;
+export default FileUploadWrapper;

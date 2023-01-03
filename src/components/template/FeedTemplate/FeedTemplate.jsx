@@ -23,20 +23,20 @@ const FeedTemplate = ({
       <MainWrapper>
         <FeedWrapper>
           {!isLoading && (
-          <ul>
-            {/* map으로 실행 */}
-            {posts.map((item) => {
-              return (
-                <FeedCard
-                  data={item}
-                  postId={item.id}
-                  key={item.id}
-                  onClickDeletePost={onClickDeletePost}
-                  onClickReportPost={onClickReportPost}
-                />
-              );
-            })}
-          </ul>
+            <ul>
+              {/* map으로 실행 */}
+              {posts.map((item) => {
+                return (
+                  <FeedCard
+                    data={item}
+                    postId={item.id}
+                    key={item.id}
+                    onClickDeletePost={onClickDeletePost}
+                    onClickReportPost={onClickReportPost}
+                  />
+                );
+              })}
+            </ul>
           )}
           {isLoading && <LoadingSpinner />}
           <PostMenu postPath='/feed/upload' />
