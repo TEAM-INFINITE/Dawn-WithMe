@@ -1,18 +1,40 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
+import { useSetRecoilState } from 'recoil';
+import { isModalAtom } from '../../../recoil/atom';
 import NewModalWrapper, { NewModalBox } from './styled';
 
-const NewModal = ({ isModal, setIsModal }) => {
-  const onClickModalClose = () => {
+const NewModal = ({ textArray, onClickModalListHandler }) => {
+  const setIsModal = useSetRecoilState(isModalAtom);
+  const onClickModalCloseHandler = () => {
     setIsModal(false);
   };
+
   return (
-    <NewModalWrapper onClick={onClickModalClose}>
+    <NewModalWrapper>
+      <div
+        className='background'
+        onClick={onClickModalCloseHandler}
+        aria-hidden
+      />
       <NewModalBox>
-        <button type='button' className='modal-btn' onClick={onClickModalClose}>
+        <button
+          type='button'
+          className='modal-btn'
+          onClick={onClickModalCloseHandler}
+        >
           {' '}
         </button>
         <ul>
-          <li>테스트1</li>
-          <li>테스트2</li>
+          {textArray.map((item) => (
+            <li key={item.id}>
+              <button
+                type='button'
+                onClick={() => onClickModalListHandler(item.text)}
+              >
+                {item.text}
+              </button>
+            </li>
+          ))}
         </ul>
       </NewModalBox>
     </NewModalWrapper>

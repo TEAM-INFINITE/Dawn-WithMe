@@ -14,13 +14,15 @@ const modalAni = keyframes`
 const NewModalWrapper = styled.article`
   ${({ theme }) => {
     return css`
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 9999;
-      background-color: rgba(255, 255, 255, 0.2);
+      > .background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 6000;
+        background-color: rgba(255, 255, 255, 0.2);
+      }
     `;
   }}
 `;
@@ -30,11 +32,14 @@ export const NewModalBox = styled.div`
     return css`
       position: absolute;
       bottom: 0;
+      left: 0;
       width: 100%;
       background-color: #212025;
       border-radius: 16px 16px 0 0;
       transform: translateY(100%);
+      z-index: 9000;
       animation: ${modalAni} 0.3s ease-out forwards;
+
       > .modal-btn {
         width: 100px;
         height: 5px;
@@ -50,10 +55,25 @@ export const NewModalBox = styled.div`
 
       ul {
         li {
-          color: ${theme.colors.colorWhite};
-          padding: 14px 0 14px 26px;
-          font-size: ${theme.fontSizes.base};
-          line-height: 18px;
+          button {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            color: ${theme.colors.colorWhite};
+            padding: 14px 0 14px 26px;
+            font-size: ${theme.fontSizes.base};
+            line-height: 18px;
+          }
+
+          &:hover {
+            &:last-child {
+              color: ${theme.colors.colorMain};
+            }
+            &:first-child {
+              color: ${theme.colors.colorWarning};
+            }
+          }
         }
       }
     `;
