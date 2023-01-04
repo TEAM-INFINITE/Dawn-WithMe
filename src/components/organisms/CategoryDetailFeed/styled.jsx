@@ -16,11 +16,12 @@ const CategoryDetailFeedWrapper = styled.div`
         &:nth-child(4) {
           text-align: right;
         }
+
+        > span {
+          color: ${theme.colors.colorMain};
+        }
       }
 
-      span {
-        color: ${theme.colors.colorMain};
-      }
       .people,
       .date {
         margin-top: 20px;
@@ -30,6 +31,7 @@ const CategoryDetailFeedWrapper = styled.div`
         object-fit: contain;
       }
       .date {
+        display: block;
         color: ${theme.colors.colorBorder};
         font-size: ${theme.fontSizes.small};
       }
