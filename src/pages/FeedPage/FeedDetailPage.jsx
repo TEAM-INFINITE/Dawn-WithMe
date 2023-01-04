@@ -132,7 +132,7 @@ const FeedDetailPage = () => {
   const onClickReportComment = (postId, commentId) => {
     reportCommentMutation.mutate({ postId, commentId });
   };
-  console.log(postdata);
+
   if (isError) return <p>에러 발생!</p>;
 
   return (

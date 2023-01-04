@@ -15,7 +15,6 @@ const CategoryEditTemplate = ({
   onClickSubmitHandler,
   errorMessage,
 }) => {
-  console.log(postValue);
   return (
     <>
       <HeaderWrapper>

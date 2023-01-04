@@ -13,6 +13,10 @@ const PostMenuWrapper = styled.div`
     height: 50px;
   }
 
+  a {
+    z-index: 100;
+  }
+
   &.active {
     button {
       transform: rotate(45deg);

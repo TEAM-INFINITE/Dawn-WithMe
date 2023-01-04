@@ -38,7 +38,7 @@ const FeedUploadPage = () => {
       console.log(err);
     },
   });
-  console.log(imgSrc);
+
   // 게시글 등록
   const createFeedPostMutation = useMutation(createFeedPost, {
     onSuccess(resData) {

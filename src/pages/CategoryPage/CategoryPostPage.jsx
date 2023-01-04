@@ -110,8 +110,6 @@ const CategoryPostPage = () => {
     });
   };
 
-  console.log(postValue);
-
   return (
     <CategoryPostTemplate
       onChangeInputHandler={onChangeInputHandler}
