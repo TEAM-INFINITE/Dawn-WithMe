@@ -17,6 +17,7 @@ const MyProfileTemplate = ({
   onChangeSelectBoxHandler,
   onClickShowTypeChange,
   postShowType,
+  onClickDeletePost,
   isLoading,
 }) => {
   return (
@@ -39,7 +40,10 @@ const MyProfileTemplate = ({
                 postShowType={postShowType}
               />
               {postShowType === 'list' && (
-                <ProfileFeedListCard postData={postData.post} />
+                <ProfileFeedListCard
+                  postData={postData.post}
+                  onClickDeletePost={onClickDeletePost}
+                />
               )}
               {postShowType === 'album' && (
                 <ProfileFeedAlbumCard postData={postData.post} />
