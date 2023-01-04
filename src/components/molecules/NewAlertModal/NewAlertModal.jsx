@@ -10,6 +10,7 @@ const NewAlertModal = ({ alertText, onClickAlertEventHandler }) => {
     setIsModal(false);
     setIsAlert(false);
   };
+
   return (
     <NewAlertModalWrapper>
       <p>게시물을 {alertText}할까요?</p>
