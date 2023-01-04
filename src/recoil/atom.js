@@ -1,8 +1,16 @@
 import { atom } from 'recoil';
 
-const modalAtom = atom({
+export const modalAtom = atom({
   key: 'modal',
   default: '',
 });
 
-export default modalAtom;
+export const isModalAtom = atom({
+  key: 'isModal',
+  default: false,
+});
+
+export const isAlertAtom = atom({
+  key: 'isAlert',
+  default: false,
+});
