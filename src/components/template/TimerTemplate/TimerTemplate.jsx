@@ -3,6 +3,8 @@ import TimerForm from '../../organisms/TimerForm/TimerForm';
 import TimerWrapper from './styled';
 import Button from '../../atoms/Button/Button';
 import titleLogo from '../../../assets/images/title-logo.png';
+import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
+import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 
 const TimerTemplate = ({
   handleOnInput,
@@ -17,45 +19,50 @@ const TimerTemplate = ({
   sec,
 }) => {
   return (
-    <TimerWrapper>
-      <h2>새벽 타이머</h2>
-      <TimerForm
-        handleOnInput={handleOnInput}
-        onHourChange={onHourChange}
-        onMinChange={onMinChange}
-        onSecChange={onSecChange}
-        hour={hour}
-        min={min}
-        sec={sec}
-      />
-      <Button
-        width='30%'
-        size='large'
-        onClick={handleButtonStart}
-        disabled={!hour && !min && !sec}
-      >
-        공부 시작
-      </Button>
+    <>
+      <HeaderWrapper>
+        <TopNavBar cont='back' />
+      </HeaderWrapper>
+      <TimerWrapper>
+        <h2>새벽 타이머</h2>
+        <TimerForm
+          handleOnInput={handleOnInput}
+          onHourChange={onHourChange}
+          onMinChange={onMinChange}
+          onSecChange={onSecChange}
+          hour={hour}
+          min={min}
+          sec={sec}
+        />
+        <Button
+          width='30%'
+          size='large'
+          onClick={handleButtonStart}
+          disabled={!hour && !min && !sec}
+        >
+          공부 시작
+        </Button>
 
-      <Button
-        width='30%'
-        size='large'
-        onClick={handleButtonPause}
-        disabled={!hour && !min && !sec}
-      >
-        정지
-      </Button>
+        <Button
+          width='30%'
+          size='large'
+          onClick={handleButtonPause}
+          disabled={!hour && !min && !sec}
+        >
+          정지
+        </Button>
 
-      <Button
-        width='30%'
-        size='large'
-        onClick={handleReset}
-        disabled={!hour && !min && !sec}
-      >
-        리셋
-      </Button>
-      <Img src={titleLogo} width='80px' alt='타이틀 로고' />
-    </TimerWrapper>
+        <Button
+          width='30%'
+          size='large'
+          onClick={handleReset}
+          disabled={!hour && !min && !sec}
+        >
+          리셋
+        </Button>
+        <Img src={titleLogo} width='80px' alt='타이틀 로고' />
+      </TimerWrapper>
+    </>
   );
 };
 
