@@ -21,6 +21,7 @@ const HomeTemplate = ({ onClickCategory, isLoading }) => {
           {!isLoading && (
             <>
               <CategoryButtonBox onClickCategory={onClickCategory} />
+              <SearchMap />
               <PostMenu postPath='/category/post' />
               <SearchMap />
             </>
