@@ -23,7 +23,6 @@ const HomeTemplate = ({ onClickCategory, isLoading }) => {
               <CategoryButtonBox onClickCategory={onClickCategory} />
               <SearchMap />
               <PostMenu postPath='/category/post' />
-              <SearchMap />
             </>
           )}
           {isLoading && <LoadingSpinner />}
