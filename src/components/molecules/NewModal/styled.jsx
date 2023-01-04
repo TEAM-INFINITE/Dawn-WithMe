@@ -65,12 +65,14 @@ export const NewModalBox = styled.div`
             font-size: ${theme.fontSizes.base};
             line-height: 18px;
           }
-
-          &:hover {
-            &:last-child {
+          &:last-child:hover {
+            button {
               color: ${theme.colors.colorMain};
             }
-            &:first-child {
+          }
+
+          &:first-child:hover {
+            button {
               color: ${theme.colors.colorWarning};
             }
           }
