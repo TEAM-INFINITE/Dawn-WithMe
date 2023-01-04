@@ -1,3 +1,24 @@
+### 📌 목차
+
+[🔗 배포 링크](#🔗_배포_링크)
+
+[👨‍👩‍👧‍👦 팀원 소개](#👨‍👩‍👧‍👦_팀원_소개)
+
+[💻 역할 분담](#👩🏻‍💻_역할_분담)
+
+[📁 폴더 구조](#📁_폴더_구조)
+
+[⚙️ 기술 및 개발환경](#⚙️_기술_및_개발환경)
+  * [Git Flow](#git-flow)
+  * [컨벤션](#컨벤션)
+
+[🖥 기능 시연](#🖥_기능_시연)
+
+[🔥 개발_기간](#🔥_개발_기간)
+
+
+
+
 ![ㅋㅋㅋ](https://user-images.githubusercontent.com/100748721/204194115-695a34c9-00e8-492e-87e5-f99ca1f34c5d.jpg)
 
 ## 새벽 공부 하는 사람들을 위한 공간, Dawn, With Me? 🌙
@@ -59,9 +80,16 @@
 
 #### 안정음
 
-- 자유게시판 페이지, 자유게시판 게시글 업로드 페이지, 유저 검색 페이지
-- 또 뭐했더라 기억이 안나요
-- 메인 캐릭터&로고 디자인
+- 자유 게시판 페이지
+  - 팔로워가 올린 게시물 목록 기능 구현
+  - 게시물 상세 페이지 기능 구현
+  - 게시물 생성, 수정, 삭제, 신고 기능 구현
+  - 댓글 입력, 삭제, 신고 기능 구현
+- 유저 검색 페이지
+  - 유저 검색 기능 구현
+- 디자인
+  - 메인 캐릭터 디자인
+  - 로고 디자인
 
 #### 유윤우 (**👑 프로젝트 리드**)
 
@@ -74,6 +102,16 @@
 #### 제지해
 
 -
+
+## 📁 폴더 구조
+
+### Atomic Design 패턴
+  <img width="750" alt="image" src="https://user-images.githubusercontent.com/77143425/210522116-69e7c428-9d21-4dfb-8c8d-a211d39a10bc.jpg">
+- 아토믹 디자인 패턴을 사용하여 컴포넌트 재사용을 극대화 (설명 추가 필요)
+
+```
+폴더구조 넣기
+```
 
 ## ⚙️ 기술 및 개발환경
 
@@ -88,37 +126,32 @@
   <tbody>
     <tr>
       <td>
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
+      <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/>
+      <img src="https://img.shields.io/badge/React Query-FF4154?style=flat-square&logo=React Query&logoColor=black"/>
+      <img src="https://img.shields.io/badge/Recoil-0075EB?style=flat-square&"/>
+      <img src="https://img.shields.io/badge/styled components-DB7093?style=flat-square&logo=styled components&logoColor=ffffff"/>
       </td>
       <td>부트캠프를 통해 제공 받은 API 사용</td>
       <td>
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
+      <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=ffffff"/>
+      <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=ffffff"/>
+      <img src="https://img.shields.io/badge/Discord-5865F2?style=flat-square&logo=Discord&logoColor=ffffff"/>
+      <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=ffffff"/>
       </td>
     </tr>
   </tbody>
 </table>
 
-### Atomic Design 패턴
-
-- 이걸 여기에 넣어도 되는건감
-- 근데 이게 되게 좋은 평가를 코드리뷰 때 받았었기 때문에 여기를 잘 강조해서 적고 발표하면 좋을 것 같습니다.
-
 ### Git Flow
+  <img width="750" alt="image" src="https://user-images.githubusercontent.com/77143425/210522145-d358a45b-578e-46fe-ac3a-a5237728f883.jpg">
 
-- main :
-- develop :
-- Feature :
+설명 필요
 
 ### 컨벤션
 
-- 노션
 - 커밋메시지 컨벤션
+<img width="750" alt="image" src="https://user-images.githubusercontent.com/77143425/210523777-9e1f1bcd-7bf2-46f8-b9d3-08fa568cd60e.jpg">
+
 - 깃허브 이슈, pr 템플릿 사용
 
 ## 🖥 각 페이지 별 기능 시연
@@ -158,12 +191,6 @@
 |                                                            <img width="390px;" src="https://user-images.githubusercontent.com/89337955/154147633-4842d449-544d-4268-b3ef-361a031bb964.gif">                                                            |                                                            <img width="390px;" src="https://user-images.githubusercontent.com/89337955/154154506-7f492ae0-31cd-4da3-bf11-43a3b1608306.gif">                                                            |                                                         <img width="390px;" src="https://user-images.githubusercontent.com/89337955/154154506-7f492ae0-31cd-4da3-bf11-43a3b1608306.gif">                                                          |
 | 🔗[팔로워 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80) | 🔗[팔로잉 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80) | 🔗[로그아웃](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80) |
 |                                                            <img width="390px;" src="https://user-images.githubusercontent.com/89337955/154155295-5c75bcb8-82cd-4b9b-930d-fb380e5b8218.gif">                                                            |                                                            <img width="390px;" src="https://user-images.githubusercontent.com/89337955/155849036-8466debe-7267-454b-8f4b-4f74b1eac7be.gif">                                                            |                                                         <img width="390px;" src="https://user-images.githubusercontent.com/89337955/155849036-8466debe-7267-454b-8f4b-4f74b1eac7be.gif">                                                          |
-
-## 📁 폴더 구조
-
-```
-...
-```
 
 ## 🔥 개발 기간
 
