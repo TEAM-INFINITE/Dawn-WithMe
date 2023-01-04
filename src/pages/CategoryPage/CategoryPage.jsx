@@ -53,8 +53,11 @@ const CategoryPage = () => {
   const onClickModalListHandler = (text) => {
     setAlertText(text);
 
-    if (text === '수정') navigate(`/category/edit/${modalValue}`);
-    else if (text === '삭제') setIsAlert(true);
+    if (text === '수정') {
+      setIsModal(false);
+      setIsAlert(false);
+      navigate(`/category/edit/${modalValue}`);
+    } else if (text === '삭제') setIsAlert(true);
   };
 
   return (
