@@ -20,6 +20,13 @@ const FeedContWrapper = styled.div`
         max-height: 250px;
         object-fit: cover;
       }
+
+      .feeddetailImg {
+        border-radius: 10px;
+        width: 514px;
+        max-height: 250px;
+        object-fit: contain;
+      }
     `;
   }}
 `;

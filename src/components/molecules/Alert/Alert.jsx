@@ -15,6 +15,7 @@ const Alert = ({
   commentId,
 }) => {
   const navigate = useNavigate();
+
   // 로그아웃
   const removeInfo = () => {
     window.localStorage.removeItem('token');
@@ -22,7 +23,7 @@ const Alert = ({
     navigate('/');
   };
 
-  function onClickDeleteBtn() {
+  const onClickDeleteBtn = () => {
     // 내 댓글 삭제
     if (type === 'comment' && rightBtnText === '삭제') {
       onClickDeleteComment(postId, commentId);
@@ -37,6 +38,8 @@ const Alert = ({
     // 피드 게시글 삭제
     if (type === 'feedpost' && rightBtnText === '삭제') {
       onClickDeletePost(postId);
+      onClose();
+      navigate(`/myprofile`);
     }
 
     // 피드 게시글 신고
@@ -44,9 +47,7 @@ const Alert = ({
       onClickReportPost(postId);
       onClose();
     }
-
-    // 채팅방 나가기
-  }
+  };
 
   return (
     <OpacityBg>
