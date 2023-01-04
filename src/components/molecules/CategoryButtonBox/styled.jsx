@@ -20,12 +20,6 @@ const CategoryBoxWrapper = styled.div`
     &:nth-child(3) {
       background: url(${tipsImg});
     }
-    &:nth-child(4) {
-      background: url(${mapImg});
-      height: 300px;
-      background-size: cover;
-      background-position: center;
-    }
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
