@@ -3,14 +3,15 @@ import styled, { css } from 'styled-components';
 const FollowItemWrapper = styled.li`
   display: flex;
   align-items: center;
+  margin-bottom: 16px;
+  &:last-child {
+    margin-bottom: 0;
+  }
   a {
     width: 100%;
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
-    &:last-child {
-      margin-bottom: 0;
-    }
+
     ${({ theme }) => {
       return css`
         color: ${theme.colors.colorWhite};

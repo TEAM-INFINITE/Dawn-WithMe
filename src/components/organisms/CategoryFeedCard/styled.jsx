@@ -18,8 +18,13 @@ export const CategoryTextWrapper = styled.div`
         font-size: ${theme.fontSizes.small};
       }
 
-      > p {
+      > span {
+        display: block;
         margin-top: 20px;
+      }
+      img {
+        max-height: 300px;
+        object-fit: cover;
       }
     `;
   }}

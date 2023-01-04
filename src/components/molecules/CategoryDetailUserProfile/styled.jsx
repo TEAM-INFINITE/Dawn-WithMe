@@ -8,9 +8,22 @@ const CategoryDetailUserProfileWrapper = styled.div`
   .profile-btn {
     display: flex;
     align-items: center;
+
     img {
       margin-right: 13px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: fill;
     }
+  }
+  a {
+    &:nth-child(1) {
+      margin-right: auto;
+    }
+  }
+  button {
+    height: 18px;
   }
 
   > div {
