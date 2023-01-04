@@ -18,12 +18,10 @@ const HomeTemplate = ({ onClickCategory, isLoading }) => {
       </HeaderWrapper>
       <MainWrapper>
         <HomeTemplateWrapper>
-          <CategoryButtonBox onClickCategory={onClickCategory} />
-          <SearchMap />
-          <PostMenu postPath='/category/post' />
           {!isLoading && (
             <>
               <CategoryButtonBox onClickCategory={onClickCategory} />
+              <SearchMap />
               <PostMenu postPath='/category/post' />
             </>
           )}
