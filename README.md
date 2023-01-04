@@ -9,15 +9,13 @@
 [📁 폴더 구조](#📁_폴더_구조)
 
 [⚙️ 기술 및 개발환경](#⚙️_기술_및_개발환경)
-  * [Git Flow](#git-flow)
-  * [컨벤션](#컨벤션)
+
+- [Git Flow](#git-flow)
+- [컨벤션](#컨벤션)
 
 [🖥 기능 시연](#🖥_기능_시연)
 
-[🔥 개발_기간](#🔥_개발_기간)
-
-
-
+[🔥 개발\_기간](#🔥_개발_기간)
 
 ![ㅋㅋㅋ](https://user-images.githubusercontent.com/100748721/204194115-695a34c9-00e8-492e-87e5-f99ca1f34c5d.jpg)
 
@@ -136,6 +134,7 @@
 - GlobalStyled 이용한 전역 스타일 관리
 - theme Provider를 이용하여 유지보수 시 스타일 변경점 고려
 - 프로젝트 배포 & 관리 (예정)
+
 #### 이재호
 
 -
@@ -147,6 +146,7 @@
 ## 📁 폴더 구조
 
 ### Atomic Design 패턴
+
   <img width="750" alt="image" src="https://user-images.githubusercontent.com/77143425/210522116-69e7c428-9d21-4dfb-8c8d-a211d39a10bc.jpg">
 - 아토믹 디자인 패턴을 사용하여 컴포넌트 재사용을 극대화 (설명 추가 필요)
 
@@ -184,6 +184,7 @@
 </table>
 
 ### Git Flow
+
   <img width="750" alt="image" src="https://user-images.githubusercontent.com/77143425/210522145-d358a45b-578e-46fe-ac3a-a5237728f883.jpg">
 
 설명 필요
@@ -191,7 +192,7 @@
 ### 컨벤션
 
 - 커밋메시지 컨벤션
-<img width="750" alt="image" src="https://user-images.githubusercontent.com/77143425/210523777-9e1f1bcd-7bf2-46f8-b9d3-08fa568cd60e.jpg">
+  <img width="750" alt="image" src="https://user-images.githubusercontent.com/77143425/210523777-9e1f1bcd-7bf2-46f8-b9d3-08fa568cd60e.jpg">
 
 - 깃허브 이슈, pr 템플릿 사용
 
