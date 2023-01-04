@@ -32,7 +32,7 @@ const EditProfilePage = () => {
     },
   });
 
-  const profileUpdateMutation = useMutation(updateMyProfile, {
+  const updateProfileMutation = useMutation(updateMyProfile, {
     onSuccess(resData) {
       console.log(resData);
       if (resData.message === '잘못된 접근입니다.') {
@@ -97,7 +97,7 @@ const EditProfilePage = () => {
   const onClickSubmitHandler = (event) => {
     event.preventDefault();
 
-    profileUpdateMutation.mutate({ user: { ...profileData } });
+    updateProfileMutation.mutate({ user: { ...profileData } });
   };
 
   return (

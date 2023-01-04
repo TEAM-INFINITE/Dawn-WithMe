@@ -23,6 +23,7 @@ import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import NotAuthRoutes from './router/NotAuthRoutes';
 import PrivateRoute from './router/PrivateRoute';
+import CategoryEditPage from './pages/CategoryPage/CategoryEditPage';
 import FeedUploadPage from './pages/FeedUploadPage/FeedUploadPage';
 import EditFeedPage from './pages/EditFeedPage/EditFeedPage';
 
@@ -30,7 +31,6 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1,
-      staleTime: 2000,
       refetchOnWindowFocus: false,
     },
   },
@@ -66,6 +66,7 @@ const App = () => {
               element={<CategoryDetailPage />}
             />
             <Route path='/category/post' element={<CategoryPostPage />} />
+            <Route path='/category/edit/:id' element={<CategoryEditPage />} />
             <Route path='/timer' element={<TimerPage />} />
             <Route path='/chat' element={<ChatPage />} />
             <Route path='/chatdetail' element={<ChatDetailPage />} />
