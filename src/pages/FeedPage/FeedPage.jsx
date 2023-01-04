@@ -6,6 +6,8 @@ import postPostReport from '../../api/feed/postPostReport';
 import FeedTemplate from '../../components/template/FeedTemplate/FeedTemplate';
 
 const FeedPage = () => {
+  const [postList, setPostList] = useState([]);
+
   // 내가 팔로우한 사용자의 게시물 불러오기
   const {
     data: followpostdata,
@@ -14,7 +16,6 @@ const FeedPage = () => {
   } = useQuery('feed', getFollowFeed);
 
   // 게시물 삭제
-  const [postList, setPostList] = useState([]);
   const deletePostMutation = useMutation(deletePost, {
     onSuccess(data) {
       console.log(data);
@@ -31,6 +32,7 @@ const FeedPage = () => {
   const reportPostMutation = useMutation(postPostReport, {
     onSuccess(data) {
       console.log(data);
+      alert('신고 되었습니다!');
     },
     onError(err) {
       console.log(err);
