@@ -17,20 +17,21 @@ const ChatUserTemplate = ({
     <>
       <HeaderWrapper>
         <TopNavBar cont='back' text='text' more>
-          김부엉
+          윤카우
         </TopNavBar>
       </HeaderWrapper>
       <MainWrapper>
         <ChatUserWrapper>
-          <YouBubbleCard time='12:39'>
-            부엉부엉부엉부엉부엉부엉부엉부엉 부어어어어어어엉이
-            부엉부엉부엉부엉부엉
+          <IBubbleCard time='12:05'>윤카우님, 안녕하세요!</IBubbleCard>
+          <IBubbleCard time='12:05'>스터디 참여하고 싶부엉요😲</IBubbleCard>
+          <YouBubbleCard time='12:07'>
+            안녕하세요 김부엉쓰님 오랜만입니다~ 오늘은 공부 몇시간 계획하셨나요?
           </YouBubbleCard>
-          <YouBubbleCard time='12:40'>안녕하세요! 김부엉입니다.</YouBubbleCard>
-          <YouBubbleCard time='12:40'>우리 같이 공부해요 😀</YouBubbleCard>
-          <IBubbleCard time='12:53'>
-            김부엉님, 안녕하세요~ 함께 공부해요!
-          </IBubbleCard>
+          <IBubbleCard time='12:08'>3시간 달려보고싶부엉요!!</IBubbleCard>
+          <YouBubbleCard time='12:09'>
+            네🙂 김부엉쓰님 화이팅입니다~ 공부하시고 나서, 타이머 인증
+            부탁드립니다.
+          </YouBubbleCard>
           <Img
             className='set-image-bubble'
             src={imgBoard}

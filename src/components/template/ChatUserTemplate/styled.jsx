@@ -18,8 +18,8 @@ const ChatUserWrapper = styled.section`
 
   .set-image-bubble {
     border-radius: 10px;
-    align-self: flex-end;
-    margin-bottom: 10px;
+    align-self: flex-start;
+    margin: 0 0 10px 52px;
   }
 `;
 

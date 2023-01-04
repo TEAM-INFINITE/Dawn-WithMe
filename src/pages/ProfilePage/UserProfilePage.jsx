@@ -15,7 +15,6 @@ const UserProfilePage = () => {
   const [followCount, setFollowerCount] = useState();
   const [category, setCategory] = useState('study');
   const [postShowType, setPostShowType] = useState('list');
-
   const { data: profileData, isLoading: isProfileLoading } = useQuery(
     ['userProfile', accountname],
     () => getUserProfile(accountname),
@@ -27,17 +26,16 @@ const UserProfilePage = () => {
       },
     },
   );
-
   const { data: categoryPostData, isLoading: isCategoryLoading } = useQuery(
     'categoryPost',
     () => getUserProduct(profileData.profile.accountname),
     { enabled: !!profileData },
   );
-
   const { data: feedData, isLoading: isfeedLoading } = useQuery(
     ['feedData', accountname],
     () => getUserFeedData(accountname),
   );
+  const isLoading = isProfileLoading || isCategoryLoading || isfeedLoading;
 
   const addFollowMutation = useMutation(addFollow, {
     onSuccess(resData) {
@@ -73,12 +71,7 @@ const UserProfilePage = () => {
     setPostShowType(type);
   };
 
-  if (isProfileLoading) return <p>로딩 중</p>;
-  if (isCategoryLoading) return <p>로딩 중</p>;
-  if (isfeedLoading) return <p>로딩 중</p>;
-
-  const { post } = feedData;
-  const selectCategoryData = categoryPostData.product.filter(
+  const selectCategoryData = categoryPostData?.product.filter(
     (el) => el.itemName === category,
   );
 
@@ -87,12 +80,13 @@ const UserProfilePage = () => {
       profileData={profileData}
       isFollow={isFollow}
       followCount={followCount}
-      postData={post}
+      postData={feedData}
       onClickFollowToggle={onClickFollowToggle}
       onChangeSelectBoxHandler={onChangeSelectBoxHandler}
       onClickShowTypeChange={onClickShowTypeChange}
       selectCategoryData={selectCategoryData}
       postShowType={postShowType}
+      isLoading={isLoading}
     />
   );
 };

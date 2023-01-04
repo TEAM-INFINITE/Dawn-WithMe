@@ -8,6 +8,7 @@ import searchIcon from '../../../assets/images/icon-search.png';
 import Modal from '../Modal/Modal';
 import Alert from '../Alert/Alert';
 import Button from '../../atoms/Button/Button';
+import TextFiled from '../../atoms/Input/TextFiled/TextFiled';
 
 const TopNavBar = ({
   children,
@@ -16,10 +17,12 @@ const TopNavBar = ({
   more,
   search,
   clickbtn,
+  usersearch,
   disabled,
   size,
   width,
   text,
+  onChangeSearch,
 }) => {
   // 모달창 열리고 닫히는
   const [onModal, setOnModal] = useState(false);
@@ -28,7 +31,7 @@ const TopNavBar = ({
   // 모달 내용
   const modalObj = [];
   const pathName = useLocation().pathname;
-  console.log(pathName);
+
   if (pathName.includes('chatdetail')) {
     modalObj.push({
       text: { '채팅방 나가기': '/chat' },
@@ -53,13 +56,13 @@ const TopNavBar = ({
         )}
         {text === 'text' && <h2>{children}</h2>}
         {search && (
-          <button className='search' type='button' onClick={onClick}>
+          <Link to='/search' className='search'>
             <Img src={searchIcon} alt='검색' width='24px' />
-          </button>
+          </Link>
         )}
         {more && (
           <button
-            className='search'
+            className='more'
             type='button'
             onClick={() => {
               setOnModal((prev) => !prev);
@@ -77,6 +80,9 @@ const TopNavBar = ({
           >
             {children}
           </Button>
+        )}
+        {usersearch && (
+          <TextFiled placeholder='유저 검색' onChange={onChangeSearch} />
         )}
       </TopNavBarWarpper>
       {onModal && (

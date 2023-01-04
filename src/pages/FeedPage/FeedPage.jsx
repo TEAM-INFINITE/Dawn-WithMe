@@ -36,11 +36,8 @@ const FeedPage = () => {
       console.log(err);
     },
   });
-  if (isLoading) return <p>로딩 중...</p>;
-  if (isError) return <p>에러 발생!</p>;
 
-  console.log(followpostdata);
-  const { posts } = followpostdata;
+  if (isError) return <p>에러 발생!</p>;
 
   const onClickDeletePost = (postId) => {
     deletePostMutation.mutate({ postId });
@@ -52,9 +49,10 @@ const FeedPage = () => {
 
   return (
     <FeedTemplate
-      posts={posts}
+      posts={followpostdata?.posts}
       onClickDeletePost={onClickDeletePost}
       onClickReportPost={onClickReportPost}
+      isLoading={isLoading}
     />
   );
 };

@@ -14,7 +14,6 @@ import deleteLiked from '../../../api/feed/deleteLiked';
 const FeedCard = ({
   data,
   commentList,
-  feedId,
   postId,
   onClickDeletePost,
   onClickReportPost,
@@ -55,14 +54,13 @@ const FeedCard = ({
     <FreePostWrap>
       <UserProfileMore
         data={data}
-        feedId={feedId}
         postId={postId}
         onClickDeletePost={onClickDeletePost}
         onClickReportPost={onClickReportPost}
       />
       <TextWrap>
         {/* 자유게시판 상세페이지로 이동 */}
-        <FeedCont src={data.image.split(', ')[0]} data={data}>
+        <FeedCont src={data.image && data.image.split(',')} data={data}>
           {data.content}
         </FeedCont>
         <FeedMoreIconWrap>
@@ -77,9 +75,9 @@ const FeedCard = ({
               src={MessageIcon}
               alt='댓글'
               count={
-                location.pathname === '/feed' || '/myprofile'
-                  ? data.commentCount
-                  : commentList.length
+                location.pathname.includes('feeddetail')
+                  ? commentList.length
+                  : data.commentCount
               }
             />
           </Link>

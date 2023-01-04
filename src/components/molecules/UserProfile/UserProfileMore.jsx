@@ -11,7 +11,6 @@ const UserProfileMore = ({
   data,
   onClickDeletePost,
   onClickReportPost,
-  feedId,
   postId,
 }) => {
   const myAccountName = localStorage.getItem('accountname');
@@ -81,7 +80,6 @@ const UserProfileMore = ({
           setOnModal={setOnModal}
           onClickDeletePost={onClickDeletePost}
           onClickReportPost={onClickReportPost}
-          feedId={feedId}
           postId={postId}
         />
       )}

@@ -20,7 +20,7 @@ module.exports = {
   },
   plugins: ['react', 'prettier'],
   rules: {
-    'import/no-unresolved': [2, { caseSensitive: false }],
+    'import/no-unresolved': 'off',
     'react/jsx-boolean-value': 0,
     'no-param-reassign': 0,
     'react/prop-types': 'off',
@@ -28,6 +28,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-unused-vars': 'warn',
     // 'consistent-return': ['error', { treatUndefinedAsUnspecified: false }],
+    'react/jsx-props-no-spreading': ['warn'],
     'react/jsx-filename-extension': [
       'error',
       {

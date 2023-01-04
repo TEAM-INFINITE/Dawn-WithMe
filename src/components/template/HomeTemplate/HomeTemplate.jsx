@@ -2,12 +2,13 @@ import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import CategoryButtonBox from '../../molecules/CategoryButtonBox/CategoryButtonBox';
 import SearchMap from '../../organisms/CategoryMapCard/SearchMap/SearchMap';
+import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
 import PostMenu from '../../molecules/PostMenu/PostMenu';
 import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import HomeTemplateWrapper from './styled';
 
-const HomeTemplate = ({ onClickCategory }) => {
+const HomeTemplate = ({ onClickCategory, isLoading }) => {
   return (
     <>
       <HeaderWrapper>
@@ -20,6 +21,13 @@ const HomeTemplate = ({ onClickCategory }) => {
           <CategoryButtonBox onClickCategory={onClickCategory} />
           <SearchMap />
           <PostMenu postPath='/category/post' />
+          {!isLoading && (
+            <>
+              <CategoryButtonBox onClickCategory={onClickCategory} />
+              <PostMenu postPath='/category/post' />
+            </>
+          )}
+          {isLoading && <LoadingSpinner />}
         </HomeTemplateWrapper>
         <TabMenu />
       </MainWrapper>
