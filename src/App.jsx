@@ -24,6 +24,7 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import NotAuthRoutes from './router/NotAuthRoutes';
 import PrivateRoute from './router/PrivateRoute';
 import CategoryEditPage from './pages/CategoryPage/CategoryEditPage';
+import FeedUploadPage from './pages/FeedUploadPage/FeedUploadPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -76,6 +77,7 @@ const App = () => {
             <Route path='/search' element={<SearchPage />} />
           </Route>
           <Route path='*' element={<NotFoundPage />} />
+          <Route path='/feed/upload' element={<FeedUploadPage />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>

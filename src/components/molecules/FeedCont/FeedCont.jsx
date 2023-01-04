@@ -7,16 +7,18 @@ const FeedCont = ({ children, src, data }) => {
     <FeedContWrapper>
       <Link to={`/feeddetail/${data.id}`}>
         <p>{children}</p>
-        {data.image &&
-          src.map((item) => (
-            <Img
-              key={item}
-              src={item}
-              alt='게시판 사진'
-              width='100%'
-              className='feedImg'
-            />
-          ))}
+        <div className='imgwrapper'>
+          {data.image &&
+            src.map((item) => (
+              <Img
+                key={item}
+                src={item}
+                alt='게시판 사진'
+                width='100%'
+                className='feedImg'
+              />
+            ))}
+        </div>
       </Link>
     </FeedContWrapper>
   );

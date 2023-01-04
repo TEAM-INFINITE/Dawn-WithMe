@@ -29,7 +29,8 @@ const TopNavBarWarpper = styled.nav`
       }
       
       input {
-        margin-left: 20px;
+        height: 32px;
+        margin: -4px 0 -4px 20px;
         padding: 7px 16px;
         border-radius: 32px;
         border: 1px solid ${theme.colors.colorBorder};
