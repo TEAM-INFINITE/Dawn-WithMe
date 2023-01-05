@@ -4,6 +4,7 @@ import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
+import PostMenu from '../../molecules/PostMenu/PostMenu';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
 
 const FeedTemplate = ({
@@ -39,6 +40,7 @@ const FeedTemplate = ({
           )}
           {isLoading && <LoadingSpinner />}
         </FeedWrapper>
+        <PostMenu postPath='/feed/upload' />
         <TabMenu />
       </MainWrapper>
     </>

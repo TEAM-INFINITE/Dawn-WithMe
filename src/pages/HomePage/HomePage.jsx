@@ -7,12 +7,14 @@ import HomeTemplate from '../../components/template/HomeTemplate/HomeTemplate';
 const HomePage = () => {
   const accountName = localStorage.getItem('accountname');
   const navigate = useNavigate();
+
   const {
     data,
     isLoading: isFollowingListLoading,
     isError: isFollowingListError,
   } = useQuery('followingList', () => getFollowingList(accountName), {});
   const followingList = data?.map((user) => user.accountname);
+
   const {
     data: categoryPostData,
     isLoading: isFollowingProductListLoading,
@@ -24,6 +26,7 @@ const HomePage = () => {
       enabled: !!followingList,
     },
   );
+
   const isLoading = isFollowingListLoading || isFollowingProductListLoading;
 
   if (isError) return <p>에러 발생!</p>;

@@ -5,6 +5,7 @@ const MainWrapper = styled.main`
   height: calc(100vh - 49px);
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
 `;
 
 export default MainWrapper;

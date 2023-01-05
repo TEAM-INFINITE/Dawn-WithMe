@@ -20,7 +20,7 @@ module.exports = {
   },
   plugins: ['react', 'prettier'],
   rules: {
-    'import/no-unresolved': [2, { caseSensitive: false }],
+    'import/no-unresolved': 'off',
     'react/jsx-boolean-value': 0,
     'no-param-reassign': 0,
     'react/prop-types': 'off',

@@ -5,6 +5,12 @@ const GlobalStyled = createGlobalStyle`
 
   ${reset}
 
+  #root{
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+
   button{
     background: inherit;
     border:none;

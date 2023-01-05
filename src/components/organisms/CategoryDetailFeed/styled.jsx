@@ -1,12 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const CategoryDetailFeedWrapper = styled.div`
-  margin-bottom: 20px;
-  padding: 16px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-
+  padding: 16px 16px 90px 16px;
   ${({ theme }) => {
     return css`
       .title,
@@ -19,17 +14,22 @@ const CategoryDetailFeedWrapper = styled.div`
         &:nth-child(4) {
           text-align: right;
         }
+
+        > span {
+          color: ${theme.colors.colorMain};
+        }
       }
 
-      span {
-        color: ${theme.colors.colorMain};
-      }
       .people,
       .date {
         margin-top: 20px;
       }
-
+      img {
+        max-height: 500px;
+        object-fit: contain;
+      }
       .date {
+        display: block;
         color: ${theme.colors.colorBorder};
         font-size: ${theme.fontSizes.small};
       }

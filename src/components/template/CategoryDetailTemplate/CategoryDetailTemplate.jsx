@@ -1,12 +1,25 @@
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
+import NewAlertModal from '../../molecules/NewAlertModal/NewAlertModal';
+import NewModal from '../../molecules/NewModal/NewModal';
 import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import CategoryDetailFeed from '../../organisms/CategoryDetailFeed/CategoryDetailFeed';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import CategoryDetailTemplateWrapper from './styled';
 
-const CategoryDetailTemplate = ({ detailData, isLoading }) => {
+const CategoryDetailTemplate = ({
+  detailData,
+  isLoading,
+  isModal,
+  isAlert,
+  setIsModal,
+  onClickMoreHandler,
+  onClickModalListHandler,
+  onClickAlertEventHandler,
+  textArray,
+  alertText,
+}) => {
   return (
     <>
       <HeaderWrapper>
@@ -14,11 +27,30 @@ const CategoryDetailTemplate = ({ detailData, isLoading }) => {
       </HeaderWrapper>
       <MainWrapper>
         <CategoryDetailTemplateWrapper>
-          {!isLoading && <CategoryDetailFeed data={detailData} />}
+          {!isLoading && (
+            <CategoryDetailFeed
+              data={detailData}
+              onClickMoreHandler={onClickMoreHandler}
+            />
+          )}
           {isLoading && <LoadingSpinner />}
         </CategoryDetailTemplateWrapper>
         <TabMenu />
       </MainWrapper>
+      {isModal && (
+        <NewModal
+          isModal={isModal}
+          setIsModal={setIsModal}
+          textArray={textArray}
+          onClickModalListHandler={onClickModalListHandler}
+        />
+      )}
+      {isAlert && (
+        <NewAlertModal
+          alertText={alertText}
+          onClickAlertEventHandler={onClickAlertEventHandler}
+        />
+      )}
     </>
   );
 };

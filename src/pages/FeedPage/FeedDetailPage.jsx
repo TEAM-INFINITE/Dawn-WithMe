@@ -6,7 +6,7 @@ import getCommentList from '../../api/comment/getCommentList';
 import postCommentReport from '../../api/comment/postCommentReport';
 import postCommentWrite from '../../api/comment/postCommentWrite';
 import deletePost from '../../api/feed/deletePost';
-import getFollowFeedDeatail from '../../api/feed/getFollowFeedDetail';
+import getFeedDetail from '../../api/feed/getFeedDetail';
 import postPostReport from '../../api/feed/postPostReport';
 import getUserInfo from '../../api/user/getUserInfo';
 import FeedDetailTemplate from '../../components/template/FeedTemplate/FeedDetailTemplate';
@@ -31,7 +31,7 @@ const FeedDetailPage = () => {
     isLoading: isPostLoading,
     isError,
   } = useQuery(['detailfeed', id], () => {
-    return getFollowFeedDeatail(id);
+    return getFeedDetail(id);
   });
 
   // 댓글 리스트
@@ -49,6 +49,7 @@ const FeedDetailPage = () => {
   );
   const isLoading = isProfileDataLoading || isPostLoading || isCommentLoading;
 
+  // 게시물 삭제
   const deletePostMutation = useMutation(deletePost, {
     onSuccess(data) {
       console.log(data);
@@ -65,6 +66,7 @@ const FeedDetailPage = () => {
   const reportPostMutation = useMutation(postPostReport, {
     onSuccess(data) {
       console.log(data);
+      alert('신고 되었습니다!');
     },
     onError(err) {
       console.log(err);
@@ -132,9 +134,8 @@ const FeedDetailPage = () => {
   const onClickReportComment = (postId, commentId) => {
     reportCommentMutation.mutate({ postId, commentId });
   };
-  console.log(postdata);
-  if (isError) return <p>에러 발생!</p>;
 
+  if (isError) return <p>에러 발생!</p>;
   return (
     <FeedDetailTemplate
       onChangeInputHandler={onChangeInputHandler}

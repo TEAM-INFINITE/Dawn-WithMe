@@ -5,6 +5,7 @@ const CategoryDetailTemplateWrapper = styled.section`
   height: 100%;
   margin: 0 auto;
   position: relative;
+  overflow: auto;
 
   ${({ theme }) => {
     return css`
