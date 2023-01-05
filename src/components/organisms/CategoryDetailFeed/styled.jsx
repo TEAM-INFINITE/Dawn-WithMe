@@ -1,9 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const CategoryDetailFeedWrapper = styled.div`
-  margin-bottom: 90px;
-  padding: 16px;
-
+  padding: 16px 16px 90px 16px;
   ${({ theme }) => {
     return css`
       .title,
@@ -27,7 +25,7 @@ const CategoryDetailFeedWrapper = styled.div`
         margin-top: 20px;
       }
       img {
-        max-height: 600px;
+        max-height: 500px;
         object-fit: contain;
       }
       .date {
