@@ -17,7 +17,8 @@
 
 [🔥 개발\_기간](#🔥_개발_기간)
 
-![ㅋㅋㅋ](https://user-images.githubusercontent.com/100748721/204194115-695a34c9-00e8-492e-87e5-f99ca1f34c5d.jpg)
+![DawnWithMe-Banner](https://user-images.githubusercontent.com/99248204/210717988-e2d45592-ce48-475b-8f7b-1351d8a3a4a3.jpg)
+
 
 ## 새벽 공부 하는 사람들을 위한 공간, Dawn, With Me? 🌙
 
