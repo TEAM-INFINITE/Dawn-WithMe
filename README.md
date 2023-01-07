@@ -1,21 +1,19 @@
 ### 📌 목차
 
-[🔗 배포 링크](#배포-링크🔗)
+- [🔗 배포 링크](#배포-링크)
 
-[팀원 소개 👨‍👩‍👧‍👦](#팀원-소개-👨‍👩‍👧‍👦)
+- [👨‍👩‍👧‍👦 팀원 소개](#팀원-소개)
 
-[💻 역할 분담](#역할-분담-👩🏻‍💻)
+- [💻 역할 분담](#역할-분담)
 
-[📁 폴더 구조](#폴더-구조-📁)
+- [📁 폴더 구조](#폴더-구조)
 
-[⚙️ 기술 및 개발환경](#⚙️-기술-및-개발환경)
+- [⚙️ 기술 및 개발환경](#기술-및-개발환경)
+  - [Git Flow](#git-flow)
+  - [컨벤션](#컨벤션)
+- [🖥 기능 시연](#각-페이지-별-기능-시연)
 
-- [Git Flow](#git-flow)
-- [컨벤션](#컨벤션)
-
-[🖥 기능 시연](#각-페이지-별-기능-시연-🖥)
-
-[🔥 개발\_기간](#개발-기간-🔥)
+[🔥 개발_기간](#개발-기간)
 
 ![DawnWithMe-Banner](https://user-images.githubusercontent.com/99248204/210717988-e2d45592-ce48-475b-8f7b-1351d8a3a4a3.jpg)
 
@@ -29,7 +27,7 @@
 > 새벽에 혼자 하는 공부, 집중 안될 때 어떻게 하시나요?  
 > DawnWithMe에서 새벽반 사람들과 공부 꿀팁과 공부할 때 듣기 좋은 노래를 공유하고 스터디 매칭을 해보세요!
 
-### [배포 링크🔗](https://www.naver.com)
+### [배포 링크](https://www.naver.com)
 
 링크 변경해야합니다.
 
@@ -38,7 +36,7 @@
 - ID :
 - PW :
 
-## 팀원 소개 👨‍👩‍👧‍👦
+## 팀원 소개
 
 <table>
   <thead>
@@ -75,7 +73,7 @@
   </tbody>
 </table>
 
-## 역할 분담 👩🏻‍💻
+## 역할 분담
 
 #### 안정음
 
@@ -153,7 +151,7 @@
 - 스플래쉬 구현
 - 채팅 레이아웃 
 
-## 폴더 구조 📁
+## 폴더 구조
 
 ### Atomic Design 패턴
 
@@ -164,7 +162,7 @@
 폴더구조 넣기
 ```
 
-## 기술 및 개발환경 ⚙️
+## 기술 및 개발환경
 
 <table>
   <thead>
@@ -206,7 +204,7 @@
 
 - 깃허브 이슈, pr 템플릿 사용
 
-## 각 페이지 별 기능 시연 🖥
+## 각 페이지 별 기능 시연
 
 ### 1) 시작화면
 
@@ -244,6 +242,6 @@
 | 🔗[팔로워 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80) | 🔗[팔로잉 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80) | 🔗[로그아웃](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80) |
 |                                                            <img width="390px;" src="https://user-images.githubusercontent.com/89337955/154155295-5c75bcb8-82cd-4b9b-930d-fb380e5b8218.gif">                                                            |                                                            <img width="390px;" src="https://user-images.githubusercontent.com/89337955/155849036-8466debe-7267-454b-8f4b-4f74b1eac7be.gif">                                                            |                                                         <img width="390px;" src="https://user-images.githubusercontent.com/89337955/155849036-8466debe-7267-454b-8f4b-4f74b1eac7be.gif">                                                          |
 
-## 개발 기간 🔥
+## 개발 기간
 
 2022.11.24 ~ 진행중
