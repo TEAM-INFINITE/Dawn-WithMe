@@ -159,7 +159,36 @@
 - 아토믹 디자인 패턴을 사용하여 컴포넌트 재사용을 극대화 (설명 추가 필요)
 
 ```
-폴더구조 넣기
+📦dawn-with-me
+ ┣ 📂.github
+ ┣ 📂public
+ ┣ 📂src
+ ┃ ┣ 📂api
+ ┃ ┃ ┣ 📂 // ...해당 기능별 api 폴더 나눔
+ ┃ ┃ ┗ 📜axios-api.js // instance, interceptors 등..
+ ┃ ┣ 📂assets
+ ┃ ┃ ┣ 📂fonts
+ ┃ ┃ ┗ 📂images
+ ┃ ┣ 📂components
+ ┃ ┃ ┣ 📂atoms
+ ┃ ┃ ┣ 📂molecules
+ ┃ ┃ ┣ 📂organisms
+ ┃ ┃ ┗ 📂template
+ ┃ ┣ 📂pages
+ ┃ ┣ 📂recoil
+ ┃ ┣ 📂router
+ ┃ ┣ 📂styles
+ ┃ ┣ 📜App.jsx
+ ┃ ┣ 📜index.css
+ ┃ ┗ 📜index.jsx
+ ┣ 📜.eslintrc.js
+ ┣ 📜.gitattributes
+ ┣ 📜.gitignore
+ ┣ 📜.prettierignore
+ ┣ 📜.prettierrc.json
+ ┣ 📜README.md
+ ┣ 📜package-lock.json
+ ┗ 📜package.json
 ```
 
 ## 기술 및 개발환경
