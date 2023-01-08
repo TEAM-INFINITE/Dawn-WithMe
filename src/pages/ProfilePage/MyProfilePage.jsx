@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
-import getMyPost from '../../api/profile/getMyPost';
 import getUserProduct from '../../api/profile/getUserProduct';
 import getMyProfile from '../../api/profile/getMyProfile';
 import MyProfileTemplate from '../../components/template/MyProfileTemplate/MyProfileTemplate';
@@ -11,7 +10,7 @@ const MyProfilePage = () => {
   const myAccountName = localStorage.getItem('accountname');
   const [category, setCategory] = useState('study');
   const [postShowType, setPostShowType] = useState('list');
-  const [postList, setPostList] = useState([]);
+  const [postList, setPostList] = useState({ post: [] });
 
   const { data: profileData, isLoading: isProfileLoading } = useQuery(
     'myProfile',
@@ -24,6 +23,11 @@ const MyProfilePage = () => {
   const { data: feedData, isLoading: isfeedLoading } = useQuery(
     ['myFeed', myAccountName],
     () => getUserFeedData(myAccountName),
+    {
+      onSuccess(resData) {
+        setPostList({ post: [...resData.post] });
+      },
+    },
   );
 
   // 게시물 삭제
@@ -31,7 +35,9 @@ const MyProfilePage = () => {
     onSuccess(data) {
       console.log(data);
       if (data.data.status === '200') {
-        setPostList((prev) => [...prev].filter((item) => item.id !== data.id));
+        setPostList((prev) => {
+          return { post: [...prev.post].filter((item) => item.id !== data.id) };
+        });
       }
     },
     onError(err) {
@@ -62,7 +68,7 @@ const MyProfilePage = () => {
     <MyProfileTemplate
       profileData={profileData}
       selectCategoryData={selectCategoryData}
-      postData={feedData}
+      postData={postList}
       postShowType={postShowType}
       onClickShowTypeChange={onClickShowTypeChange}
       onChangeSelectBoxHandler={onChangeSelectBoxHandler}
