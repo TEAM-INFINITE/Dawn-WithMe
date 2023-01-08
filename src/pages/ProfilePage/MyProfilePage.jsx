@@ -20,7 +20,7 @@ const MyProfilePage = () => {
     'myCategoryPost',
     () => getUserProduct(myAccountName),
   );
-  const { data: feedData, isLoading: isfeedLoading } = useQuery(
+  const { isLoading: isfeedLoading } = useQuery(
     ['myFeed', myAccountName],
     () => getUserFeedData(myAccountName),
     {
