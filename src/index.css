@@ -42,3 +42,8 @@
   font-style: normal;
   font-display: swap;
 }
+
+.Toastify__toast-body > div:last-child {
+  white-space: pre-line;
+  line-height: 22px;
+}
