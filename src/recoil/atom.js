@@ -15,7 +15,12 @@ export const isAlertAtom = atom({
   default: false,
 });
 
-export const AlertTextAtom = atom({
+export const alertTextAtom = atom({
   key: 'AlertText',
   default: '',
+});
+
+export const isErrorAtom = atom({
+  key: 'error',
+  default: false,
 });

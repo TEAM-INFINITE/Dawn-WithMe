@@ -5,7 +5,8 @@ import { url } from '../../api/axios-api';
 import createFeedPost from '../../api/feed/createFeedPost';
 import getFeedDetail from '../../api/feed/getFeedDetail';
 import postImages from '../../api/imgUpload/postImages';
-import getUserInfo from '../../api/user/getUserInfo';
+import getMyProfile from '../../api/profile/getMyProfile';
+
 import EditFeedTemplate from '../../components/template/EditFeedTemplate/EditFeedTemplate';
 
 const EditFeedPage = () => {
@@ -28,7 +29,9 @@ const EditFeedPage = () => {
   const imgString = postImg.join(',');
 
   // 유저 정보 불러오기
-  const { data: userdata } = useQuery(['userInfo'], getUserInfo);
+  const { data: userdata } = useQuery(['userInfo'], getMyProfile, {
+    onSuccess(resData) {},
+  });
 
   // 여러개의 이미지 등록
   const imagesUploadMutation = useMutation(postImages, {

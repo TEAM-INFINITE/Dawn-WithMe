@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import deleteComment from '../../api/comment/deleteComment';
 import getCommentList from '../../api/comment/getCommentList';
 import postCommentReport from '../../api/comment/postCommentReport';
@@ -8,13 +9,16 @@ import postCommentWrite from '../../api/comment/postCommentWrite';
 import deletePost from '../../api/feed/deletePost';
 import getFeedDetail from '../../api/feed/getFeedDetail';
 import postPostReport from '../../api/feed/postPostReport';
-import getUserInfo from '../../api/user/getUserInfo';
+import getMyProfile from '../../api/profile/getMyProfile';
+
 import FeedDetailTemplate from '../../components/template/FeedTemplate/FeedDetailTemplate';
+import { isErrorAtom } from '../../recoil/atom';
 
 const FeedDetailPage = () => {
   const { id } = useParams();
   const [postList, setPostList] = useState([]);
   const [commentList, setCommentList] = useState([]);
+  const isError = useRecoilValue(isErrorAtom);
   const [inputText, setInputText] = useState({
     content: '',
   });
@@ -22,28 +26,25 @@ const FeedDetailPage = () => {
   // 유저 정보 불러오기
   const { data: userdata, isLoading: isProfileDataLoading } = useQuery(
     ['userInfo'],
-    getUserInfo,
+    getMyProfile,
   );
 
   // 게시물 불러오기
-  const {
-    data: postdata,
-    isLoading: isPostLoading,
-    isError,
-  } = useQuery(['detailfeed', id], () => {
-    return getFeedDetail(id);
-  });
+  const { data: postdata, isLoading: isPostLoading } = useQuery(
+    ['detailfeed', id],
+    () => getFeedDetail(id),
+  );
 
   // 댓글 리스트
   const { isLoading: isCommentLoading } = useQuery(
     ['commentlist', id],
-    () => {
-      return getCommentList(id);
-    },
+    () => getCommentList(id),
     {
       enabled: !!postdata,
       onSuccess(resData) {
-        setCommentList(resData.comments);
+        if (!resData.status) {
+          setCommentList(resData.comments);
+        }
       },
     },
   );
@@ -135,7 +136,6 @@ const FeedDetailPage = () => {
     reportCommentMutation.mutate({ postId, commentId });
   };
 
-  if (isError) return <p>에러 발생!</p>;
   return (
     <FeedDetailTemplate
       onChangeInputHandler={onChangeInputHandler}
@@ -149,6 +149,7 @@ const FeedDetailPage = () => {
       post={postdata?.post}
       user={userdata?.user}
       isLoading={isLoading}
+      isError={isError}
     />
   );
 };

@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import addFollow from '../../api/profile/addFollow';
 import deleteFollow from '../../api/profile/deleteFollow';
 import getUserFeedData from '../../api/profile/getUserFeedData';
 import getUserProduct from '../../api/profile/getUserProduct';
 import getUserProfile from '../../api/profile/getUserProfile';
 import UserProfileTemplate from '../../components/template/UserProfileTemplate/UserProfileTemplate';
+import { isErrorAtom } from '../../recoil/atom';
 
 const UserProfilePage = () => {
   const params = useParams();
@@ -15,21 +17,25 @@ const UserProfilePage = () => {
   const [followCount, setFollowerCount] = useState();
   const [category, setCategory] = useState('study');
   const [postShowType, setPostShowType] = useState('list');
+  const [isError, setIsError] = useRecoilState(isErrorAtom);
   const { data: profileData, isLoading: isProfileLoading } = useQuery(
     ['userProfile', accountname],
     () => getUserProfile(accountname),
     {
-      refetchOnWindowFocus: false,
       onSuccess(resData) {
-        setIsFollow(resData.profile.isfollow);
-        setFollowerCount(resData.profile.followerCount);
+        if (!resData.status) {
+          setIsFollow(resData.profile.isfollow);
+          setFollowerCount(resData.profile.followerCount);
+        }
       },
     },
   );
   const { data: categoryPostData, isLoading: isCategoryLoading } = useQuery(
     'categoryPost',
     () => getUserProduct(profileData.profile.accountname),
-    { enabled: !!profileData },
+    {
+      enabled: !!profileData,
+    },
   );
   const { data: feedData, isLoading: isfeedLoading } = useQuery(
     ['feedData', accountname],
@@ -71,14 +77,15 @@ const UserProfilePage = () => {
     setPostShowType(type);
   };
 
-  const selectCategoryData = categoryPostData?.product.filter(
-    (el) => el.itemName === category,
-  );
+  const selectCategoryData = !isError
+    ? categoryPostData?.product.filter((el) => el.itemName === category)
+    : null;
 
   return (
     <UserProfileTemplate
       profileData={profileData}
       isFollow={isFollow}
+      isError={isError}
       followCount={followCount}
       postData={feedData}
       onClickFollowToggle={onClickFollowToggle}

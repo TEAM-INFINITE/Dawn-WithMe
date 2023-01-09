@@ -2,20 +2,25 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import getFollowersList from '../../api/follow/getFollowersList';
 import addFollow from '../../api/profile/addFollow';
 import deleteFollow from '../../api/profile/deleteFollow';
 import FollowersTemplate from '../../components/template/FollowersTemplate/FollowersTemplate';
+import { isErrorAtom } from '../../recoil/atom';
 
 const FollowersPage = () => {
   const params = useParams().accountname;
   const [followData, setFollowData] = useState([]);
+  const isError = useRecoilValue(isErrorAtom);
   const { isLoading } = useQuery(
     ['followers', params],
     () => getFollowersList(params),
     {
       onSuccess(resData) {
-        setFollowData([...resData]);
+        if (!resData.status) {
+          setFollowData([...resData]);
+        }
       },
     },
   );
@@ -63,6 +68,7 @@ const FollowersPage = () => {
       followersData={followData}
       onClickFollowToggle={onClickFollowToggle}
       isLoading={isLoading}
+      isError={isError}
     />
   );
 };

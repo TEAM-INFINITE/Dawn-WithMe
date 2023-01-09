@@ -1,6 +1,9 @@
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryCache, QueryClient, QueryClientProvider } from 'react-query';
+import { toast } from 'react-toastify';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { useSetRecoilState } from 'recoil';
+import { isErrorAtom } from './recoil/atom';
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
@@ -27,16 +30,35 @@ import CategoryEditPage from './pages/CategoryPage/CategoryEditPage';
 import FeedUploadPage from './pages/FeedUploadPage/FeedUploadPage';
 import EditFeedPage from './pages/EditFeedPage/EditFeedPage';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: 1,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
-
 const App = () => {
+  const setIsError = useSetRecoilState(isErrorAtom);
+
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: 1,
+        refetchOnWindowFocus: false,
+      },
+    },
+    queryCache: new QueryCache({
+      onSuccess: (resData) => {
+        console.log(resData);
+        if (resData.status === 404) {
+          setIsError(true);
+          toast.error(
+            `서버에 문제가 있습니다 :( !
+          잠시 후 시도해 주세요.`,
+            {
+              theme: 'dark',
+              position: 'top-center',
+              autoClose: 3000,
+            },
+          );
+        }
+      },
+    }),
+  });
+
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>

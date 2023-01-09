@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import TopNavBarWarpper from './styled';
 import Img from '../../atoms/Img/Img';
 import backIcon from '../../../assets/images/icon-arrow-left.png';
@@ -9,6 +10,7 @@ import Modal from '../Modal/Modal';
 import Alert from '../Alert/Alert';
 import Button from '../../atoms/Button/Button';
 import TextFiled from '../../atoms/Input/TextFiled/TextFiled';
+import { isErrorAtom } from '../../../recoil/atom';
 
 const TopNavBar = ({
   children,
@@ -27,7 +29,7 @@ const TopNavBar = ({
   // 모달창 열리고 닫히는
   const [onModal, setOnModal] = useState(false);
   const [onAlert, setOnAlert] = useState(false);
-
+  const setIsError = useSetRecoilState(isErrorAtom);
   // 모달 내용
   const modalObj = [];
   const pathName = useLocation().pathname;
@@ -50,7 +52,12 @@ const TopNavBar = ({
     <>
       <TopNavBarWarpper>
         {cont === 'back' && (
-          <Link to={-1}>
+          <Link
+            to={-1}
+            onClick={() => {
+              setIsError(false);
+            }}
+          >
             <Img src={backIcon} width='22px' />
           </Link>
         )}

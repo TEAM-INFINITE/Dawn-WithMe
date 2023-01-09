@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import CommentInput from '../../molecules/CommentInput/CommentInput';
@@ -19,6 +20,7 @@ const FeedDetailTemplate = ({
   onClickDeleteComment,
   onClickReportComment,
   isLoading,
+  isError,
 }) => {
   return (
     <>
@@ -32,7 +34,7 @@ const FeedDetailTemplate = ({
       </HeaderWrapper>
       <MainWrapper>
         <FeedWrapper>
-          {!isLoading && (
+          {!isLoading && !isError && (
             <>
               <FeedCard
                 data={post}
@@ -59,6 +61,7 @@ const FeedDetailTemplate = ({
             </>
           )}
           {isLoading && <LoadingSpinner />}
+          {isError && <ToastContainer />}
         </FeedWrapper>
         <CommentInput
           src={user?.image}

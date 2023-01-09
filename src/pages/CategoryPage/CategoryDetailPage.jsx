@@ -1,9 +1,11 @@
 import { useMutation, useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 import getCategoryDetail from '../../api/category/getCategoryDetail';
 import {
-  AlertTextAtom,
+  alertTextAtom,
   isAlertAtom,
   isModalAtom,
   modalAtom,
@@ -14,15 +16,31 @@ import deleteCategoryPost from '../../api/category/deleteCategoryPost';
 const CategoryDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isError, setIsError] = useState(false);
   const [isModal, setIsModal] = useRecoilState(isModalAtom);
   const [isAlert, setIsAlert] = useRecoilState(isAlertAtom);
   const [modalValue, setModalValue] = useRecoilState(modalAtom);
-  const [alertText, setAlertText] = useRecoilState(AlertTextAtom);
-  const {
-    data: detailData,
-    isLoading,
-    isError,
-  } = useQuery(['categoryDetail', id], () => getCategoryDetail(id));
+  const [alertText, setAlertText] = useRecoilState(alertTextAtom);
+  const { data: detailData, isLoading } = useQuery(
+    ['categoryDetail', id],
+    () => getCategoryDetail(id),
+    {
+      onSuccess(resData) {
+        if (resData.status === 404) {
+          setIsError(true);
+          toast.error(
+            `서버에 문제가 있습니다 :( !
+        잠시 후 시도해 주세요.`,
+            {
+              theme: 'dark',
+              position: 'top-center',
+              autoClose: 3000,
+            },
+          );
+        }
+      },
+    },
+  );
 
   const textArray = [
     { id: 1, text: '삭제' },
@@ -59,8 +77,6 @@ const CategoryDetailPage = () => {
     else if (text === '삭제') setIsAlert(true);
   };
 
-  if (isError) return <p>에러</p>;
-
   return (
     <CategoryDetailTemplate
       detailData={detailData?.product}
@@ -70,6 +86,7 @@ const CategoryDetailPage = () => {
       onClickAlertEventHandler={onClickAlertEventHandler}
       isModal={isModal}
       isAlert={isAlert}
+      isError={isError}
       setIsModal={setIsModal}
       textArray={textArray}
       alertText={alertText}

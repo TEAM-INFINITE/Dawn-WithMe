@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
@@ -10,6 +11,7 @@ const FollowingsTemplate = ({
   followingsData,
   onClickFollowToggle,
   isLoading,
+  isError,
 }) => {
   return (
     <>
@@ -21,13 +23,14 @@ const FollowingsTemplate = ({
       <MainWrapper>
         <FollowersTemplateWrapper>
           <h2 className='hidden'>팔로워 페이지</h2>
-          {!isLoading && (
+          {!isLoading && !isError && (
             <FollowListCard
               followData={followingsData}
               onClickFollowToggle={onClickFollowToggle}
             />
           )}
           {isLoading && <LoadingSpinner />}
+          {isError && <ToastContainer />}
         </FollowersTemplateWrapper>
         <TabMenu />
       </MainWrapper>

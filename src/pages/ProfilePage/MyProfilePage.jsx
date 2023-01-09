@@ -1,31 +1,38 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
+import { useRecoilValue } from 'recoil';
 import getUserProduct from '../../api/profile/getUserProduct';
 import getMyProfile from '../../api/profile/getMyProfile';
 import MyProfileTemplate from '../../components/template/MyProfileTemplate/MyProfileTemplate';
 import getUserFeedData from '../../api/profile/getUserFeedData';
 import deletePost from '../../api/feed/deletePost';
+import { isErrorAtom } from '../../recoil/atom';
 
 const MyProfilePage = () => {
   const myAccountName = localStorage.getItem('accountname');
   const [category, setCategory] = useState('study');
   const [postShowType, setPostShowType] = useState('list');
   const [postList, setPostList] = useState({ post: [] });
+  const isError = useRecoilValue(isErrorAtom);
 
   const { data: profileData, isLoading: isProfileLoading } = useQuery(
     'myProfile',
     getMyProfile,
   );
+
   const { data: categoryPostData, isLoading: isCategoryLoading } = useQuery(
-    'myCategoryPost',
+    ['myCategoryPost', myAccountName],
     () => getUserProduct(myAccountName),
   );
-  const { data: feedData, isLoading: isfeedLoading } = useQuery(
+
+  const { isLoading: isfeedLoading } = useQuery(
     ['myFeed', myAccountName],
     () => getUserFeedData(myAccountName),
     {
       onSuccess(resData) {
-        setPostList({ post: [...resData.post] });
+        if (!resData.status) {
+          setPostList({ post: resData.post });
+        }
       },
     },
   );
@@ -60,9 +67,9 @@ const MyProfilePage = () => {
     deletePostMutation.mutate({ postId });
   };
 
-  const selectCategoryData = categoryPostData?.product.filter(
-    (el) => el.itemName === category,
-  );
+  const selectCategoryData = !isError
+    ? categoryPostData?.product.filter((el) => el.itemName === category)
+    : null;
 
   return (
     <MyProfileTemplate
@@ -74,6 +81,7 @@ const MyProfilePage = () => {
       onChangeSelectBoxHandler={onChangeSelectBoxHandler}
       onClickDeletePost={onClickDeletePost}
       isLoading={isLoading}
+      isError={isError}
     />
   );
 };
