@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import { url } from '../../api/axios-api';
 import createFeedPost from '../../api/feed/createFeedPost';
 import postImages from '../../api/imgUpload/postImages';
-import getUserInfo from '../../api/user/getUserInfo';
+import getMyProfile from '../../api/profile/getMyProfile';
 import FeedUploadTemplate from '../../components/template/FeedUploadTeplate/FeedUploadTemplate';
+import { isErrorAtom } from '../../recoil/atom';
 
 const FeedUploadPage = () => {
   const [imgSrc, setImgSrc] = useState([]);
   const [postImg, setPostImg] = useState([]);
+  const isError = useRecoilValue(isErrorAtom);
   const [postValue, setPostValue] = useState({
     content: '',
     image: '',
@@ -20,7 +23,7 @@ const FeedUploadPage = () => {
   // 유저 정보 불러오기
   const { data: userdata, isLoading: isProfileDataLoading } = useQuery(
     ['userInfo'],
-    getUserInfo,
+    getMyProfile,
   );
 
   // 여러개의 이미지 등록
@@ -82,17 +85,16 @@ const FeedUploadPage = () => {
     });
   };
 
-  if (isProfileDataLoading) return <p>로딩 중...</p>;
-  const { user } = userdata;
-
   return (
     <FeedUploadTemplate
-      user={user}
+      user={userdata?.user}
       onChangeTextHandler={onChangeTextHandler}
       onClickDeleteImg={onClickDeleteImg}
       onChangeImagesUpload={onChangeImagesUpload}
       onClickSubmit={onClickSubmit}
       imgSrc={imgSrc}
+      isLoading={isProfileDataLoading}
+      isError={isError}
       postValue={postValue}
     />
   );

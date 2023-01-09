@@ -1,8 +1,10 @@
+import { ToastContainer } from 'react-toastify';
 import Img from '../../atoms/Img/Img';
 import Textarea from '../../atoms/Textarea/Textarea';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import FileUpload from '../../molecules/FileUpload/FileUpload';
+import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
 import TopNavButtonBar from '../../molecules/TopNavButtonBar/TopNavButtonBar';
 import {
   FeedUploadWrapper,
@@ -17,6 +19,8 @@ const FeedUploadTemplate = ({
   onClickDeleteImg,
   onChangeImagesUpload,
   onClickSubmit,
+  isLoading,
+  isError,
   imgSrc,
   postValue,
 }) => {
@@ -36,24 +40,35 @@ const FeedUploadTemplate = ({
       </HeaderWrapper>
       <MainWrapper>
         <FeedUploadWrapper>
-          <Img src={user.image} alt='프로필 사진' width='42px' height='42px' />
-          <FeedTextWrapper>
-            <Textarea
-              placeholder='게시글 입력하기...'
-              onChange={onChangeTextHandler}
-            />
-            <ImgWrapper>
-              <ul>
-                {imgSrc.map((image, index) => (
-                  <li key={image.id}>
-                    <Img src={image.src} className='priview-img' />
-                    <DeleteBtn onClick={() => onClickDeleteImg(index)} />
-                  </li>
-                ))}
-              </ul>
-            </ImgWrapper>
-            <FileUpload onChangeImagesUpload={onChangeImagesUpload} />
-          </FeedTextWrapper>
+          {!isLoading && !isError && (
+            <>
+              <Img
+                src={user.image}
+                alt='프로필 사진'
+                width='42px'
+                height='42px'
+              />
+              <FeedTextWrapper>
+                <Textarea
+                  placeholder='게시글 입력하기...'
+                  onChange={onChangeTextHandler}
+                />
+                <ImgWrapper>
+                  <ul>
+                    {imgSrc.map((image, index) => (
+                      <li key={image.id}>
+                        <Img src={image.src} className='priview-img' />
+                        <DeleteBtn onClick={() => onClickDeleteImg(index)} />
+                      </li>
+                    ))}
+                  </ul>
+                </ImgWrapper>
+                <FileUpload onChangeImagesUpload={onChangeImagesUpload} />
+              </FeedTextWrapper>
+            </>
+          )}
+          {isLoading && <LoadingSpinner />}
+          {isError && <ToastContainer />}
         </FeedUploadWrapper>
       </MainWrapper>
     </>

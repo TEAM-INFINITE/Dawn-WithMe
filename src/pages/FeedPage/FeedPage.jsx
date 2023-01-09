@@ -1,19 +1,17 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
+import { useRecoilValue } from 'recoil';
 import deletePost from '../../api/feed/deletePost';
 import getFollowFeed from '../../api/feed/getFollowFeed';
 import postPostReport from '../../api/feed/postPostReport';
 import FeedTemplate from '../../components/template/FeedTemplate/FeedTemplate';
+import { isErrorAtom } from '../../recoil/atom';
 
 const FeedPage = () => {
   const [postList, setPostList] = useState([]);
-
+  const isError = useRecoilValue(isErrorAtom);
   // 내가 팔로우한 사용자의 게시물 불러오기
-  const {
-    data: followpostdata,
-    isLoading,
-    isError,
-  } = useQuery('feed', getFollowFeed);
+  const { data: followpostdata, isLoading } = useQuery('feed', getFollowFeed);
 
   // 게시물 삭제
   const deletePostMutation = useMutation(deletePost, {
@@ -39,8 +37,6 @@ const FeedPage = () => {
     },
   });
 
-  if (isError) return <p>에러 발생!</p>;
-
   const onClickDeletePost = (postId) => {
     deletePostMutation.mutate({ postId });
   };
@@ -55,6 +51,7 @@ const FeedPage = () => {
       onClickDeletePost={onClickDeletePost}
       onClickReportPost={onClickReportPost}
       isLoading={isLoading}
+      isError={isError}
     />
   );
 };
