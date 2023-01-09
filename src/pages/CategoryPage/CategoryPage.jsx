@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { useMutation } from 'react-query';
 import {
-  AlertTextAtom,
+  alertTextAtom,
   isAlertAtom,
   isModalAtom,
   modalAtom,
@@ -18,7 +18,7 @@ const CategoryPage = () => {
   const [isModal, setIsModal] = useRecoilState(isModalAtom);
   const [isAlert, setIsAlert] = useRecoilState(isAlertAtom);
   const [modalValue, setModalValue] = useRecoilState(modalAtom);
-  const [alertText, setAlertText] = useRecoilState(AlertTextAtom);
+  const [alertText, setAlertText] = useRecoilState(alertTextAtom);
   const [postList, setPostList] = useState([...postListData]);
   const textArray = [
     { id: 1, text: '삭제' },

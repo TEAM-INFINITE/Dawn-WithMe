@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
@@ -13,6 +14,7 @@ const CategoryDetailTemplate = ({
   isLoading,
   isModal,
   isAlert,
+  isError,
   setIsModal,
   onClickMoreHandler,
   onClickModalListHandler,
@@ -27,13 +29,14 @@ const CategoryDetailTemplate = ({
       </HeaderWrapper>
       <MainWrapper>
         <CategoryDetailTemplateWrapper>
-          {!isLoading && (
+          {!isLoading && !isError && (
             <CategoryDetailFeed
               data={detailData}
               onClickMoreHandler={onClickMoreHandler}
             />
           )}
           {isLoading && <LoadingSpinner />}
+          {isError && <ToastContainer />}
         </CategoryDetailTemplateWrapper>
         <TabMenu />
       </MainWrapper>
