@@ -1,5 +1,7 @@
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { isErrorAtom } from '../../recoil/atom';
 import getFollowingList from '../../api/follow/getFollowingList';
 import getFollowingProduct from '../../api/follow/getFollowingProduct';
 import HomeTemplate from '../../components/template/HomeTemplate/HomeTemplate';
@@ -7,30 +9,19 @@ import HomeTemplate from '../../components/template/HomeTemplate/HomeTemplate';
 const HomePage = () => {
   const accountName = localStorage.getItem('accountname');
   const navigate = useNavigate();
-
-  const {
-    data,
-    isLoading: isFollowingListLoading,
-    isError: isFollowingListError,
-  } = useQuery('followingList', () => getFollowingList(accountName), {});
-  const followingList = data?.map((user) => user.accountname);
-
-  const {
-    data: categoryPostData,
-    isLoading: isFollowingProductListLoading,
-    isError,
-  } = useQuery(
-    'followingProductList',
-    () => getFollowingProduct(followingList),
-    {
-      enabled: !!followingList,
-    },
+  const isError = useRecoilValue(isErrorAtom);
+  const { data, isLoading: isFollowingListLoading } = useQuery(
+    'followingList',
+    () => getFollowingList(accountName),
   );
+  const followingList = !isError ? data?.map((user) => user.accountname) : null;
+
+  const { data: categoryPostData, isLoading: isFollowingProductListLoading } =
+    useQuery('followingProductList', () => getFollowingProduct(followingList), {
+      enabled: !!followingList,
+    });
 
   const isLoading = isFollowingListLoading || isFollowingProductListLoading;
-
-  if (isError) return <p>에러 발생!</p>;
-  if (isFollowingListError) return <p>에러</p>;
 
   const onClickCategory = (category) => {
     const filterPostData = categoryPostData.filter(
@@ -45,7 +36,11 @@ const HomePage = () => {
   };
 
   return (
-    <HomeTemplate onClickCategory={onClickCategory} isLoading={isLoading} />
+    <HomeTemplate
+      onClickCategory={onClickCategory}
+      isLoading={isLoading}
+      isError={isError}
+    />
   );
 };
 
