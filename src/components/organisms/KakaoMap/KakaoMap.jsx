@@ -95,7 +95,16 @@ const KakaoMap = () => {
         {!locationState.isLoading && (
           <>
             <MapMarker position={locationState.center}>
-              <div style={{ padding: '5px', color: '#000' }}>
+              <div
+                style={{
+                  padding: '5px',
+                  color: '#000',
+                  minWidth: '150px',
+                  textAlign: 'center',
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}
+              >
                 {locationState.errMsg ? locationState.errMsg : '내 위치'}
               </div>
             </MapMarker>
@@ -104,11 +113,6 @@ const KakaoMap = () => {
                 key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
                 position={marker.position}
                 onClick={() => setInfo(marker)}
-                infoWindowOptions={
-                  {
-                    // disableAutoPan: true,
-                  }
-                }
               >
                 {info && info.content === marker.content && (
                   <div
