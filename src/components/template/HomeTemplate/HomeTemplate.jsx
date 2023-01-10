@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import CategoryButtonBox from '../../molecules/CategoryButtonBox/CategoryButtonBox';
@@ -8,7 +9,7 @@ import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import HomeTemplateWrapper from './styled';
 
-const HomeTemplate = ({ onClickCategory, isLoading }) => {
+const HomeTemplate = ({ onClickCategory, isLoading, isError }) => {
   return (
     <>
       <HeaderWrapper>
@@ -18,7 +19,7 @@ const HomeTemplate = ({ onClickCategory, isLoading }) => {
       </HeaderWrapper>
       <MainWrapper>
         <HomeTemplateWrapper>
-          {!isLoading && (
+          {!isLoading && !isError && (
             <>
               <CategoryButtonBox onClickCategory={onClickCategory} />
               <SearchMap />
@@ -26,6 +27,7 @@ const HomeTemplate = ({ onClickCategory, isLoading }) => {
             </>
           )}
           {isLoading && <LoadingSpinner />}
+          {isError && <ToastContainer />}
         </HomeTemplateWrapper>
         <TabMenu />
       </MainWrapper>

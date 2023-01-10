@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
@@ -21,6 +22,7 @@ const UserProfileTemplate = ({
   onClickShowTypeChange,
   postData,
   isLoading,
+  isError,
 }) => {
   return (
     <>
@@ -30,7 +32,7 @@ const UserProfileTemplate = ({
       <MainWrapper>
         <UserProfileTemplateWrapper>
           <h2 className='hidden'>유저 프로필</h2>
-          {!isLoading && (
+          {!isLoading && !isError && (
             <>
               <ProfileInfoCard
                 profileData={profileData}
@@ -55,6 +57,7 @@ const UserProfileTemplate = ({
             </>
           )}
           {isLoading && <LoadingSpinner />}
+          {isError && <ToastContainer />}
         </UserProfileTemplateWrapper>
         <TabMenu />
       </MainWrapper>

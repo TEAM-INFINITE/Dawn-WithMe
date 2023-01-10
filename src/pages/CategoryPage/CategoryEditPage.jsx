@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import { url } from '../../api/axios-api';
+import { isErrorAtom } from '../../recoil/atom';
 import getCategoryDetail from '../../api/category/getCategoryDetail';
 import updateCategoryPost from '../../api/category/updateCategoryPost';
 import postImage from '../../api/imgUpload/postImage';
@@ -11,20 +13,23 @@ const CategoryEditPage = () => {
   const params = useParams();
   const navigate = useNavigate();
   const { id } = params;
+  const isError = useRecoilValue(isErrorAtom);
   const [postValue, setPostValue] = useState({
     itemName: '',
     price: 0,
     link: '',
     itemImage: '',
   });
-  const { isLoading, isError } = useQuery(
+  const { isLoading } = useQuery(
     ['categoryDetail', id],
     () => getCategoryDetail(id),
     {
       onSuccess(resData) {
-        const { itemImage, itemName, link, price } = resData.product;
+        if (!resData.status) {
+          const { itemImage, itemName, link, price } = resData.product;
 
-        setPostValue({ itemImage, itemName, link, price });
+          setPostValue({ itemImage, itemName, link, price });
+        }
       },
     },
   );
@@ -105,6 +110,7 @@ const CategoryEditPage = () => {
     <CategoryEditTemplate
       postValue={postValue}
       isLoading={isLoading}
+      isError={isError}
       onChangeImageUpload={onChangeImageUpload}
       onChangeSelectBoxHandler={onChangeSelectBoxHandler}
       onChangeInputHandler={onChangeInputHandler}
