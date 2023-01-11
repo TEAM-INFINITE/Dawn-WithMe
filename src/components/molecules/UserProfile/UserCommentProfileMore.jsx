@@ -43,7 +43,13 @@ const UserCommentProfileMore = ({
   return (
     <>
       <ProfileMoreWrapper>
-        <Link to='/profile'>
+        <Link
+          to={
+            currentAccountName === accountName
+              ? '/myprofile'
+              : `/userprofile/${accountName}`
+          }
+        >
           <UserCommentProfile src={src} userName={userName} time={time} />
         </Link>
         <button
