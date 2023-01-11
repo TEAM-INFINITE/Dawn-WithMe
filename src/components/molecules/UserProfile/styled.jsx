@@ -4,7 +4,7 @@ export const ProfileMoreWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 565px;
+  max-width: 600px;
 `;
 
 export const UserProfileWrapper = styled.div`
