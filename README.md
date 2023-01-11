@@ -231,34 +231,33 @@ Code Formatter : Prettier
 |![스플래쉬](https://user-images.githubusercontent.com/77143425/211829467-516b92f8-3b29-4f0f-b603-57bda2edc354.gif)|![회원가입](https://user-images.githubusercontent.com/77143425/211829482-096245c4-2035-4418-9c27-b74eb1652f09.gif)|![로그인](https://user-images.githubusercontent.com/77143425/211829493-fbb7b737-6172-4a51-ac6a-633a4c70cc9c.gif)|
 
 
-### 2) 카테고리
+### 2) 카테고리 & 자유게시판
 
 |스터디 매칭| 음악 추천| 공부 꿀팁 | 
 |---|---|---|
-||![음악추천](https://user-images.githubusercontent.com/77143425/211830978-175258d4-4b22-40fd-b1b8-b10b2b9707cb.gif)|![공부법 공유](https://user-images.githubusercontent.com/77143425/211830984-6bd84208-5b1d-488f-bca6-bd6562e12952.gif)|
-
-
-### 3) 스터디카페 찾기 및 타이머
+|![스터디매칭](https://user-images.githubusercontent.com/77143425/211888722-df0d1b2b-9f5d-4a7a-a078-c2ac163067ca.gif)|![음악추천](https://user-images.githubusercontent.com/77143425/211888777-836ad122-cd3c-49d2-9bb7-f9db8770181f.gif)|![공부법 공유](https://user-images.githubusercontent.com/77143425/211830984-6bd84208-5b1d-488f-bca6-bd6562e12952.gif)|
 
 |지도 페이지| 타이머 페이지 | 
 |---|---|
-|<img width="390px" src="https://user-images.githubusercontent.com/77143425/211864578-e67b73a6-f61b-4c3b-848b-ace2a47aff9d.gif">|<img width="390px" src="https://user-images.githubusercontent.com/77143425/211864591-e217d6a7-808f-48a3-b049-867b3ae9fdc6.gif">|
-
-
-### 4) 자유게시판
+|<img width="370px" src="https://user-images.githubusercontent.com/77143425/211864578-e67b73a6-f61b-4c3b-848b-ace2a47aff9d.gif">|<img width="370px" src="https://user-images.githubusercontent.com/77143425/211864591-e217d6a7-808f-48a3-b049-867b3ae9fdc6.gif">|
 
 |게시판 목록| 유저 검색 | 게시글 작성|
 |---|---|---|
-|![게시판 목록](https://user-images.githubusercontent.com/77143425/211865741-09210fab-a6d4-425c-8910-223744160911.gif)|![유저 검색 페이지](https://user-images.githubusercontent.com/77143425/211865787-f8885335-b367-4834-932b-5001ef579f1e.gif)|![게시글 작성 페이지](https://user-images.githubusercontent.com/77143425/211865819-7b2b3007-bb8e-44f6-ba2a-77094f040c0b.gif)
+|![게시판 목록](https://user-images.githubusercontent.com/77143425/211888368-ebc156c4-a408-42d7-a294-e2661ffe74f3.gif)|![유저 검색 페이지](https://user-images.githubusercontent.com/77143425/211865787-f8885335-b367-4834-932b-5001ef579f1e.gif)|![게시글 등록](https://user-images.githubusercontent.com/77143425/211888535-808a365b-36cf-4451-b881-c37cdf5de2d7.gif)
 
+|수정|삭제|신고|
+|---|---|---|
+|![수정](https://user-images.githubusercontent.com/77143425/211890743-381b6717-c8ed-47c0-9c9b-476bd263bc85.gif)|![삭제](https://user-images.githubusercontent.com/77143425/211890838-654cdf5d-1df2-47b2-8f6c-cbc616c4885e.gif)|![신고](https://user-images.githubusercontent.com/77143425/211890855-9eb8b344-f140-4f1f-a845-25a5d90fc6cc.gif)|
 
-### 5) 프로필
+### 3) 프로필
 
 |마이 프로필| 유저 프로필 | 프로필 수정|
 |---|---|---|
+|![마이프로필](https://user-images.githubusercontent.com/77143425/211887820-127f9572-9ec9-4849-adce-07fd5a4dd2ec.gif)|![유저프로필](https://user-images.githubusercontent.com/77143425/211887910-94875bc4-8e3b-4bf6-a287-657cc2c6093c.gif)|![프로필수정](https://user-images.githubusercontent.com/77143425/211887960-94db6eb2-cee7-40c5-b257-8fa1d47ca3d0.gif)
+
 
 |팔로워| 팔로잉 | 로그아웃|
 |---|---|---|
-
+![팔로워](https://user-images.githubusercontent.com/77143425/211887985-90583130-bf0e-4925-9a60-028550bf4029.gif)|![팔로잉](https://user-images.githubusercontent.com/77143425/211888018-28e55dcd-821b-4fa6-80f2-eb9a03f834ed.gif)|![로그아웃](https://user-images.githubusercontent.com/77143425/211888046-b51d690f-6701-4cee-812d-b00865c7cd7a.gif)
 
 
