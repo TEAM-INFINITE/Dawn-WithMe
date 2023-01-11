@@ -1,34 +1,15 @@
-import LoginButtonForm from '../../organisms/LoginButtonForm/LoginButtonForm';
+import { LoginButtonWrapper } from './styled';
 import StarCard from '../../molecules/StarCard/StarCard';
-import Star from '../../atoms/Star/Star';
-import { LoginButtonWrapper, SymbolWrapper } from './styled';
-import Img from '../../atoms/Img/Img';
-import titleLogo from '../../../assets/images/title-logo.png';
-import colorFullLogoLarge from '../../../assets/images/color-full-logo.png';
+import SplashLogoCard from '../../molecules/SplashLogoCard/SplashLogoCard';
+import LoginButtonForm from '../../organisms/LoginButtonForm/LoginButtonForm';
 
 const LoginButtonTemplate = () => {
   return (
-    <>
-      <LoginButtonWrapper>
-        <StarCard />
-        <Star className='moon' />
-        <SymbolWrapper>
-          <Img
-            className='owl'
-            src={colorFullLogoLarge}
-            width='200px'
-            alt='부엉이 이미지'
-          />
-          <Img
-            className='logo'
-            src={titleLogo}
-            width='140px'
-            alt='타이틀 로고'
-          />
-        </SymbolWrapper>
-      </LoginButtonWrapper>
+    <LoginButtonWrapper>
+      <StarCard />
+      <SplashLogoCard />
       <LoginButtonForm />
-    </>
+    </LoginButtonWrapper>
   );
 };
 
