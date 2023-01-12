@@ -1,8 +1,6 @@
+# 새벽 공부 하는 사람들을 위한 공간, Dawn, With Me? 🌙
 
 ![DawnWithMe-Banner](https://user-images.githubusercontent.com/77143425/211853755-1c2c845f-4f46-4cd9-ba3a-b4f2bf224f0e.png)
-
-
-# 새벽 공부 하는 사람들을 위한 공간, Dawn, With Me? 🌙
 
 > `스터디 매칭` `노래 추천` `ASMR` `공부 꿀팁`
 >
@@ -14,14 +12,14 @@
 
 <br><br>
 
-**✅ 개발 기간** : 2022.11.24 ~ 진행중
+**✅ 개발 기간** : 2022.11.24 ~ 2022.12.05
 
 **🔗 배포 링크** : https://dawn-with-me.vercel.app
 
 **👩🏻‍💻 테스트 계정**
 ```
-ID :
-PW : 
+ID : dawn@test.com
+PW : 123123
 ```
 
 <br><br>
@@ -55,15 +53,18 @@ PW :
 ### 안정음
 
 - 자유 게시판 페이지
-  - 팔로워가 올린 게시물 목록 기능 구현
+  - 팔로우된 사용자들의 게시물 목록 기능 구현
   - 게시물 상세 페이지 기능 구현
-  - 게시물 생성, 수정, 삭제, 신고 기능 구현
+  - 게시물 생성 페이지 기능 구현
+  - 게시물 수정, 삭제, 신고 기능 구현
   - 댓글 입력, 삭제, 신고 기능 구현
+  - 모달 기능 
 - 유저 검색 페이지
   - 유저 검색 기능 구현
 - 디자인
-  - 메인 캐릭터 디자인
+  - 메인 캐릭터 디자인 (시작화면, 프로필, 404)
   - 로고 디자인
+- pr 템플릿 생성
 
 ### 유윤우
 
@@ -239,7 +240,7 @@ Code Formatter : Prettier
 
 |지도 페이지| 타이머 페이지 | 
 |---|---|
-|<img width="370px" src="https://user-images.githubusercontent.com/77143425/211864578-e67b73a6-f61b-4c3b-848b-ace2a47aff9d.gif">|<img width="370px" src="https://user-images.githubusercontent.com/77143425/211864591-e217d6a7-808f-48a3-b049-867b3ae9fdc6.gif">|
+|<img width="370px" src="https://user-images.githubusercontent.com/77143425/211999807-1308f490-ddad-44eb-83ff-76b6f397af80.gif">|<img width="370px" src="https://user-images.githubusercontent.com/77143425/211864591-e217d6a7-808f-48a3-b049-867b3ae9fdc6.gif">|
 
 |게시판 목록| 유저 검색 | 게시글 작성|
 |---|---|---|
