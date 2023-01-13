@@ -57,7 +57,7 @@ const KakaoMap = () => {
         if (status === kakao.maps.services.Status.OK) {
           const bounds = new kakao.maps.LatLngBounds();
           const markersTemp = [];
-          console.log(data);
+
           // eslint-disable-next-line no-plusplus
           for (let i = 0; i < data.length; i++) {
             markersTemp.push({
