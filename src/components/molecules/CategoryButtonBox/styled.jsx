@@ -1,28 +1,26 @@
 import styled from 'styled-components';
-import musicImg from '../../../assets/images/category-music.png';
-import studyImg from '../../../assets/images/category-study.png';
-import tipsImg from '../../../assets/images/category-tips.png';
-import mapImg from '../../../assets/images/category-map.png';
 
 const CategoryBoxWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  padding: 30px 27px;
+  width: 100%;
+  justify-content: space-between;
 
   button {
+    img {
+      width: 100%;
+    }
+
     &:nth-child(1) {
-      background: url(${studyImg});
+      width: 100%;
+      margin-bottom: 4%;
     }
     &:nth-child(2) {
-      background: url(${musicImg});
+      width: 48%;
     }
     &:nth-child(3) {
-      background: url(${tipsImg});
+      width: 48%;
     }
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 `;
 

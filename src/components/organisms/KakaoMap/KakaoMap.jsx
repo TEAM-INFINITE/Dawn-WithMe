@@ -83,15 +83,11 @@ const KakaoMap = () => {
       },
     );
   }, [locationState]);
-  console.log(map);
+
   return (
     <KakaoMapWrapper>
       <p>내 주변 스터디 카페 🧑🏻‍💻</p>
-      <Map
-        center={locationState.center}
-        style={{ width: '100%', height: '270px' }}
-        onCreate={setMap}
-      >
+      <Map center={locationState.center} onCreate={setMap}>
         {!locationState.isLoading && (
           <>
             <MapMarker position={locationState.center}>
