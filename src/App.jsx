@@ -38,6 +38,7 @@ const App = () => {
       queries: {
         retry: 1,
         refetchOnWindowFocus: false,
+        keepPreviousData: true,
       },
     },
     queryCache: new QueryCache({
