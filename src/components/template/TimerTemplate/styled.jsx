@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components';
 const TimerWrapper = styled.section`
   ${({ theme }) => {
     return css`
-      width: 600px;
-      height: 100vh;
+      max-width: 600px;
+      height: calc(100vh - 47px);
       background-color: ${theme.colors.colorBg};
       margin: 0 auto;
       padding: 30px 34px 0;
