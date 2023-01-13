@@ -42,7 +42,6 @@ const App = () => {
     },
     queryCache: new QueryCache({
       onSuccess: (resData) => {
-        console.log(resData);
         if (resData.status === 404) {
           setIsError(true);
           toast.error(
