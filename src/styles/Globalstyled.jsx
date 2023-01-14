@@ -4,7 +4,10 @@ import reset from 'styled-reset';
 const GlobalStyled = createGlobalStyle`
 
   ${reset}
-
+  :root {
+    --vh: 100%;
+  }
+  
   #root{
     max-width: 600px;
     margin: 0 auto;
@@ -82,8 +85,6 @@ input {
     }
     
   }
-#root {
-  height: 100vh;
 }
 `;
 
