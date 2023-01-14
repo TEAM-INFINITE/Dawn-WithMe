@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from 'react';
 import { QueryCache, QueryClient, QueryClientProvider } from 'react-query';
 import { toast } from 'react-toastify';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -32,7 +33,7 @@ import EditFeedPage from './pages/EditFeedPage/EditFeedPage';
 
 const App = () => {
   const setIsError = useSetRecoilState(isErrorAtom);
-
+  const [heightSize, setHeightSize] = useState(window.innerHeight * 0.01);
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -58,6 +59,22 @@ const App = () => {
       },
     }),
   });
+
+  const setScreenSize = () => {
+    document.documentElement.style.setProperty('--vh', `${heightSize}px`);
+  };
+
+  const setScreenResize = useCallback(() => {
+    setHeightSize(window.innerHeight * 0.01);
+  }, [heightSize]);
+
+  useEffect(() => {
+    setScreenSize();
+    window.addEventListener('resize', setScreenResize);
+    return () => {
+      window.removeEventListener('resize', setScreenResize);
+    };
+  }, [heightSize]);
 
   return (
     <QueryClientProvider client={queryClient}>
