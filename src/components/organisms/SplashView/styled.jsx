@@ -28,32 +28,24 @@ export const SplashViewWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  img:last-child {
+    animation: ${ball} 0.4s ease-out 0s infinite alternate;
+  }
+
+  span {
+    display: none;
+  }
 `;
 
 export const SplashViewAnimation = styled.div`
   width: 50px;
   height: 105px;
   background-color: rgb(218, 101, 58);
+  border-radius: 0% 100% 100% 0% / 46% 47% 53% 54%;
   box-shadow: 0 0 10px 15px rgb(218, 101, 58);
   position: absolute;
-  top: 510px;
-  left: 293px;
-  border-radius: 0% 100% 100% 0% / 46% 47% 53% 54%;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   animation: ${sunset} 2s forwards;
-`;
-
-export const SymbolAnimationWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .owl {
-    margin-top: 110px;
-  }
-
-  .logoAnimation {
-    height: 70px;
-    margin: 60px 0 61px 0;
-    animation: ${ball} 0.4s ease-out 0s infinite alternate;
-  }
 `;

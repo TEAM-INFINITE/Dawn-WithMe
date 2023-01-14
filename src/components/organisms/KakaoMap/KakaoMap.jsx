@@ -57,7 +57,7 @@ const KakaoMap = () => {
         if (status === kakao.maps.services.Status.OK) {
           const bounds = new kakao.maps.LatLngBounds();
           const markersTemp = [];
-          console.log(data);
+
           // eslint-disable-next-line no-plusplus
           for (let i = 0; i < data.length; i++) {
             markersTemp.push({
@@ -83,15 +83,11 @@ const KakaoMap = () => {
       },
     );
   }, [locationState]);
-  console.log(map);
+
   return (
     <KakaoMapWrapper>
       <p>내 주변 스터디 카페 🧑🏻‍💻</p>
-      <Map
-        center={locationState.center}
-        style={{ width: '100%', height: '270px' }}
-        onCreate={setMap}
-      >
+      <Map center={locationState.center} onCreate={setMap}>
         {!locationState.isLoading && (
           <>
             <MapMarker position={locationState.center}>

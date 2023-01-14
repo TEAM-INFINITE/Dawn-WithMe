@@ -38,11 +38,11 @@ const App = () => {
       queries: {
         retry: 1,
         refetchOnWindowFocus: false,
+        keepPreviousData: true,
       },
     },
     queryCache: new QueryCache({
       onSuccess: (resData) => {
-        console.log(resData);
         if (resData.status === 404) {
           setIsError(true);
           toast.error(

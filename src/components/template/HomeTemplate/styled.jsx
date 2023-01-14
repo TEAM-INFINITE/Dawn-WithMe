@@ -5,7 +5,7 @@ const HomeTemplateWrapper = styled.section`
   height: 100%;
   margin: 0 auto;
   position: relative;
-
+  padding: 26px 30px 90px;
   ${({ theme }) => {
     return css`
       background-color: ${theme.colors.colorBg};
