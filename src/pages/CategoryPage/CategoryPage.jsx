@@ -2,12 +2,7 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { useMutation } from 'react-query';
-import {
-  alertTextAtom,
-  isAlertAtom,
-  isModalAtom,
-  modalAtom,
-} from '../../recoil/atom';
+import { alertAtom, modalAtom } from '../../recoil/atom';
 import CategoryTemplate from '../../components/template/CategoryTemplate/CategoryTemplate';
 import deleteCategoryPost from '../../api/category/deleteCategoryPost';
 
@@ -15,26 +10,20 @@ const CategoryPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const postListData = location.state.data;
-  const [isModal, setIsModal] = useRecoilState(isModalAtom);
-  const [isAlert, setIsAlert] = useRecoilState(isAlertAtom);
-  const [modalValue, setModalValue] = useRecoilState(modalAtom);
-  const [alertText, setAlertText] = useRecoilState(alertTextAtom);
   const [postList, setPostList] = useState([...postListData]);
-  const textArray = [
-    { id: 1, text: '삭제' },
-    { id: 2, text: '수정' },
-  ];
+  const [modal, setModal] = useRecoilState(modalAtom);
+  const [alert, setAlert] = useRecoilState(alertAtom);
 
   const deleteCategoryPostMutation = useMutation(deleteCategoryPost, {
     onSuccess(resData) {
       console.log(resData);
       if (resData.message === '삭제되었습니다.') {
         setPostList((prev) => {
-          return [...prev].filter((post) => post.id !== modalValue);
+          return [...prev].filter((post) => post.id !== modal.id);
         });
       }
-      setIsModal(false);
-      setIsAlert(false);
+      setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+      setAlert({ ...alert, isActive: { ...alert.isActive, post: false } });
     },
     onError(error) {
       console.log(error);
@@ -42,35 +31,41 @@ const CategoryPage = () => {
   });
 
   const onClickMoreHandler = (id) => {
-    setIsModal(true);
-    setModalValue(id);
+    setModal({
+      ...modal,
+      isActive: { ...modal.isActive, post: true },
+      id,
+      modalListText: [
+        { id: 1, text: '삭제' },
+        { id: 2, text: '수정' },
+      ],
+    });
   };
 
   const onClickAlertEventHandler = () => {
-    deleteCategoryPostMutation.mutate({ productId: modalValue });
+    deleteCategoryPostMutation.mutate({ productId: modal.id });
   };
 
   const onClickModalListHandler = (text) => {
-    setAlertText(text);
-
     if (text === '수정') {
-      setIsModal(false);
-      setIsAlert(false);
-      navigate(`/category/edit/${modalValue}`);
-    } else if (text === '삭제') setIsAlert(true);
+      setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+      navigate(`/category/edit/${modal.id}`);
+    } else if (text === '삭제')
+      setAlert({
+        ...alert,
+        isActive: { ...alert.isActive, post: true },
+        text: { alertText: `게시글을 ${text} 할까요?`, text },
+      });
   };
 
   return (
     <CategoryTemplate
       postListData={postList}
-      isModal={isModal}
-      isAlert={isAlert}
-      alertText={alertText}
-      setIsModal={setIsModal}
+      modal={modal}
+      alert={alert}
       onClickMoreHandler={onClickMoreHandler}
       onClickModalListHandler={onClickModalListHandler}
       onClickAlertEventHandler={onClickAlertEventHandler}
-      textArray={textArray}
     />
   );
 };

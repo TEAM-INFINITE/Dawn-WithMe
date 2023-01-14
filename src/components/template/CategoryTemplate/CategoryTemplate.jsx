@@ -9,13 +9,11 @@ import NewModal from '../../molecules/NewModal/NewModal';
 
 const CategoryTemplate = ({
   postListData,
-  isModal,
   onClickMoreHandler,
   onClickModalListHandler,
   onClickAlertEventHandler,
-  textArray,
-  isAlert,
-  alertText,
+  alert,
+  modal,
 }) => {
   return (
     <>
@@ -36,17 +34,11 @@ const CategoryTemplate = ({
         </CategoryTemplateWrapper>
         <TabMenu />
       </MainWrapper>
-      {isModal && (
-        <NewModal
-          textArray={textArray}
-          onClickModalListHandler={onClickModalListHandler}
-        />
+      {modal.isActive.post && (
+        <NewModal onClickModalListHandler={onClickModalListHandler} />
       )}
-      {isAlert && (
-        <NewAlertModal
-          alertText={alertText}
-          onClickAlertEventHandler={onClickAlertEventHandler}
-        />
+      {alert.isActive.post && (
+        <NewAlertModal onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );
