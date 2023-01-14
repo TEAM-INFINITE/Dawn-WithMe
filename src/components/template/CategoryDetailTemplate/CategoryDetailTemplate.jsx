@@ -12,15 +12,12 @@ import CategoryDetailTemplateWrapper from './styled';
 const CategoryDetailTemplate = ({
   detailData,
   isLoading,
-  isModal,
-  isAlert,
+  modal,
+  alert,
   isError,
-  setIsModal,
   onClickMoreHandler,
   onClickModalListHandler,
   onClickAlertEventHandler,
-  textArray,
-  alertText,
 }) => {
   return (
     <>
@@ -40,19 +37,11 @@ const CategoryDetailTemplate = ({
         </CategoryDetailTemplateWrapper>
         <TabMenu />
       </MainWrapper>
-      {isModal && (
-        <NewModal
-          isModal={isModal}
-          setIsModal={setIsModal}
-          textArray={textArray}
-          onClickModalListHandler={onClickModalListHandler}
-        />
+      {modal.isActive.post && (
+        <NewModal onClickModalListHandler={onClickModalListHandler} />
       )}
-      {isAlert && (
-        <NewAlertModal
-          alertText={alertText}
-          onClickAlertEventHandler={onClickAlertEventHandler}
-        />
+      {alert.isActive.post && (
+        <NewAlertModal onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );
