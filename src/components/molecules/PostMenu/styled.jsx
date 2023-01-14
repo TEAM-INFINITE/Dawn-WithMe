@@ -14,7 +14,7 @@ const PostMenuWrapper = styled.div`
   }
 
   a {
-    z-index: 100;
+    z-index: 80;
   }
 
   &.active {

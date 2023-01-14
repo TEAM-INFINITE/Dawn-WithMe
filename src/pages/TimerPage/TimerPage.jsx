@@ -47,7 +47,6 @@ const TimerPage = () => {
       Number(hour) * 60 * 60 + Number(min) * 60 + Number(sec);
     setCounter(true);
   };
-  console.log(initialTime.current);
 
   const handleButtonPause = (event) => {
     event.preventDefault();

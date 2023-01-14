@@ -1,33 +1,36 @@
-import CategoryButton from '../../atoms/Button/CategoryButton/CategoryButton';
+import Img from '../../atoms/Img/Img';
 import CategoryBoxWrapper from './styled';
+import musicImg from '../../../assets/images/category-music.png';
+import studyImg from '../../../assets/images/category-study.png';
+import tipsImg from '../../../assets/images/category-tips.png';
 
 const CategoryButtonBox = ({ onClickCategory }) => {
   return (
     <CategoryBoxWrapper>
-      <CategoryButton
-        width='100%'
+      <button
+        type='button'
         onClick={() => {
           onClickCategory('study');
         }}
       >
-        {' '}
-      </CategoryButton>
-      <CategoryButton
-        width='calc(50% - 12px)'
+        <Img src={studyImg} />
+      </button>
+      <button
+        type='button'
         onClick={() => {
           onClickCategory('music');
         }}
       >
-        {' '}
-      </CategoryButton>
-      <CategoryButton
-        width='calc(50% - 12px)'
+        <Img src={musicImg} />
+      </button>
+      <button
+        type='button'
         onClick={() => {
           onClickCategory('tips');
         }}
       >
-        {' '}
-      </CategoryButton>
+        <Img src={tipsImg} />
+      </button>
     </CategoryBoxWrapper>
   );
 };
