@@ -1,12 +1,15 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import { useSetRecoilState } from 'recoil';
-import { isModalAtom } from '../../../recoil/atom';
+import { useRecoilState } from 'recoil';
+import { modalAtom } from '../../../recoil/atom';
 import NewModalWrapper, { NewModalBox } from './styled';
 
-const NewModal = ({ textArray, onClickModalListHandler }) => {
-  const setIsModal = useSetRecoilState(isModalAtom);
+const NewModal = ({ onClickModalListHandler }) => {
+  const [modal, setModal] = useRecoilState(modalAtom);
   const onClickModalCloseHandler = () => {
-    setIsModal(false);
+    setModal({
+      ...modal,
+      isActive: { header: false, post: false, comment: false },
+    });
   };
 
   return (
@@ -25,7 +28,7 @@ const NewModal = ({ textArray, onClickModalListHandler }) => {
           {' '}
         </button>
         <ul>
-          {textArray.map((item) => (
+          {modal.modalListText.map((item) => (
             <li key={item.id}>
               <button
                 type='button'

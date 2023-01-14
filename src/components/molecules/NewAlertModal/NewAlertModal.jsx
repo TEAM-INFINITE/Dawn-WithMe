@@ -1,24 +1,30 @@
-import { useSetRecoilState } from 'recoil';
-import { isAlertAtom, isModalAtom } from '../../../recoil/atom';
+import { useRecoilState } from 'recoil';
+import { alertAtom, modalAtom } from '../../../recoil/atom';
 import NewAlertModalWrapper from './styled';
 
-const NewAlertModal = ({ alertText, onClickAlertEventHandler }) => {
-  const setIsModal = useSetRecoilState(isModalAtom);
-  const setIsAlert = useSetRecoilState(isAlertAtom);
+const NewAlertModal = ({ onClickAlertEventHandler }) => {
+  const [modal, setModal] = useRecoilState(modalAtom);
+  const [alert, setAlert] = useRecoilState(alertAtom);
 
   const onClickCancelModal = () => {
-    setIsModal(false);
-    setIsAlert(false);
+    setModal({
+      ...modal,
+      isActive: { header: false, post: false, comment: false },
+    });
+    setAlert({
+      ...alert,
+      isActive: { header: false, post: false, comment: false },
+    });
   };
 
   return (
     <NewAlertModalWrapper>
-      <p>게시물을 {alertText}할까요?</p>
+      <p>{alert.text.alertText}</p>
       <button type='button' onClick={onClickCancelModal}>
         취소
       </button>
       <button type='button' onClick={onClickAlertEventHandler}>
-        {alertText}
+        {alert.text.text}
       </button>
     </NewAlertModalWrapper>
   );
