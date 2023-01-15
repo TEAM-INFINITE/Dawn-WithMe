@@ -11,7 +11,7 @@ import { alertAtom, isErrorAtom, modalAtom } from '../../recoil/atom';
 const FeedPage = () => {
   const [postList, setPostList] = useState([]);
   const [modal, setModal] = useRecoilState(modalAtom);
-  const [alerts, setAlert] = useRecoilState(alertAtom);
+  const [alerts, setAlerts] = useRecoilState(alertAtom);
   const isError = useRecoilValue(isErrorAtom);
   const navigate = useNavigate();
   const myAccountName = localStorage.getItem('accountname');
@@ -68,7 +68,7 @@ const FeedPage = () => {
       setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
       reportPostMutation.mutate({ postId: modal.id });
     } else if (text === '삭제') {
-      setAlert({
+      setAlerts({
         ...alerts,
         isActive: { ...alerts.isActive, post: true },
         text: { alertText: `게시글을 ${text} 할까요?`, text },
