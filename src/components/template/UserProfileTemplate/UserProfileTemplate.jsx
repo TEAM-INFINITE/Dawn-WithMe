@@ -10,7 +10,7 @@ import ProfileFeedShowSelectBox from '../../molecules/ProfileFeedShowSelectBox/P
 import ProfileFeedListCard from '../../organisms/ProfileFeedListCard/ProfileFeedListCard';
 import ProfileFeedAlbumCard from '../../organisms/ProfileFeedAlbumCard/ProfileFeedAlbumCard';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
-import NewModal from '../../molecules/NewModal/NewModal';
+import Modal from '../../molecules/Modal/Modal';
 
 const UserProfileTemplate = ({
   profileData,
@@ -69,7 +69,7 @@ const UserProfileTemplate = ({
         <TabMenu />
       </MainWrapper>
       {modal.isActive.post && (
-        <NewModal onClickModalListHandler={onClickModalListHandler} />
+        <Modal onClickModalListHandler={onClickModalListHandler} />
       )}
     </>
   );

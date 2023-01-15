@@ -2,8 +2,8 @@ import { ToastContainer } from 'react-toastify';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
-import NewAlertModal from '../../molecules/NewAlertModal/NewAlertModal';
-import NewModal from '../../molecules/NewModal/NewModal';
+import Alert from '../../molecules/Alert/Alert';
+import Modal from '../../molecules/Modal/Modal';
 import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import CategoryDetailFeed from '../../organisms/CategoryDetailFeed/CategoryDetailFeed';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
@@ -38,10 +38,10 @@ const CategoryDetailTemplate = ({
         <TabMenu />
       </MainWrapper>
       {modal.isActive.post && (
-        <NewModal onClickModalListHandler={onClickModalListHandler} />
+        <Modal onClickModalListHandler={onClickModalListHandler} />
       )}
       {alert.isActive.post && (
-        <NewAlertModal onClickAlertEventHandler={onClickAlertEventHandler} />
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );

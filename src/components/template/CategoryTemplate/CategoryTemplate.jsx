@@ -4,8 +4,8 @@ import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import CategoryFeedCard from '../../organisms/CategoryFeedCard/CategoryFeedCard';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
 import CategoryTemplateWrapper from './styled';
-import NewAlertModal from '../../molecules/NewAlertModal/NewAlertModal';
-import NewModal from '../../molecules/NewModal/NewModal';
+import Alert from '../../molecules/Alert/Alert';
+import Modal from '../../molecules/Modal/Modal';
 
 const CategoryTemplate = ({
   postListData,
@@ -35,10 +35,10 @@ const CategoryTemplate = ({
         <TabMenu />
       </MainWrapper>
       {modal.isActive.post && (
-        <NewModal onClickModalListHandler={onClickModalListHandler} />
+        <Modal onClickModalListHandler={onClickModalListHandler} />
       )}
       {alert.isActive.post && (
-        <NewAlertModal onClickAlertEventHandler={onClickAlertEventHandler} />
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );

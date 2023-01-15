@@ -8,8 +8,8 @@ import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import PostMenu from '../../molecules/PostMenu/PostMenu';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
-import NewModal from '../../molecules/NewModal/NewModal';
-import NewAlertModal from '../../molecules/NewAlertModal/NewAlertModal';
+import Modal from '../../molecules/Modal/Modal';
+import Alert from '../../molecules/Alert/Alert';
 
 const FeedTemplate = ({
   posts,
@@ -51,10 +51,10 @@ const FeedTemplate = ({
         <TabMenu />
       </MainWrapper>
       {modal.isActive.post && (
-        <NewModal onClickModalListHandler={onClickModalListHandler} />
+        <Modal onClickModalListHandler={onClickModalListHandler} />
       )}
       {alerts.isActive.post && (
-        <NewAlertModal onClickAlertEventHandler={onClickAlertEventHandler} />
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );

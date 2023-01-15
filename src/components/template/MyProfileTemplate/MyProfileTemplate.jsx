@@ -10,8 +10,8 @@ import ProfileFeedShowSelectBox from '../../molecules/ProfileFeedShowSelectBox/P
 import ProfileFeedListCard from '../../organisms/ProfileFeedListCard/ProfileFeedListCard';
 import ProfileFeedAlbumCard from '../../organisms/ProfileFeedAlbumCard/ProfileFeedAlbumCard';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
-import NewModal from '../../molecules/NewModal/NewModal';
-import NewAlertModal from '../../molecules/NewAlertModal/NewAlertModal';
+import Modal from '../../molecules/Modal/Modal';
+import Alert from '../../molecules/Alert/Alert';
 
 const MyProfileTemplate = ({
   profileData,
@@ -64,10 +64,10 @@ const MyProfileTemplate = ({
         <TabMenu />
       </MainWrapper>
       {modal.isActive.post && (
-        <NewModal onClickModalListHandler={onClickModalListHandler} />
+        <Modal onClickModalListHandler={onClickModalListHandler} />
       )}
       {alerts.isActive.post && (
-        <NewAlertModal onClickAlertEventHandler={onClickAlertEventHandler} />
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );

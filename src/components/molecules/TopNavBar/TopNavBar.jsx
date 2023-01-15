@@ -8,8 +8,8 @@ import searchIcon from '../../../assets/images/icon-search.png';
 import Button from '../../atoms/Button/Button';
 import TextFiled from '../../atoms/Input/TextFiled/TextFiled';
 import { alertAtom, isErrorAtom, modalAtom } from '../../../recoil/atom';
-import NewModal from '../NewModal/NewModal';
-import NewAlertModal from '../NewAlertModal/NewAlertModal';
+import Modal from '../Modal/Modal';
+import Alert from '../Alert/Alert';
 
 const TopNavBar = ({
   children,
@@ -111,10 +111,10 @@ const TopNavBar = ({
         )}
       </TopNavBarWarpper>
       {modal.isActive.header && (
-        <NewModal onClickModalListHandler={onClickModalListHandler} />
+        <Modal onClickModalListHandler={onClickModalListHandler} />
       )}
       {alert.isActive.header && (
-        <NewAlertModal onClickAlertEventHandler={onClickAlertEventHandler} />
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );

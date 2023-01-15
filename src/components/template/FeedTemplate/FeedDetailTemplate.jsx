@@ -3,8 +3,8 @@ import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import CommentInput from '../../molecules/CommentInput/CommentInput';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
-import NewAlertModal from '../../molecules/NewAlertModal/NewAlertModal';
-import NewModal from '../../molecules/NewModal/NewModal';
+import Alert from '../../molecules/Alert/Alert';
+import Modal from '../../molecules/Modal/Modal';
 import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import CommentItem from '../../organisms/CommentItem/CommentItem';
 import FeedCard from '../../organisms/FeedCard/FeedCard';
@@ -68,10 +68,10 @@ const FeedDetailTemplate = ({
         />
       </MainWrapper>
       {(modal.isActive.post || modal.isActive.comment) && (
-        <NewModal onClickModalListHandler={onClickModalListHandler} />
+        <Modal onClickModalListHandler={onClickModalListHandler} />
       )}
       {(alerts.isActive.post || alerts.isActive.comment) && (
-        <NewAlertModal onClickAlertEventHandler={onClickAlertEventHandler} />
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );
