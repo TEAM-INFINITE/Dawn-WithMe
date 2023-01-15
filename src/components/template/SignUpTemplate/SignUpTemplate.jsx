@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom';
+import Img from '../../atoms/Img/Img';
 import SignUpForm from '../../organisms/SignUpForm/SignUpForm';
 import SignUpWrapper from './styled';
+import titleLogo from '../../../assets/images/title-logo.png';
 
 const SignUpTemplate = ({
   loginValue,
@@ -18,6 +21,8 @@ const SignUpTemplate = ({
         error={error}
         pwError={pwError}
       />
+      <Link to='/login'>로그인 하러가기</Link>
+      <Img src={titleLogo} width='80px' alt='타이틀 로고' />
     </SignUpWrapper>
   );
 };
