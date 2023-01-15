@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import deleteComment from '../../api/comment/deleteComment';
 import getCommentList from '../../api/comment/getCommentList';
 import postCommentReport from '../../api/comment/postCommentReport';
@@ -10,20 +10,21 @@ import deletePost from '../../api/feed/deletePost';
 import getFeedDetail from '../../api/feed/getFeedDetail';
 import postPostReport from '../../api/feed/postPostReport';
 import getMyProfile from '../../api/profile/getMyProfile';
-
 import FeedDetailTemplate from '../../components/template/FeedTemplate/FeedDetailTemplate';
-import { isErrorAtom } from '../../recoil/atom';
+import { alertAtom, isErrorAtom, modalAtom } from '../../recoil/atom';
 
 const FeedDetailPage = () => {
   const { id } = useParams();
   const [postList, setPostList] = useState([]);
   const [commentList, setCommentList] = useState([]);
-  const isError = useRecoilValue(isErrorAtom);
   const [inputText, setInputText] = useState({
     content: '',
   });
-
-  // 유저 정보 불러오기
+  const isError = useRecoilValue(isErrorAtom);
+  const [modal, setModal] = useRecoilState(modalAtom);
+  const [alerts, setAlerts] = useRecoilState(alertAtom);
+  const myAccountName = localStorage.getItem('accountname');
+  const navigate = useNavigate();
   const { data: userdata, isLoading: isProfileDataLoading } = useQuery(
     ['userInfo'],
     getMyProfile,
@@ -53,7 +54,6 @@ const FeedDetailPage = () => {
   // 게시물 삭제
   const deletePostMutation = useMutation(deletePost, {
     onSuccess(data) {
-      console.log(data);
       if (data.data.status === '200') {
         setPostList((prev) => [...prev].filter((item) => item.id !== data.id));
       }
@@ -103,8 +103,8 @@ const FeedDetailPage = () => {
 
   // 댓글 신고
   const reportCommentMutation = useMutation(postCommentReport, {
-    onSuccess(data) {
-      console.log(data);
+    onSuccess() {
+      alert('신고 되었습니다!');
     },
     onError(err) {
       console.log(err);
@@ -120,36 +120,114 @@ const FeedDetailPage = () => {
     commentMutation.mutate({ postId: id, comment: inputText });
   };
 
-  const onClickDeletePost = (postId) => {
-    deletePostMutation.mutate({ postId });
+  const onClickAlertEventHandler = () => {
+    if (modal.isActive.post) {
+      deletePostMutation.mutate({ postId: modal.id });
+
+      setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+      setAlerts({ ...alerts, isActive: { ...alerts.isActive, post: false } });
+      navigate('/myprofile');
+    } else if (modal.isActive.comment) {
+      deleteCommentMutation.mutate({
+        postId: modal.id.postId,
+        commentId: modal.id.commentId,
+      });
+
+      setModal({ ...modal, isActive: { ...modal.isActive, comment: false } });
+      setAlerts({
+        ...alerts,
+        isActive: { ...alerts.isActive, comment: false },
+      });
+    }
   };
 
-  const onClickReportPost = (postId) => {
-    reportPostMutation.mutate({ postId });
+  const onClickMoreHandler = (postId, userId) => {
+    if (userId === myAccountName) {
+      setModal({
+        ...modal,
+        isActive: { ...modal.isActive, post: true },
+        modalListText: [
+          { id: 1, text: '삭제' },
+          { id: 2, text: '수정' },
+        ],
+        id: postId,
+      });
+    } else {
+      setModal({
+        ...modal,
+        isActive: { ...modal.isActive, post: true },
+        modalListText: [{ id: 1, text: '신고하기' }],
+        id: postId,
+      });
+    }
   };
 
-  const onClickDeleteComment = (postId, commentId) => {
-    deleteCommentMutation.mutate({ postId, commentId });
+  const onClickCommentMoreHandler = (commentId, postId, userId) => {
+    if (userId === myAccountName) {
+      setModal({
+        ...modal,
+        isActive: { ...modal.isActive, comment: true },
+        modalListText: [{ id: 1, text: '삭제' }],
+        id: { commentId, postId },
+      });
+    } else {
+      setModal({
+        ...modal,
+        isActive: { ...modal.isActive, comment: true },
+        modalListText: [{ id: 1, text: '신고하기' }],
+        id: { commentId, postId },
+      });
+    }
   };
 
-  const onClickReportComment = (postId, commentId) => {
-    reportCommentMutation.mutate({ postId, commentId });
+  const onClickModalListHandler = (text) => {
+    if (modal.isActive.post) {
+      if (text === '신고하기') {
+        setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+        reportPostMutation.mutate({ postId: modal.id });
+      } else if (text === '삭제') {
+        setAlerts({
+          ...alerts,
+          isActive: { ...alerts.isActive, post: true },
+          text: { alertText: `게시글을 ${text} 할까요?`, text },
+        });
+      } else if (text === '수정') {
+        setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+        navigate(`/feed/edit/${modal.id}`);
+      }
+    } else if (modal.isActive.comment) {
+      if (text === '신고하기') {
+        setModal({ ...modal, isActive: { ...modal.isActive, comment: false } });
+        reportCommentMutation.mutate({
+          postId: modal.id.postId,
+          commentId: modal.id.commentId,
+        });
+      } else if (text === '삭제') {
+        setAlerts({
+          ...alerts,
+          isActive: { ...alerts.isActive, comment: true },
+          text: { alertText: `게시글을 ${text} 할까요?`, text },
+        });
+      }
+    }
   };
 
   return (
     <FeedDetailTemplate
       onChangeInputHandler={onChangeInputHandler}
       onSubmitButtonHandler={onSubmitButtonHandler}
-      onClickDeletePost={onClickDeletePost}
-      onClickReportPost={onClickReportPost}
-      onClickDeleteComment={onClickDeleteComment}
-      onClickReportComment={onClickReportComment}
+      onClickMoreHandler={onClickMoreHandler}
+      onClickModalListHandler={onClickModalListHandler}
+      onClickCommentMoreHandler={onClickCommentMoreHandler}
+      onClickAlertEventHandler={onClickAlertEventHandler}
       inputText={inputText.content}
       commentList={commentList}
       post={postdata?.post}
       user={userdata?.user}
       isLoading={isLoading}
       isError={isError}
+      alerts={alerts}
+      modal={modal}
     />
   );
 };
