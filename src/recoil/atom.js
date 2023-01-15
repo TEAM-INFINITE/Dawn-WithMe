@@ -2,22 +2,22 @@ import { atom } from 'recoil';
 
 export const modalAtom = atom({
   key: 'modal',
-  default: '',
+  default: {
+    id: '',
+    isActive: { header: false, post: false, comment: false },
+    modalListText: [
+      { id: 1, text: '삭제' },
+      { id: 2, text: '수정' },
+    ],
+  },
 });
 
-export const isModalAtom = atom({
-  key: 'isModal',
-  default: false,
-});
-
-export const isAlertAtom = atom({
-  key: 'isAlert',
-  default: false,
-});
-
-export const alertTextAtom = atom({
-  key: 'AlertText',
-  default: '',
+export const alertAtom = atom({
+  key: 'alert',
+  default: {
+    text: { alertText: '', text: '' },
+    isActive: { header: false, post: false, comment: false },
+  },
 });
 
 export const isErrorAtom = atom({

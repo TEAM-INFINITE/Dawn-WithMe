@@ -1,29 +1,47 @@
-import { Link } from 'react-router-dom';
-import { ModalList, ModalWrapper, OpacityBg } from './styled';
+/* eslint-disable react/jsx-no-comment-textnodes */
+import { useRecoilState } from 'recoil';
+import { modalAtom } from '../../../recoil/atom';
+import ModalWrapper, { ModalBox } from './styled';
 
-const Modal = ({ onClose, setOnModal, setOnAlert, modalCont }) => {
-  const { text } = modalCont;
+const Modal = ({ onClickModalListHandler }) => {
+  const [modal, setModal] = useRecoilState(modalAtom);
+  const onClickModalCloseHandler = () => {
+    setModal({
+      ...modal,
+      isActive: { header: false, post: false, comment: false },
+    });
+  };
+
   return (
-    <OpacityBg onClick={onClose}>
-      <ModalWrapper>
-        <div className='bar' />
+    <ModalWrapper>
+      <div
+        className='background'
+        onClick={onClickModalCloseHandler}
+        aria-hidden
+      />
+      <ModalBox>
+        <button
+          type='button'
+          className='modal-btn'
+          onClick={onClickModalCloseHandler}
+        >
+          {' '}
+        </button>
         <ul>
-          {Object.keys(text).map((textName) => (
-            <Link to={text[textName]} key={textName}>
-              <ModalList
-                textName={textName}
-                onClick={() => {
-                  setOnModal((prev) => !prev);
-                  setOnAlert((prev) => !prev);
-                }}
+          {modal.modalListText.map((item) => (
+            <li key={item.id}>
+              <button
+                type='button'
+                onClick={() => onClickModalListHandler(item.text)}
               >
-                {textName}
-              </ModalList>
-            </Link>
+                {item.text}
+              </button>
+            </li>
           ))}
         </ul>
-      </ModalWrapper>
-    </OpacityBg>
+      </ModalBox>
+    </ModalWrapper>
   );
 };
+
 export default Modal;

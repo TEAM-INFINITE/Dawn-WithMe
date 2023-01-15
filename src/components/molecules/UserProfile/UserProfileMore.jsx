@@ -4,7 +4,7 @@ import Img from '../../atoms/Img/Img';
 import MoreIcon from '../../../assets/images/icon-more-vertical.png';
 import { ProfileMoreWrapper } from './styled';
 
-const UserProfileMore = ({ data, setOnModal }) => {
+const UserProfileMore = ({ data, onClickMoreHandler }) => {
   const myAccountName = localStorage.getItem('accountname');
   const { author } = data;
 
@@ -26,7 +26,7 @@ const UserProfileMore = ({ data, setOnModal }) => {
       <button
         type='button'
         onClick={() => {
-          setOnModal((prev) => !prev);
+          onClickMoreHandler(data.id, author.accountname);
         }}
       >
         <Img src={MoreIcon} alt='게시글 설정' width='18px' height='18px' />

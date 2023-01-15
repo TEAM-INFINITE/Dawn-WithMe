@@ -10,6 +10,8 @@ import ProfileFeedShowSelectBox from '../../molecules/ProfileFeedShowSelectBox/P
 import ProfileFeedListCard from '../../organisms/ProfileFeedListCard/ProfileFeedListCard';
 import ProfileFeedAlbumCard from '../../organisms/ProfileFeedAlbumCard/ProfileFeedAlbumCard';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
+import Modal from '../../molecules/Modal/Modal';
+import Alert from '../../molecules/Alert/Alert';
 
 const MyProfileTemplate = ({
   profileData,
@@ -17,10 +19,14 @@ const MyProfileTemplate = ({
   selectCategoryData,
   onChangeSelectBoxHandler,
   onClickShowTypeChange,
+  onClickMoreHandler,
+  onClickModalListHandler,
+  onClickAlertEventHandler,
   postShowType,
-  onClickDeletePost,
   isLoading,
   isError,
+  modal,
+  alerts,
 }) => {
   return (
     <>
@@ -44,7 +50,7 @@ const MyProfileTemplate = ({
               {postShowType === 'list' && (
                 <ProfileFeedListCard
                   postData={postData.post}
-                  onClickDeletePost={onClickDeletePost}
+                  onClickMoreHandler={onClickMoreHandler}
                 />
               )}
               {postShowType === 'album' && (
@@ -57,6 +63,12 @@ const MyProfileTemplate = ({
         </MyProfileTemplateWrapper>
         <TabMenu />
       </MainWrapper>
+      {modal.isActive.post && (
+        <Modal onClickModalListHandler={onClickModalListHandler} />
+      )}
+      {alerts.isActive.post && (
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
+      )}
     </>
   );
 };

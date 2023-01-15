@@ -1,19 +1,23 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
-import { useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import getUserProduct from '../../api/profile/getUserProduct';
 import getMyProfile from '../../api/profile/getMyProfile';
 import MyProfileTemplate from '../../components/template/MyProfileTemplate/MyProfileTemplate';
 import getUserFeedData from '../../api/profile/getUserFeedData';
 import deletePost from '../../api/feed/deletePost';
-import { isErrorAtom } from '../../recoil/atom';
+import { alertAtom, isErrorAtom, modalAtom } from '../../recoil/atom';
 
 const MyProfilePage = () => {
   const myAccountName = localStorage.getItem('accountname');
   const [category, setCategory] = useState('study');
   const [postShowType, setPostShowType] = useState('list');
   const [postList, setPostList] = useState({ post: [] });
+  const [modal, setModal] = useRecoilState(modalAtom);
+  const [alerts, setAlerts] = useRecoilState(alertAtom);
   const isError = useRecoilValue(isErrorAtom);
+  const navigate = useNavigate();
 
   const { data: profileData, isLoading: isProfileLoading } = useQuery(
     'myProfile',
@@ -45,6 +49,8 @@ const MyProfilePage = () => {
         setPostList((prev) => {
           return { post: [...prev.post].filter((item) => item.id !== data.id) };
         });
+        setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+        setAlerts({ ...alerts, isActive: { ...alerts.isActive, post: false } });
       }
     },
     onError(err) {
@@ -63,13 +69,38 @@ const MyProfilePage = () => {
     setPostShowType(type);
   };
 
-  const onClickDeletePost = (postId) => {
-    deletePostMutation.mutate({ postId });
+  const onClickAlertEventHandler = () => {
+    deletePostMutation.mutate({ postId: modal.id });
   };
 
   const selectCategoryData = !isError
     ? categoryPostData?.product.filter((el) => el.itemName === category)
     : null;
+
+  const onClickMoreHandler = (id) => {
+    setModal({
+      ...modal,
+      isActive: { ...modal.isActive, post: true },
+      modalListText: [
+        { id: 1, text: '삭제' },
+        { id: 2, text: '수정' },
+      ],
+      id,
+    });
+  };
+
+  const onClickModalListHandler = (text) => {
+    if (text === '삭제') {
+      setAlerts({
+        ...alerts,
+        isActive: { ...alerts.isActive, post: true },
+        text: { alertText: `게시글을 ${text} 할까요?`, text },
+      });
+    } else if (text === '수정') {
+      setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+      navigate(`/feed/edit/${modal.id}`);
+    }
+  };
 
   return (
     <MyProfileTemplate
@@ -79,9 +110,13 @@ const MyProfilePage = () => {
       postShowType={postShowType}
       onClickShowTypeChange={onClickShowTypeChange}
       onChangeSelectBoxHandler={onChangeSelectBoxHandler}
-      onClickDeletePost={onClickDeletePost}
+      onClickMoreHandler={onClickMoreHandler}
+      onClickModalListHandler={onClickModalListHandler}
+      onClickAlertEventHandler={onClickAlertEventHandler}
       isLoading={isLoading}
       isError={isError}
+      modal={modal}
+      alerts={alerts}
     />
   );
 };

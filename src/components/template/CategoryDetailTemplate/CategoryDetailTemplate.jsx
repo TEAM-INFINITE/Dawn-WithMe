@@ -2,8 +2,8 @@ import { ToastContainer } from 'react-toastify';
 import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
-import NewAlertModal from '../../molecules/NewAlertModal/NewAlertModal';
-import NewModal from '../../molecules/NewModal/NewModal';
+import Alert from '../../molecules/Alert/Alert';
+import Modal from '../../molecules/Modal/Modal';
 import TopNavBar from '../../molecules/TopNavBar/TopNavBar';
 import CategoryDetailFeed from '../../organisms/CategoryDetailFeed/CategoryDetailFeed';
 import TabMenu from '../../organisms/TabMenu/TabMenu';
@@ -12,15 +12,12 @@ import CategoryDetailTemplateWrapper from './styled';
 const CategoryDetailTemplate = ({
   detailData,
   isLoading,
-  isModal,
-  isAlert,
+  modal,
+  alert,
   isError,
-  setIsModal,
   onClickMoreHandler,
   onClickModalListHandler,
   onClickAlertEventHandler,
-  textArray,
-  alertText,
 }) => {
   return (
     <>
@@ -40,19 +37,11 @@ const CategoryDetailTemplate = ({
         </CategoryDetailTemplateWrapper>
         <TabMenu />
       </MainWrapper>
-      {isModal && (
-        <NewModal
-          isModal={isModal}
-          setIsModal={setIsModal}
-          textArray={textArray}
-          onClickModalListHandler={onClickModalListHandler}
-        />
+      {modal.isActive.post && (
+        <Modal onClickModalListHandler={onClickModalListHandler} />
       )}
-      {isAlert && (
-        <NewAlertModal
-          alertText={alertText}
-          onClickAlertEventHandler={onClickAlertEventHandler}
-        />
+      {alert.isActive.post && (
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );
