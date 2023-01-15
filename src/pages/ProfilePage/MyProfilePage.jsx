@@ -77,7 +77,7 @@ const MyProfilePage = () => {
     ? categoryPostData?.product.filter((el) => el.itemName === category)
     : null;
 
-  const onClickMoreHandler = (id, userId) => {
+  const onClickMoreHandler = (id) => {
     setModal({
       ...modal,
       isActive: { ...modal.isActive, post: true },

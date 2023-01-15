@@ -60,7 +60,7 @@ const UserProfilePage = () => {
   });
 
   const reportPostMutation = useMutation(postPostReport, {
-    onSuccess(data) {
+    onSuccess() {
       alert('신고 되었습니다!');
     },
     onError(err) {
@@ -89,7 +89,7 @@ const UserProfilePage = () => {
     setPostShowType(type);
   };
 
-  const onClickMoreHandler = (id, _) => {
+  const onClickMoreHandler = (id) => {
     setModal({
       ...modal,
       isActive: { ...modal.isActive, post: true },
@@ -98,7 +98,7 @@ const UserProfilePage = () => {
     });
   };
 
-  const onClickModalListHandler = (_) => {
+  const onClickModalListHandler = () => {
     setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
     reportPostMutation.mutate({ postId: modal.id });
   };

@@ -30,7 +30,7 @@ const FeedPage = () => {
   });
 
   const reportPostMutation = useMutation(postPostReport, {
-    onSuccess(data) {
+    onSuccess() {
       alert('신고 되었습니다!');
     },
     onError(err) {
