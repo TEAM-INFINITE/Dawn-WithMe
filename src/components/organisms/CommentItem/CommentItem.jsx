@@ -2,12 +2,7 @@ import FeedText from '../../atoms/P/Feed/FeedText';
 import UserCommentProfileMore from '../../molecules/UserProfile/UserCommentProfileMore';
 import CommentItemWrapper from './styled';
 
-const CommentItem = ({
-  data,
-  postId,
-  onClickDeleteComment,
-  onClickReportComment,
-}) => {
+const CommentItem = ({ data, postId, onClickCommentMoreHandler }) => {
   const { image, accountname, username } = data.author;
   return (
     <CommentItemWrapper>
@@ -18,8 +13,7 @@ const CommentItem = ({
         src={image}
         userName={username}
         time={data.createdAt}
-        onClickDeleteComment={onClickDeleteComment}
-        onClickReportComment={onClickReportComment}
+        onClickCommentMoreHandler={onClickCommentMoreHandler}
       />
       <FeedText className='commentText'>{data.content}</FeedText>
     </CommentItemWrapper>
