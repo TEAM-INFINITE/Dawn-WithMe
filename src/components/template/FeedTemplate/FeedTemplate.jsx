@@ -8,13 +8,18 @@ import HeaderWrapper from '../../atoms/Wrapper/HeaderWrapper';
 import MainWrapper from '../../atoms/Wrapper/MainWrapper';
 import PostMenu from '../../molecules/PostMenu/PostMenu';
 import LoadingSpinner from '../../molecules/LoadingSpinner/LoadingSpinner';
+import Modal from '../../molecules/Modal/Modal';
+import Alert from '../../molecules/Alert/Alert';
 
 const FeedTemplate = ({
   posts,
-  onClickDeletePost,
-  onClickReportPost,
+  onClickModalListHandler,
+  onClickAlertEventHandler,
+  onClickMoreHandler,
   isLoading,
   isError,
+  modal,
+  alerts,
 }) => {
   return (
     <>
@@ -27,15 +32,13 @@ const FeedTemplate = ({
         <FeedWrapper>
           {!isLoading && !isError && (
             <ul>
-              {/* map으로 실행 */}
               {posts.map((item) => {
                 return (
                   <FeedCard
                     data={item}
                     postId={item.id}
                     key={item.id}
-                    onClickDeletePost={onClickDeletePost}
-                    onClickReportPost={onClickReportPost}
+                    onClickMoreHandler={onClickMoreHandler}
                   />
                 );
               })}
@@ -47,6 +50,12 @@ const FeedTemplate = ({
         <PostMenu postPath='/feed/upload' />
         <TabMenu />
       </MainWrapper>
+      {modal.isActive.post && (
+        <Modal onClickModalListHandler={onClickModalListHandler} />
+      )}
+      {alerts.isActive.post && (
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
+      )}
     </>
   );
 };

@@ -1,22 +1,25 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
-import { useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import deletePost from '../../api/feed/deletePost';
 import getFollowFeed from '../../api/feed/getFollowFeed';
 import postPostReport from '../../api/feed/postPostReport';
 import FeedTemplate from '../../components/template/FeedTemplate/FeedTemplate';
-import { isErrorAtom } from '../../recoil/atom';
+import { alertAtom, isErrorAtom, modalAtom } from '../../recoil/atom';
 
 const FeedPage = () => {
   const [postList, setPostList] = useState([]);
+  const [modal, setModal] = useRecoilState(modalAtom);
+  const [alerts, setAlerts] = useRecoilState(alertAtom);
   const isError = useRecoilValue(isErrorAtom);
-  // 내가 팔로우한 사용자의 게시물 불러오기
+  const navigate = useNavigate();
+  const myAccountName = localStorage.getItem('accountname');
+
   const { data: followpostdata, isLoading } = useQuery('feed', getFollowFeed);
 
-  // 게시물 삭제
   const deletePostMutation = useMutation(deletePost, {
     onSuccess(data) {
-      console.log(data);
       if (data.data.status === '200') {
         setPostList((prev) => [...prev].filter((item) => item.id !== data.id));
       }
@@ -26,10 +29,8 @@ const FeedPage = () => {
     },
   });
 
-  // 게시물 신고
   const reportPostMutation = useMutation(postPostReport, {
-    onSuccess(data) {
-      console.log(data);
+    onSuccess() {
       alert('신고 되었습니다!');
     },
     onError(err) {
@@ -37,21 +38,57 @@ const FeedPage = () => {
     },
   });
 
-  const onClickDeletePost = (postId) => {
-    deletePostMutation.mutate({ postId });
+  const onClickAlertEventHandler = () => {
+    deletePostMutation.mutate({ postId: modal.id });
   };
 
-  const onClickReportPost = (postId) => {
-    reportPostMutation.mutate({ postId });
+  const onClickMoreHandler = (id, userId) => {
+    if (userId === myAccountName) {
+      setModal({
+        ...modal,
+        isActive: { ...modal.isActive, post: true },
+        modalListText: [
+          { id: 1, text: '삭제' },
+          { id: 2, text: '수정' },
+        ],
+        id,
+      });
+    } else {
+      setModal({
+        ...modal,
+        isActive: { ...modal.isActive, post: true },
+        modalListText: [{ id: 1, text: '신고하기' }],
+        id,
+      });
+    }
+  };
+
+  const onClickModalListHandler = (text) => {
+    if (text === '신고하기') {
+      setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+      reportPostMutation.mutate({ postId: modal.id });
+    } else if (text === '삭제') {
+      setAlerts({
+        ...alerts,
+        isActive: { ...alerts.isActive, post: true },
+        text: { alertText: `게시글을 ${text} 할까요?`, text },
+      });
+    } else if (text === '수정') {
+      setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+      navigate(`/feed/edit/${modal.id}`);
+    }
   };
 
   return (
     <FeedTemplate
       posts={followpostdata?.posts}
-      onClickDeletePost={onClickDeletePost}
-      onClickReportPost={onClickReportPost}
+      onClickAlertEventHandler={onClickAlertEventHandler}
+      onClickModalListHandler={onClickModalListHandler}
+      onClickMoreHandler={onClickMoreHandler}
       isLoading={isLoading}
       isError={isError}
+      modal={modal}
+      alerts={alerts}
     />
   );
 };

@@ -22,7 +22,7 @@ const CategoryUserProfileMore = ({
         <ChatButton to='/chatdetail'>참여하기</ChatButton>
       )}
       {localStorage.getItem('accountname') === userId && (
-        <button type='button' onClick={() => onClickMoreHandler(id)}>
+        <button type='button' onClick={() => onClickMoreHandler(id, userId)}>
           <Img src={MoreIcon} alt='게시글 설정' width='18px' height='18px' />
         </button>
       )}

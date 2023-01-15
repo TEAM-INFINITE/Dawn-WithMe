@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import TopNavBarWarpper from './styled';
 import Img from '../../atoms/Img/Img';
 import backIcon from '../../../assets/images/icon-arrow-left.png';
 import moreIcon from '../../../assets/images/icon-more-vertical.png';
 import searchIcon from '../../../assets/images/icon-search.png';
-import Modal from '../Modal/Modal';
-import Alert from '../Alert/Alert';
 import Button from '../../atoms/Button/Button';
 import TextFiled from '../../atoms/Input/TextFiled/TextFiled';
-import { isErrorAtom } from '../../../recoil/atom';
+import { alertAtom, isErrorAtom, modalAtom } from '../../../recoil/atom';
+import Modal from '../Modal/Modal';
+import Alert from '../Alert/Alert';
 
 const TopNavBar = ({
   children,
@@ -26,27 +25,39 @@ const TopNavBar = ({
   text,
   onChangeSearch,
 }) => {
-  // 모달창 열리고 닫히는
-  const [onModal, setOnModal] = useState(false);
-  const [onAlert, setOnAlert] = useState(false);
+  const [modal, setModal] = useRecoilState(modalAtom);
+  const [alert, setAlert] = useRecoilState(alertAtom);
   const setIsError = useSetRecoilState(isErrorAtom);
-  // 모달 내용
-  const modalObj = [];
-  const pathName = useLocation().pathname;
 
-  if (pathName.includes('chatdetail')) {
-    modalObj.push({
-      text: { '채팅방 나가기': '/chat' },
-      alertText: [],
-    });
-  } else {
-    modalObj.push({
-      text: { '설정 및 개인정보': '/myprofile', 로그아웃: '' },
-      alertText: ['로그아웃하시겠어요?', '로그아웃'],
-    });
-  }
+  const navigate = useNavigate();
 
-  const modalCont = modalObj[0];
+  const onClickModalListHandler = (buttonName) => {
+    if (buttonName === '설정 및 개인정보') {
+      setModal({ ...modal, isActive: { ...modal.isActive, header: false } });
+      setAlert({ ...alert, isActive: { ...alert.isActive, header: false } });
+      navigate('/myprofile');
+    } else if (buttonName === '로그아웃') {
+      setAlert({
+        ...alert,
+        isActive: { ...alert.isActive, header: true },
+        text: { alertText: `${buttonName}하시겠어요?`, text: buttonName },
+      });
+    }
+  };
+
+  const onClickAlertEventHandler = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('accountname');
+    setModal({
+      ...modal,
+      isActive: { ...modal.isActive, header: false },
+    });
+    setAlert({
+      ...modal,
+      isActive: { ...alert.isActive, header: false },
+    });
+    navigate('/');
+  };
 
   return (
     <>
@@ -72,7 +83,14 @@ const TopNavBar = ({
             className='more'
             type='button'
             onClick={() => {
-              setOnModal((prev) => !prev);
+              setModal({
+                ...modal,
+                isActive: { ...modal.isActive, header: true },
+                modalListText: [
+                  { id: 1, text: '로그아웃' },
+                  { id: 2, text: '설정 및 개인정보' },
+                ],
+              });
             }}
           >
             <Img src={moreIcon} alt='더보기' width='24px' />
@@ -92,21 +110,11 @@ const TopNavBar = ({
           <TextFiled placeholder='유저 검색' onChange={onChangeSearch} />
         )}
       </TopNavBarWarpper>
-      {onModal && (
-        <Modal
-          onClose={() => setOnModal(false)}
-          setOnModal={setOnModal}
-          setOnAlert={setOnAlert}
-          modalCont={modalCont}
-        />
+      {modal.isActive.header && (
+        <Modal onClickModalListHandler={onClickModalListHandler} />
       )}
-      {onAlert && (
-        <Alert
-          questionText={modalCont.alertText[0]}
-          rightBtnText={modalCont.alertText[1]}
-          onClose={() => setOnAlert(false)}
-          setOnModal={setOnModal}
-        />
+      {alert.isActive.header && (
+        <Alert onClickAlertEventHandler={onClickAlertEventHandler} />
       )}
     </>
   );

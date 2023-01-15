@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const LoginWrapper = styled.section`
   ${({ theme }) => {
     return css`
-      width: 600px;
+      max-width: 600px;
       height: 100vh;
       background-color: ${theme.colors.colorBg};
       margin: 0 auto;
