@@ -30,6 +30,10 @@ const CategoryPage = () => {
     },
   });
 
+  const onClickAlertEventHandler = () => {
+    deleteCategoryPostMutation.mutate({ productId: modal.id });
+  };
+
   const onClickMoreHandler = (id) => {
     setModal({
       ...modal,
@@ -40,10 +44,6 @@ const CategoryPage = () => {
         { id: 2, text: '수정' },
       ],
     });
-  };
-
-  const onClickAlertEventHandler = () => {
-    deleteCategoryPostMutation.mutate({ productId: modal.id });
   };
 
   const onClickModalListHandler = (text) => {
