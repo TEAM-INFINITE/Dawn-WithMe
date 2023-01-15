@@ -1,7 +1,7 @@
 import FeedCard from '../FeedCard/FeedCard';
 import ProfileFeedListCardWrapper from './styled';
 
-const ProfileFeedListCard = ({ postData, onClickDeletePost }) => {
+const ProfileFeedListCard = ({ postData, onClickMoreHandler }) => {
   return (
     <ProfileFeedListCardWrapper>
       {postData.map((item) => (
@@ -9,7 +9,7 @@ const ProfileFeedListCard = ({ postData, onClickDeletePost }) => {
           key={item.id}
           data={item}
           postId={item.id}
-          onClickDeletePost={onClickDeletePost}
+          onClickMoreHandler={onClickMoreHandler}
         />
       ))}
     </ProfileFeedListCardWrapper>
