@@ -1,23 +1,26 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import postPostReport from '../../api/feed/postPostReport';
 import addFollow from '../../api/profile/addFollow';
 import deleteFollow from '../../api/profile/deleteFollow';
 import getUserFeedData from '../../api/profile/getUserFeedData';
 import getUserProduct from '../../api/profile/getUserProduct';
 import getUserProfile from '../../api/profile/getUserProfile';
 import UserProfileTemplate from '../../components/template/UserProfileTemplate/UserProfileTemplate';
-import { isErrorAtom } from '../../recoil/atom';
+import { isErrorAtom, modalAtom } from '../../recoil/atom';
 
 const UserProfilePage = () => {
   const params = useParams();
   const { accountname } = params;
   const [isFollow, setIsFollow] = useState();
   const [followCount, setFollowerCount] = useState();
-  const [category, setCategory] = useState('study');
   const [postShowType, setPostShowType] = useState('list');
-  const [isError, setIsError] = useRecoilState(isErrorAtom);
+  const [category, setCategory] = useState('study');
+  const [modal, setModal] = useRecoilState(modalAtom);
+  const isError = useRecoilValue(isErrorAtom);
+
   const { data: profileData, isLoading: isProfileLoading } = useQuery(
     ['userProfile', accountname],
     () => getUserProfile(accountname),
@@ -56,6 +59,15 @@ const UserProfilePage = () => {
     },
   });
 
+  const reportPostMutation = useMutation(postPostReport, {
+    onSuccess(data) {
+      alert('신고 되었습니다!');
+    },
+    onError(err) {
+      console.log(err);
+    },
+  });
+
   const onClickFollowToggle = () => {
     if (isFollow) {
       deleteFollowMutation.mutate({
@@ -77,6 +89,20 @@ const UserProfilePage = () => {
     setPostShowType(type);
   };
 
+  const onClickMoreHandler = (id, _) => {
+    setModal({
+      ...modal,
+      isActive: { ...modal.isActive, post: true },
+      modalListText: [{ id: 1, text: '신고하기' }],
+      id,
+    });
+  };
+
+  const onClickModalListHandler = (_) => {
+    setModal({ ...modal, isActive: { ...modal.isActive, post: false } });
+    reportPostMutation.mutate({ postId: modal.id });
+  };
+
   const selectCategoryData = !isError
     ? categoryPostData?.product.filter((el) => el.itemName === category)
     : null;
@@ -84,16 +110,19 @@ const UserProfilePage = () => {
   return (
     <UserProfileTemplate
       profileData={profileData}
+      postData={feedData}
       isFollow={isFollow}
       isError={isError}
+      isLoading={isLoading}
       followCount={followCount}
-      postData={feedData}
       onClickFollowToggle={onClickFollowToggle}
       onChangeSelectBoxHandler={onChangeSelectBoxHandler}
       onClickShowTypeChange={onClickShowTypeChange}
+      onClickModalListHandler={onClickModalListHandler}
+      onClickMoreHandler={onClickMoreHandler}
       selectCategoryData={selectCategoryData}
       postShowType={postShowType}
-      isLoading={isLoading}
+      modal={modal}
     />
   );
 };
