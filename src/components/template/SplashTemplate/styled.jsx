@@ -32,8 +32,10 @@ export const LoginButtonWrapper = styled.section`
   height: 100%;
   background: no-repeat url(${LoginButtonBackground});
   background-size: 100% 100vh;
-  position: relative;
-  overflow: auto;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  & > div:first-child {
+    margin-top: auto;
+  }
   animation: ${loginButtonOn} 2s;
 `;

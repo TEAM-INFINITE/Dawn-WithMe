@@ -4,15 +4,11 @@ const LoginButtonFormWrapper = styled.div`
   ${({ theme }) => {
     return css`
       width: 100%;
-      height: 319px;
-      padding: 50px 34px 82px;
+      padding: 6vh 4vw 10vh;
       background-color: ${theme.colors.colorBg};
       border-radius: 20px 20px 0 0;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
       text-align: center;
+      margin-top: auto;
 
       span {
         font-weight: 400;

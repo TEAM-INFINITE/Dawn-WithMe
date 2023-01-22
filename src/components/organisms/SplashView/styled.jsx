@@ -27,7 +27,12 @@ export const SplashViewWrapper = styled.div`
   background-size: 100% 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
+  & div {
+    transform: translateY(-30%);
+  }
+
   img:last-child {
     animation: ${ball} 0.4s ease-out 0s infinite alternate;
   }
