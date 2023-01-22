@@ -19,6 +19,31 @@ const loginButtonOn = keyframes`
   }
 `;
 
+export const StarCardWrapper = styled.div`
+  span {
+    &:nth-child(1) {
+      left: 9vw;
+      top: 15vh;
+    }
+    &:nth-child(2) {
+      left: 15vw;
+      top: 41vh;
+    }
+    &:nth-child(3) {
+      right: 9vw;
+      top: 43vh;
+    }
+    &:nth-child(4) {
+      right: 11vw;
+      top: 6vh;
+    }
+    &:nth-child(5) {
+      right: 17vw;
+      top: 18vh;
+    }
+  }
+`;
+
 export const SplashWrapper = styled.section`
   max-width: 600px;
   height: 100%;
