@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useRecoilState } from 'recoil';
 
 import postUserSignUp from '../../api/SignUp/postUserSignUp';
 import SignUpTemplate from '../../components/template/SignUpTemplate/SignUpTemplate';
+import { isErrorAtom } from '../../recoil/atom';
 
 const SignUpPage = () => {
   const [loginValue, setLoginValue] = useState({
     email: '',
     password: '',
   });
-
+  const [isError, setIsError] = useRecoilState(isErrorAtom);
   const [isValidatedEmail, setIsValidatedEmail] = useState(false);
   const [isValidatedPassword, setIsValidatedPassword] = useState(false);
   const [emailMessage, setEmailMessage] = useState('');
@@ -29,8 +32,20 @@ const SignUpPage = () => {
         console.log(data);
       }
     },
-    onError(data) {
-      console.log(data.response.data.message);
+    onError(err) {
+      if (err.message === 'Network Error') {
+        console.log('zz');
+        setIsError(true);
+        toast.error(
+          `서버에 문제가 있습니다 :( !
+            잠시 후 시도해 주세요.`,
+          {
+            theme: 'dark',
+            position: 'top-center',
+            autoClose: 3000,
+          },
+        );
+      }
     },
   });
 
@@ -64,7 +79,7 @@ const SignUpPage = () => {
 
   const onSubmitButtonHandler = (event) => {
     event.preventDefault();
-    console.log(loginValue);
+
     SignUpMutation.mutate({ user: { email: loginValue.email } });
   };
 
@@ -75,6 +90,7 @@ const SignUpPage = () => {
       loginValue={loginValue}
       error={emailMessage}
       pwError={passwordMessage}
+      isError={isError}
     />
   );
 };

@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useRecoilState } from 'recoil';
 import postUserLogin from '../../api/login/postUserLogin';
 import LoginTemplate from '../../components/template/LoginTemplate/LoginTemplate';
+import { isErrorAtom } from '../../recoil/atom';
 
 const LoginPage = () => {
   const [loginValue, setLoginValue] = useState({
     email: '',
     password: '',
   });
+  const [isError, setIsError] = useRecoilState(isErrorAtom);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -24,7 +28,19 @@ const LoginPage = () => {
       navigate('/home');
     },
     onError(err) {
-      console.log(err);
+      if (err.message === 'Network Error') {
+        console.log('zz');
+        setIsError(true);
+        toast.error(
+          `서버에 문제가 있습니다 :( !
+            잠시 후 시도해 주세요.`,
+          {
+            theme: 'dark',
+            position: 'top-center',
+            autoClose: 3000,
+          },
+        );
+      }
     },
   });
 
@@ -44,6 +60,7 @@ const LoginPage = () => {
       onSubmitButtonHandler={onSubmitButtonHandler}
       loginValue={loginValue}
       error={error}
+      isError={isError}
     />
   );
 };
