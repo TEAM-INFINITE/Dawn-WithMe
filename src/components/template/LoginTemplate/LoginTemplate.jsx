@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Img from '../../atoms/Img/Img';
 import LoginForm from '../../organisms/LoginForm/LoginForm';
 import LoginWrapper from './styled';
@@ -9,6 +10,7 @@ const LoginTemplate = ({
   onChangeInputHandler,
   onSubmitButtonHandler,
   error,
+  isError,
 }) => {
   return (
     <LoginWrapper>
@@ -21,6 +23,7 @@ const LoginTemplate = ({
       />
       <Link to='/signup'>이메일로 회원가입</Link>
       <Img src={titleLogo} width='80px' alt='타이틀 로고' />
+      {isError && <ToastContainer />}
     </LoginWrapper>
   );
 };
