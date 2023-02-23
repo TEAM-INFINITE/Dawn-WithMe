@@ -24,7 +24,7 @@ const SearchCard = ({ user, keyword }) => {
         <div className='user-info'>
           <FeedText type='username'>{keywordColor(username)}</FeedText>
 
-          <FeedText type='userid'>@{keywordColor(accountname)}</FeedText>
+          <FeedText type='userid'>@{accountname}</FeedText>
         </div>
       </SearchCardWrapper>
     </Link>
