@@ -1,35 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import getSearchUser from '../../api/search/getSearchUser';
 import SearchTemplate from '../../components/template/SearchTemplate/SearchTemplate';
 
 const SearchPage = () => {
   const [keyword, setKeyword] = useState('');
-  const [searchResult, setSearchResult] = useState(null);
 
   // 유저 검색
+  // data : 서버에 있는 모든 유저
   const {
     data: searchResultData,
     isLoading,
     isError,
-  } = useQuery(['searchUser', keyword], () => {
-    return getSearchUser(keyword);
+  } = useQuery(['searchUser', keyword], () => getSearchUser(keyword), {
+    enabled: !!keyword,
+    select: (result) =>
+      result.filter((user) => {
+        return user.username.includes(keyword);
+      }),
   });
+
+  console.log(searchResultData);
 
   const onChangeSearch = (event) => {
     const searchText = event.target.value;
-    if (!searchText) {
-      setSearchResult(null);
-      return;
-    }
-    setSearchResult(searchResultData);
     setKeyword(searchText);
   };
 
   return (
     <SearchTemplate
       onChangeSearch={onChangeSearch}
-      searchResult={searchResult}
+      searchResultData={searchResultData}
       keyword={keyword}
       isLoading={isLoading}
     />

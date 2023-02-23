@@ -8,7 +8,7 @@ import SearchWrapper from './styled';
 
 const SearchTemplate = ({
   onChangeSearch,
-  searchResult,
+  searchResultData,
   keyword,
   isLoading,
 }) => {
@@ -21,8 +21,8 @@ const SearchTemplate = ({
         <SearchWrapper>
           {!isLoading && (
             <ul>
-              {searchResult &&
-                searchResult.map((user) => {
+              {searchResultData &&
+                searchResultData.map((user) => {
                   return (
                     <li key={user.accountname}>
                       <SearchCard user={user} keyword={keyword} />
