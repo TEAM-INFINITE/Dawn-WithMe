@@ -8,30 +8,30 @@ import SearchWrapper from './styled';
 
 const SearchTemplate = ({
   onChangeSearch,
-  searchResult,
+  searchResultData,
   keyword,
   isLoading,
 }) => {
   return (
     <>
       <HeaderWrapper>
-        <TopNavBar cont='back' usersearch onChangeSearch={onChangeSearch} />
+        <TopNavBar
+          cont='back'
+          usersearch
+          onChangeSearch={onChangeSearch}
+          keyword={keyword}
+        />
       </HeaderWrapper>
       <MainWrapper>
         <SearchWrapper>
-          {!isLoading && (
-            <ul>
-              {searchResult &&
-                searchResult.map((user) => {
-                  return (
-                    <li key={user.accountname}>
-                      <SearchCard user={user} keyword={keyword} />
-                    </li>
-                  );
-                })}
-            </ul>
-          )}
           {isLoading && <LoadingSpinner />}
+          {searchResultData?.map((user) => (
+            <SearchCard key={user._id} user={user} keyword={keyword} />
+          ))}
+
+          {keyword && searchResultData?.length === 0 && (
+            <p>검색된 이용자가 없습니다.</p>
+          )}
         </SearchWrapper>
         <TabMenu />
       </MainWrapper>

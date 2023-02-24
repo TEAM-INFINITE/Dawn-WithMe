@@ -17,7 +17,7 @@ const SearchCardWrapper = styled.div`
     gap: 6px;
   }
 
-  .user-info .keyword {
+  .user-info strong {
     ${({ theme }) => {
       return css`
         color: ${theme.colors.colorMain};

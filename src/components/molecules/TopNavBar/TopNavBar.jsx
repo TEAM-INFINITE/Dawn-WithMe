@@ -24,6 +24,7 @@ const TopNavBar = ({
   width,
   text,
   onChangeSearch,
+  keyword,
 }) => {
   const [modal, setModal] = useRecoilState(modalAtom);
   const [alert, setAlert] = useRecoilState(alertAtom);
@@ -107,7 +108,11 @@ const TopNavBar = ({
           </Button>
         )}
         {usersearch && (
-          <TextFiled placeholder='유저 검색' onChange={onChangeSearch} />
+          <TextFiled
+            placeholder='유저 검색'
+            onChange={onChangeSearch}
+            value={keyword}
+          />
         )}
       </TopNavBarWarpper>
       {modal.isActive.header && (
