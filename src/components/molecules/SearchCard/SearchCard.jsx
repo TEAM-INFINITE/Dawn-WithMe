@@ -5,17 +5,17 @@ import FeedText from '../../atoms/P/Feed/FeedText';
 
 const SearchCard = ({ user, keyword }) => {
   const { accountname, username, image } = user;
-  const keywordColor = (userInfo) => {
-    if (userInfo.includes(keyword)) {
+  const keywordColor = (name) => {
+    if (name.includes(keyword)) {
       return (
         <>
-          {userInfo.split(keyword)[0]}
-          <span className='keyword'>{keyword}</span>
-          {userInfo.split(keyword)[1]}
+          {name.split(keyword)[0]}
+          <strong>{keyword}</strong>
+          {name.split(keyword)[1]}
         </>
       );
     }
-    return userInfo;
+    return name;
   };
   return (
     <Link to={`/userprofile/${user.accountname}`}>
