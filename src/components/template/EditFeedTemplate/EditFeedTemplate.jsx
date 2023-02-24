@@ -12,13 +12,12 @@ import {
 } from './styled';
 
 const EditFeedTemplate = ({
-  postdata,
   user,
   onChangeTextHandler,
   onClickDeleteImg,
   onChangeImagesUpload,
   onClickSubmit,
-  imgSrc,
+  postImg,
   postValue,
 }) => {
   return (
@@ -40,13 +39,13 @@ const EditFeedTemplate = ({
           <Img src={user.image} alt='프로필 사진' width='42px' height='42px' />
           <FeedTextWrapper>
             <Textarea
-              placeholder='게시글 입력하기...'
+              value={postValue.content}
               onChange={onChangeTextHandler}
             />
             <ImgWrapper>
               <ul>
-                {imgSrc.map((image, index) => (
-                  <li key={image.id}>
+                {postImg.map((image, index) => (
+                  <li key={image.key}>
                     <Img src={image.src} className='priview-img' />
                     <DeleteBtn onClick={() => onClickDeleteImg(index)} />
                   </li>

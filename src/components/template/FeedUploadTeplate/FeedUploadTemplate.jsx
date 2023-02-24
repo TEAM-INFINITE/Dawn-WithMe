@@ -21,7 +21,7 @@ const FeedUploadTemplate = ({
   onClickSubmit,
   isLoading,
   isError,
-  imgSrc,
+  postImg,
   postValue,
 }) => {
   return (
@@ -55,8 +55,8 @@ const FeedUploadTemplate = ({
                 />
                 <ImgWrapper>
                   <ul>
-                    {imgSrc.map((image, index) => (
-                      <li key={image.id}>
+                    {postImg.map((image, index) => (
+                      <li key={image.key}>
                         <Img src={image.src} className='priview-img' />
                         <DeleteBtn onClick={() => onClickDeleteImg(index)} />
                       </li>

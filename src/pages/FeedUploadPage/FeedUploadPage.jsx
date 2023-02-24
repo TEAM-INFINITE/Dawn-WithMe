@@ -10,7 +10,7 @@ import FeedUploadTemplate from '../../components/template/FeedUploadTeplate/Feed
 import { isErrorAtom } from '../../recoil/atom';
 
 const FeedUploadPage = () => {
-  const [imgSrc, setImgSrc] = useState([]);
+  const [arrImg, setArrImg] = useState([]);
   const [postImg, setPostImg] = useState([]);
   const isError = useRecoilValue(isErrorAtom);
   const [postValue, setPostValue] = useState({
@@ -18,7 +18,7 @@ const FeedUploadPage = () => {
     image: '',
   });
   const navigate = useNavigate();
-  const imgString = postImg.join(',');
+  const imgString = arrImg.join(',');
 
   // 유저 정보 불러오기
   const { data: userdata, isLoading: isProfileDataLoading } = useQuery(
@@ -30,11 +30,11 @@ const FeedUploadPage = () => {
   const imagesUploadMutation = useMutation(postImages, {
     onSuccess(resData) {
       console.log(resData);
-      setImgSrc([
-        ...imgSrc,
-        { id: resData[0].filename, src: `${url}/${resData[0].filename}` },
+      setPostImg([
+        ...postImg,
+        { key: Date.now(), src: `${url}/${resData[0].filename}` },
       ]);
-      setPostImg([...postImg, `${url}/${resData[0].filename}`]);
+      setArrImg([...arrImg, `${url}/${resData[0].filename}`]);
       setPostValue({ ...postValue });
     },
     onError(err) {
@@ -62,10 +62,9 @@ const FeedUploadPage = () => {
   };
 
   const onChangeImagesUpload = (event) => {
-    if (imgSrc.length > 2) {
+    if (postImg.length > 2) {
       alert('사진은 최대 3장까지 업로드 가능합니다.');
-      setImgSrc([...imgSrc.slice(0.3)]);
-      setPostValue({ ...postValue });
+      return;
     }
     const formData = new FormData();
     formData.append('image', event.target.files[0]);
@@ -73,8 +72,8 @@ const FeedUploadPage = () => {
   };
 
   const onClickDeleteImg = (id) => {
-    setImgSrc(imgSrc.filter((item, index) => index !== id));
     setPostImg(postImg.filter((item, index) => index !== id));
+    setArrImg(arrImg.filter((item, index) => index !== id));
   };
 
   const onClickSubmit = (event) => {
@@ -85,6 +84,8 @@ const FeedUploadPage = () => {
     });
   };
 
+  console.log(imgString);
+  console.log(postValue);
   return (
     <FeedUploadTemplate
       user={userdata?.user}
@@ -92,7 +93,7 @@ const FeedUploadPage = () => {
       onClickDeleteImg={onClickDeleteImg}
       onChangeImagesUpload={onChangeImagesUpload}
       onClickSubmit={onClickSubmit}
-      imgSrc={imgSrc}
+      postImg={postImg}
       isLoading={isProfileDataLoading}
       isError={isError}
       postValue={postValue}
