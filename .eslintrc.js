@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: ['react', 'prettier'],
   rules: {
+    'no-underscore-dangle': 'off',
     'import/no-unresolved': 'off',
     'react/jsx-boolean-value': 0,
     'no-param-reassign': 0,
