@@ -1,36 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import getSearchUser from '../../api/search/getSearchUser';
 import SearchTemplate from '../../components/template/SearchTemplate/SearchTemplate';
+import useDebounceValue from '../../hooks/useDebounceValue';
 
 const SearchPage = () => {
   const [keyword, setKeyword] = useState('');
 
-  // 유저 검색
-  // data : 서버에 있는 모든 유저
-  const {
-    data: searchResultData,
-    isLoading,
-    isError,
-  } = useQuery(['searchUser', keyword], () => getSearchUser(keyword), {
-    enabled: !!keyword,
-    select: (result) =>
-      result.filter((user) => {
-        return user.username.includes(keyword);
-      }),
-  });
+  const debouncedKeyword = useDebounceValue(keyword, 500);
 
-  console.log(searchResultData);
+  const { data, isLoading } = useQuery(
+    ['searchUser', debouncedKeyword],
+    () => getSearchUser(keyword),
+    {
+      enabled: !!debouncedKeyword,
+      select: (result) =>
+        result
+          .filter((user) => user.username.includes(debouncedKeyword))
+          .slice(0, 10),
+    },
+  );
 
-  const onChangeSearch = (event) => {
-    const searchText = event.target.value;
-    setKeyword(searchText);
+  const onChangeSearch = (e) => {
+    setKeyword(e.target.value);
   };
 
   return (
     <SearchTemplate
       onChangeSearch={onChangeSearch}
-      searchResultData={searchResultData}
+      searchResultData={data}
       keyword={keyword}
       isLoading={isLoading}
     />
