@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import LoginButtonBackground from '../../../assets/images/login-button-background.png';
+import LoginButtonBackground from '../../../assets/images/login-button-background.jpg';
 
 const splashOff = keyframes`
   from {
@@ -59,6 +59,7 @@ export const LoginButtonWrapper = styled.section`
   background-size: 100% 100vh;
   display: flex;
   flex-direction: column;
+  /* 아래 코드는 있으나 마나 한 코드 같은데? */
   & > div:first-child {
     margin-top: auto;
   }
