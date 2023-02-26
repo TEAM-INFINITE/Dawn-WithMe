@@ -25,5 +25,6 @@ export const TextWrap = styled.div`
 export const FeedMoreIconWrap = styled.section`
   display: flex;
   gap: 16px;
+  padding-top: 25px;
   margin: 12px 0 16px 0;
 `;
