@@ -1,7 +1,9 @@
-import { useState } from 'react';
-import { useMutation, useQuery } from 'react-query';
+import { useEffect, useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useInfiniteQuery, useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
+
 import deletePost from '../../api/feed/deletePost';
 import getFollowFeed from '../../api/feed/getFollowFeed';
 import postPostReport from '../../api/feed/postPostReport';
@@ -15,8 +17,27 @@ const FeedPage = () => {
   const isError = useRecoilValue(isErrorAtom);
   const navigate = useNavigate();
   const myAccountName = localStorage.getItem('accountname');
+  const count = useRef(0);
+  const [ref, inView] = useInView();
 
-  const { data: followpostdata, isLoading } = useQuery('feed', getFollowFeed);
+  const {
+    data: followpostdata,
+    isLoading,
+    fetchNextPage,
+  } = useInfiniteQuery(
+    'getFeedPosts',
+    ({ pageParam = count.current }) => getFollowFeed(pageParam),
+    {
+      getNextPageParam: (lastPage) => lastPage.nextPage + 10,
+    },
+  );
+
+  useEffect(() => {
+    if (inView && !followpostdata?.pages[count.current].isLast) {
+      count.current += 1;
+      fetchNextPage();
+    }
+  }, [inView]);
 
   const deletePostMutation = useMutation(deletePost, {
     onSuccess(data) {
@@ -81,7 +102,8 @@ const FeedPage = () => {
 
   return (
     <FeedTemplate
-      posts={followpostdata?.posts}
+      followpostdata={followpostdata?.pages}
+      observer={ref}
       onClickAlertEventHandler={onClickAlertEventHandler}
       onClickModalListHandler={onClickModalListHandler}
       onClickMoreHandler={onClickMoreHandler}
