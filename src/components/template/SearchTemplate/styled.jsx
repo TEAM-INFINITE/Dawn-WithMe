@@ -14,4 +14,25 @@ const SearchWrapper = styled.div`
   }}
 `;
 
+export const UserMore = styled.p`
+  cursor: pointer;
+  text-align: center;
+  ${({ theme }) => {
+    return css`
+      color: ${theme.colors.colorBorder};
+      font-size: ${theme.fontSizes.base};
+    `;
+  }}
+`;
+
+export const UserNotMessage = styled.p`
+  text-align: center;
+  ${({ theme }) => {
+    return css`
+      color: ${theme.colors.colorBorder};
+      font-size: ${theme.fontSizes.base};
+    `;
+  }}
+`;
+
 export default SearchWrapper;

@@ -17,19 +17,28 @@ const TabMenu = () => {
   return (
     <BottomNavBarWrapper>
       <TabNavLink to='/home'>
-        <Img src={pathname === '/home' ? homeImgOn : homeImg} />
+        <Img src={pathname === '/home' ? homeImgOn : homeImg} alt='홈 화면' />
         <p>홈</p>
       </TabNavLink>
       <TabNavLink to='/feed'>
-        <Img src={pathname === '/feed' ? noticeImgOn : noticeImg} />
+        <Img
+          src={pathname === '/feed' ? noticeImgOn : noticeImg}
+          alt='자유게시판'
+        />
         <p>자유게시판</p>
       </TabNavLink>
       <TabNavLink to='/chat'>
-        <Img src={pathname === '/chat' ? messageImgOn : messageImg} />
+        <Img
+          src={pathname === '/chat' ? messageImgOn : messageImg}
+          alt='채팅'
+        />
         <p>채팅</p>
       </TabNavLink>
       <TabNavLink to='/myprofile'>
-        <Img src={pathname === '/myprofile' ? profileImgOn : profileImg} />
+        <Img
+          src={pathname === '/myprofile' ? profileImgOn : profileImg}
+          alt='프로필'
+        />
         <p>프로필</p>
       </TabNavLink>
     </BottomNavBarWrapper>

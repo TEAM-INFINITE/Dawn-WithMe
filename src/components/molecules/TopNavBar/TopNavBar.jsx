@@ -70,7 +70,7 @@ const TopNavBar = ({
               setIsError(false);
             }}
           >
-            <Img src={backIcon} width='22px' />
+            <Img src={backIcon} width='22px' alt='뒤로가기' />
           </Link>
         )}
         {text === 'text' && <h2>{children}</h2>}
@@ -109,7 +109,7 @@ const TopNavBar = ({
         )}
         {usersearch && (
           <TextFiled
-            placeholder='유저 검색'
+            placeholder='사용자의 닉네임을 검색하세요!'
             onChange={onChangeSearch}
             value={keyword}
           />

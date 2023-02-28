@@ -16,7 +16,7 @@ const TopNavButtonBar = ({
   return (
     <TopNavButtonBarWarpper>
       <Link to={-1}>
-        <Img src={backIcon} width='22px' />
+        <Img src={backIcon} width='22px' alt='뒤로가기' />
       </Link>
       <Button
         onClick={onClick}
