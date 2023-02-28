@@ -6,6 +6,7 @@ import useDebounceValue from '../../hooks/useDebounceValue';
 
 const SearchPage = () => {
   const [keyword, setKeyword] = useState('');
+  const [view, setView] = useState(1);
 
   const debouncedKeyword = useDebounceValue(keyword, 500);
 
@@ -17,19 +18,26 @@ const SearchPage = () => {
       select: (result) =>
         result
           .filter((user) => user.username.includes(debouncedKeyword))
-          .slice(0, 10),
+          .slice(0, view * 9),
     },
   );
 
   const onChangeSearch = (e) => {
     setKeyword(e.target.value);
+    setView(1);
+  };
+
+  const onClickMore = () => {
+    setView(view + 1);
   };
 
   return (
     <SearchTemplate
       onChangeSearch={onChangeSearch}
+      onClickMore={onClickMore}
       searchResultData={data}
       keyword={keyword}
+      view={view}
       isLoading={isLoading}
     />
   );
