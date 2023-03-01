@@ -12,7 +12,8 @@ import Modal from '../../molecules/Modal/Modal';
 import Alert from '../../molecules/Alert/Alert';
 
 const FeedTemplate = ({
-  posts,
+  followpostdata,
+  observer,
   onClickModalListHandler,
   onClickAlertEventHandler,
   onClickMoreHandler,
@@ -30,18 +31,21 @@ const FeedTemplate = ({
       </HeaderWrapper>
       <MainWrapper>
         <FeedWrapper>
-          {!isLoading && !isError && (
+          {!isLoading && followpostdata.length > 0 && (
             <ul>
-              {posts.map((item) => {
-                return (
-                  <FeedCard
-                    data={item}
-                    postId={item.id}
-                    key={item.id}
-                    onClickMoreHandler={onClickMoreHandler}
-                  />
-                );
-              })}
+              {followpostdata.map((page) =>
+                page.data.map((post) => {
+                  return (
+                    <FeedCard
+                      data={post}
+                      postId={post.id}
+                      key={post.id}
+                      onClickMoreHandler={onClickMoreHandler}
+                    />
+                  );
+                }),
+              )}
+              <div ref={observer} />
             </ul>
           )}
           {isLoading && <LoadingSpinner />}

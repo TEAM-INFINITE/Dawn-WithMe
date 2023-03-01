@@ -22,6 +22,16 @@ const setType = (type) => {
         `;
       };
 
+    case 'userintro':
+      return ({ theme }) => {
+        return css`
+          font-size: ${theme.fontSizes.smallMid};
+          color: ${theme.colors.color76};
+          font-weight: 400;
+          line-height: 14px;
+        `;
+      };
+
     default:
       return ({ theme }) => {
         return css`

@@ -9,11 +9,6 @@ const FeedContWrapper = styled.div`
         margin: 16px 0;
       }
 
-      .imgwrapper {
-        display: flex;
-        gap: 8px;
-        overflow-x: scroll;
-      }
       .feedImg {
         border-radius: 10px;
         width: 514px;
