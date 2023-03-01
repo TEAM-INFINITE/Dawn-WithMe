@@ -18,7 +18,7 @@ const PostMenu = ({ postPath }) => {
       <PostMenuButton to={postPath}>등록</PostMenuButton>
       <PostMenuButton to='/timer'>타이머</PostMenuButton>
       <PostMenuOnButton onClick={onClickMenuHandler}>
-        <Img src={PlusButton} />
+        <Img src={PlusButton} alt='메뉴펼치기 버튼' />
       </PostMenuOnButton>
     </PostMenuWrapper>
   );
