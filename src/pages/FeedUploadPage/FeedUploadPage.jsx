@@ -35,7 +35,6 @@ const FeedUploadPage = () => {
         { key: Date.now(), src: `${url}/${resData[0].filename}` },
       ]);
       setArrImg([...arrImg, `${url}/${resData[0].filename}`]);
-      setPostValue({ ...postValue });
     },
     onError(err) {
       console.log(err);
@@ -84,8 +83,6 @@ const FeedUploadPage = () => {
     });
   };
 
-  console.log(imgString);
-  console.log(postValue);
   return (
     <FeedUploadTemplate
       user={userdata?.user}
