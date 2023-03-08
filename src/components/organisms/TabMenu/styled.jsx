@@ -11,20 +11,25 @@ const BottomNavBarWrapper = styled.article`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #2f3136;
+  ${({ theme }) => {
+    return css`
+      border-top: 1px solid ${theme.BORDER};
+      background-color: ${theme.BACKGROUND};
+    `;
+  }}
 `;
 
 export const TabNavLink = styled(NavLink)`
   ${({ theme }) => {
     return css`
-      color: ${theme.colors.color76};
+      color: ${theme.SUB_TEXT};
       display: block;
       width: 84px;
       text-align: center;
 
       &.active {
         p {
-          color: ${theme.colors.colorMain};
+          color: ${theme.MAIN};
         }
       }
 

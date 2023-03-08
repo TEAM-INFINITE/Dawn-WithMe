@@ -35,7 +35,7 @@ export const UserProfileWrapper = styled.div`
   ${({ theme }) => {
     return css`
       .comment-profile-text span {
-        color: ${theme.colors.color76};
+        color: ${theme.SUB_TEXT};
         font-size: ${theme.fontSizes.small};
       }
 

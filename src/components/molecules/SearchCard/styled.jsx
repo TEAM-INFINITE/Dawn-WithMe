@@ -20,7 +20,7 @@ const SearchCardWrapper = styled.div`
   .user-info strong {
     ${({ theme }) => {
       return css`
-        color: ${theme.colors.colorMain};
+        color: ${theme.MAIN};
       `;
     }}
   }

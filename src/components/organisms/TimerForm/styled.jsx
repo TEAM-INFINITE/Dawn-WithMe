@@ -6,8 +6,8 @@ const TimerFormWrapper = styled.div`
       input {
         border: none;
         border-radius: 10px;
-        background-color: ${theme.colors.colorBg};
-        color: ${theme.colors.colorMain};
+        background-color: ${theme.BACKGROUND};
+        color: ${theme.MAIN};
         font-size: ${theme.fontSizes.xl};
         width: 50px;
         height: 30px;
@@ -21,10 +21,10 @@ const TimerFormWrapper = styled.div`
       }
 
       h2 {
-        color: ${theme.colors.color76};
+        color: ${theme.SUB_TEXT};
       }
       span {
-        color: ${theme.colors.color76};
+        color: ${theme.SUB_TEXT};
       }
     `;
   }}

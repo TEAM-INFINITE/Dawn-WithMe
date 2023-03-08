@@ -9,7 +9,7 @@ const CategoryEditTemplateWrapper = styled.section`
 
   ${({ theme }) => {
     return css`
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
     `;
   }}
 `;

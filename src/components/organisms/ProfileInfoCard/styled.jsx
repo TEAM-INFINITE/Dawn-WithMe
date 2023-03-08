@@ -5,7 +5,7 @@ const ProfileInfoCardWrapper = styled.div`
     return css`
       padding: 0 16px 26px;
       margin-bottom: 6px;
-      border-bottom: 1px solid ${theme.colors.colorBorder};
+      border-bottom: 1px solid ${theme.TEXT};
     `;
   }}
 `;
@@ -54,9 +54,9 @@ export const ProfileInfoWrapper = styled.div`
         margin: 0 auto;
         padding: 8px 0;
         font-size: ${theme.fontSizes.base};
-        color: ${theme.colors.colorWhite};
+        color: ${theme.LIGHT_TEXT};
         line-height: 18px;
-        background-color: ${theme.colors.colorMain};
+        background-color: ${theme.MAIN};
         border-radius: 17px;
       }
     `;

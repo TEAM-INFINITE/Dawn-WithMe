@@ -4,7 +4,7 @@ const PostImgBoxWrapper = styled.div`
   ${({ theme }) => {
     return css`
       p {
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         font-size: ${theme.fontSizes.smallMid};
         margin-bottom: 18px;
       }

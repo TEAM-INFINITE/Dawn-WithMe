@@ -9,7 +9,7 @@ const FeedMoreIconBtn = styled.button`
         vertical-align: -6px;
       }
       span {
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         font-size: ${theme.fontSizes.smallMid};
       }
     `;

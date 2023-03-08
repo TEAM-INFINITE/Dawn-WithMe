@@ -15,7 +15,7 @@ export const TextWrap = styled.div`
   ${({ theme }) => {
     return css`
       &:last-child {
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         font-size: ${theme.fontSizes.small};
       }
     `;

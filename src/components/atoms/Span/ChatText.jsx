@@ -6,10 +6,10 @@ const chatBubble = (user) => {
       return ({ theme }) => {
         return css`
           font-size: ${theme.fontSizes.base};
-          color: ${theme.colors.colorWhite};
+          color: ${theme.LIGHT_TEXT};
           font-weight: 400;
           line-height: 18px;
-          background-color: ${theme.colors.colorMain};
+          background-color: ${theme.MAIN};
           padding: 12px;
           border-radius: 10px;
           border-top-right-radius: 0px;
@@ -24,8 +24,8 @@ const chatBubble = (user) => {
           color: #000000;
           font-weight: 400;
           line-height: 18px;
-          background-color: ${theme.colors.colorWhite};
-          border: 1px solid ${theme.colors.colorBorder};
+          background-color: ${theme.LIGHT_TEXT};
+          border: 1px solid ${theme.TEXT};
           padding: 12px;
           border-radius: 10px;
           border-top-left-radius: 0px;
@@ -37,7 +37,7 @@ const chatBubble = (user) => {
       return ({ theme }) => {
         return css`
           font-size: ${theme.fontSizes.base};
-          color: ${theme.colors.colorWhite};
+          color: ${theme.LIGHT_TEXT};
           font-weight: 400;
           line-height: 18px;
         `;

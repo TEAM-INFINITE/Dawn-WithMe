@@ -6,7 +6,7 @@ const setType = (type) => {
       return ({ theme }) => {
         return css`
           font-size: ${theme.fontSizes.base};
-          color: ${theme.colors.colorBorder};
+          color: ${theme.TEXT};
           font-weight: 500;
           line-height: 18px;
         `;
@@ -16,7 +16,7 @@ const setType = (type) => {
       return ({ theme }) => {
         return css`
           font-size: ${theme.fontSizes.smallMid};
-          color: ${theme.colors.color76};
+          color: ${theme.SUB_TEXT};
           font-weight: 400;
           line-height: 14px;
         `;
@@ -26,7 +26,7 @@ const setType = (type) => {
       return ({ theme }) => {
         return css`
           font-size: ${theme.fontSizes.smallMid};
-          color: ${theme.colors.color76};
+          color: ${theme.SUB_TEXT};
           font-weight: 400;
           line-height: 14px;
         `;
@@ -36,7 +36,7 @@ const setType = (type) => {
       return ({ theme }) => {
         return css`
           font-size: ${theme.fontSizes.base};
-          color: ${theme.colors.colorWhite};
+          color: ${theme.LIGHT_TEXT};
           font-weight: 400;
           line-height: 18px;
         `;

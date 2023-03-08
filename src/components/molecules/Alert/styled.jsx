@@ -5,8 +5,8 @@ const NewAlertModalWrapper = styled.article`
     return css`
       width: 252px;
       height: 120px;
-      background-color: ${theme.colors.colorBg};
-      color: ${theme.colors.colorBorder};
+      background-color: ${theme.BACKGROUND};
+      color: ${theme.TEXT};
       position: absolute;
       top: 50%;
       left: 50%;
@@ -18,7 +18,7 @@ const NewAlertModalWrapper = styled.article`
 
       p {
         width: 100%;
-        border-bottom: 1px solid ${theme.colors.colorBorder};
+        border-bottom: 1px solid ${theme.TEXT};
         font-size: ${theme.fontSizes.xl};
         font-weight: 500;
         line-height: 73px;
@@ -29,12 +29,12 @@ const NewAlertModalWrapper = styled.article`
         height: 46px;
         display: block;
         border-radius: 0 0 0 10px;
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
 
         &:last-child {
           border-radius: 0 0 10px 0;
-          border-left: 1px solid ${theme.colors.colorBorder};
-          color: ${theme.colors.colorWarning};
+          border-left: 1px solid ${theme.MODAL_BORDER};
+          color: ${theme.WARNING};
         }
       }
     `;

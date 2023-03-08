@@ -24,7 +24,7 @@ const ChatUserCardWrapper = styled.li`
     position: absolute;
     ${({ theme }) => {
       return css`
-        background-color: ${theme.colors.colorMain};
+        background-color: ${theme.MAIN};
       `;
     }}/* &:disabled {
       background-color: transparent;
@@ -33,7 +33,7 @@ const ChatUserCardWrapper = styled.li`
     &.active {
       ${({ theme }) => {
       return css`
-        background-color: ${theme.colors.colorMain};
+        background-color: ${theme.MAIN};
       `;
     }}
     } */
@@ -41,18 +41,18 @@ const ChatUserCardWrapper = styled.li`
 
   ${({ theme }) => {
     return css`
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
 
       .preview-last-chat {
         font-size: ${theme.fontSizes.smallMid};
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         font-weight: 400;
         line-height: 15px;
       }
 
       .date-last-chat {
         font-size: ${theme.fontSizes.small};
-        color: ${theme.colors.color76};
+        color: ${theme.SUB_TEXT};
         font-weight: 400;
         align-self: end;
         line-height: 13px;

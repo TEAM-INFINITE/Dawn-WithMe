@@ -8,7 +8,7 @@ const HomeTemplateWrapper = styled.section`
   padding: 26px 30px 90px;
   ${({ theme }) => {
     return css`
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
     `;
   }}
 `;

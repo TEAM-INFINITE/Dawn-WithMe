@@ -5,7 +5,7 @@ const FeedContWrapper = styled.div`
     return css`
       p {
         font-size: ${theme.fontSizes.base};
-        color: ${theme.colors.colorWhite};
+        color: ${theme.LIGHT_TEXT};
         margin: 16px 0;
       }
 

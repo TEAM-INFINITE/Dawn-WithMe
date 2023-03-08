@@ -7,7 +7,7 @@ const ChatBubbleContWrapper = styled.div`
   .time {
     ${({ theme }) => {
       return css`
-        color: ${theme.colors.color76};
+        color: ${theme.SUB_TEXT};
         font-weight: 400;
         font-size: ${theme.fontSizes.small};
       `;

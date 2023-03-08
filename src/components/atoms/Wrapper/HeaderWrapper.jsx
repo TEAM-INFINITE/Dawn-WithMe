@@ -6,10 +6,10 @@ const HeaderWrapper = styled.header`
 
   ${({ theme }) => {
     return css`
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       h2 {
         font-size: ${theme.fontSizes.xxl};
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         line-height: 22px;
       }
     `;

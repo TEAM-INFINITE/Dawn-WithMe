@@ -27,7 +27,7 @@ const CommentInputWrapper = styled.div`
   ${({ theme }) => {
     return css`
       button {
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         width: 35px;
       }
     `;

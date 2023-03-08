@@ -5,7 +5,7 @@ const ProfileFeedListCardWrapper = styled.ul`
 
   ${({ theme }) => {
     return css`
-      border-top: 1px solid ${theme.colors.colorBorder};
+      border-top: 1px solid ${theme.TEXT};
     `;
   }}
 

@@ -19,7 +19,7 @@ const SignUpFormWrapper = styled.form`
         text-align: left;
         line-height: 14px;
         font-size: ${theme.fontSizes.smallMid};
-        color: ${theme.colors.colorWarning};
+        color: ${theme.WARNING};
       }
     `;
   }}

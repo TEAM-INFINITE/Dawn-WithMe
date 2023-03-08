@@ -8,12 +8,12 @@ const Textarea = styled.textarea`
     return css`
       font-size: ${theme.fontSizes.base};
       line-height: 14px;
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       border: none;
       outline: transparent none 0px;
       resize: none;
       padding: 10px 14px;
-      color: ${theme.colors.colorWhite};
+      color: ${theme.LIGHT_TEXT};
     `;
   }}
 `;
