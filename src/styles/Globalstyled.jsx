@@ -12,6 +12,7 @@ const GlobalStyled = createGlobalStyle`
     max-width: 600px;
     margin: 0 auto;
     position: relative;
+    box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
   }
 
   button{
