@@ -7,26 +7,6 @@ const fontSizes = {
   title: '24px',
 };
 
-const colors = {
-  colorMain: '#FEAC23',
-  colorBg: '#212025',
-  colorNavBg: '#2F3136',
-  colorWhite: '#FFFFFF',
-  colorBorder: '#c4c4c4',
-  colorDB: '#dbdbdb',
-  color76: '#767676',
-  colorWarning: '#EB5757',
-};
-
-// const lightColors = {
-//   colorMain: '#FEAC23',
-//   colorBg: '#212025',
-//   colorText: 'FFFFFF',
-//   colorC4: 'c4c4c4',
-//   colorDB: 'dbdbdb',
-//   color76: '767676',
-// };
-
 const size = {
   mobile: '390px',
   mobileMid: '500px',
@@ -39,16 +19,41 @@ const device = {
   tablet: `@media only screen and (max-width: ${size.tablet})`,
 };
 
-const darkTheme = {
-  colors,
+export const darkTheme = {
+  MAIN: '#FEAC23',
+  BACKGROUND: '#212025',
+  TEXT: '#c4c4c4',
+  SUB_TEXT: '#767676',
+  LIGHT_TEXT: '#FFFFFF',
+  BORDER: '#DBDBDB',
+  MODAL_BACKGROUND: '#212025',
+  MODAL_BORDER: '#C4C4C4',
+  DISABLED: '#C4C4C4',
+  WARNING: '#EB5757',
+
   fontSizes,
   device,
 };
 
-// export const lightTheme = {
-//   colors,
-//   fontSizes,
-//   device,
-// };
+export const lightTheme = {
+  MAIN: '#FEAC23',
+  BACKGROUND: '#FFFFFF',
+  TEXT: '#212025',
+  SUB_TEXT: '#767676',
+  LIGHT_TEXT: '#212025',
+  BORDER: '#DBDBDB',
+  MODAL_BACKGROUND: '#DBDBDB',
+  MODAL_BORDER: '#C4C4C4',
+  DISABLED: '#C4C4C4',
+  WARNING: '#EB5757',
 
-export default darkTheme;
+  fontSizes,
+  device,
+};
+
+export const theme = {
+  darkTheme,
+  lightTheme,
+};
+
+export default theme;
