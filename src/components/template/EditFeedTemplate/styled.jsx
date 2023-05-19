@@ -11,7 +11,7 @@ export const FeedUploadWrapper = styled.div`
       display: flex;
       max-width: 600px;
       height: 100%;
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       margin: 0 auto;
       padding: 20px 16px 90px;
       position: relative;

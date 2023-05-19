@@ -16,7 +16,7 @@ const LoginButtonCardWrapper = styled.div`
     text-align: center;
     ${({ theme }) => {
       return css`
-        background-color: ${theme.colors.colorBg};
+        background-color: ${theme.BACKGROUND};
       `;
     }}
     &:nth-child(1) {

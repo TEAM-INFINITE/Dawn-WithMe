@@ -9,7 +9,7 @@ const EditProfileFormWrapper = styled.form`
   ${({ theme }) => {
     return css`
       p {
-        color: ${theme.colors.colorWarning};
+        color: ${theme.WARNING};
         font-size: ${theme.fontSizes.smallMid};
         margin-bottom: 8px;
       }

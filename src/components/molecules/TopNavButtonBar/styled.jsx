@@ -8,7 +8,7 @@ const TopNavButtonBarWarpper = styled.nav`
 
   ${({ theme }) => {
     return css`
-      border-bottom: 1px solid ${theme.colors.colorDB};
+      border-bottom: 1px solid ${theme.BORDER};
 
       a {
         display: flex;

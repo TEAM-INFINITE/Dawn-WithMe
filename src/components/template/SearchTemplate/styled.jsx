@@ -5,7 +5,7 @@ const SearchWrapper = styled.div`
     return css`
       max-width: 600px;
       height: 100%;
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       margin: 0 auto;
       padding: 20px 16px 90px;
       position: relative;
@@ -19,7 +19,7 @@ export const UserMore = styled.p`
   text-align: center;
   ${({ theme }) => {
     return css`
-      color: ${theme.colors.colorBorder};
+      color: ${theme.TEXT};
       font-size: ${theme.fontSizes.base};
     `;
   }}
@@ -29,7 +29,7 @@ export const UserNotMessage = styled.p`
   text-align: center;
   ${({ theme }) => {
     return css`
-      color: ${theme.colors.colorBorder};
+      color: ${theme.TEXT};
       font-size: ${theme.fontSizes.base};
     `;
   }}

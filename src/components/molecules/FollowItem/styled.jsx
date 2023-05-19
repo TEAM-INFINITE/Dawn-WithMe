@@ -14,7 +14,7 @@ const FollowItemWrapper = styled.li`
 
     ${({ theme }) => {
       return css`
-        color: ${theme.colors.colorWhite};
+        color: ${theme.LIGHT_TEXT};
         div {
           width: 70%;
           p {
@@ -29,7 +29,7 @@ const FollowItemWrapper = styled.li`
             }
             &:last-child {
               font-size: ${theme.fontSizes.smallMid};
-              color: ${theme.colors.colorBorder};
+              color: ${theme.TEXT};
             }
           }
         }

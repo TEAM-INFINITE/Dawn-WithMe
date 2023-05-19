@@ -18,16 +18,20 @@ const PostMenuWrapper = styled.div`
   }
 
   &.active {
-    button {
+    > button {
       transform: rotate(45deg);
     }
 
-    > a {
+    > article {
       transform: translateY(-60px);
+    }
 
-      &:nth-child(1) {
-        transform: translateY(-120px);
-      }
+    > :nth-child(2) {
+      transform: translateY(-120px);
+    }
+
+    > :nth-child(3) {
+      transform: translateY(-180px);
     }
   }
 `;

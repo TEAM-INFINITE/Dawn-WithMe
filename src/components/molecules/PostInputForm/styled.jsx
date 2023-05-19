@@ -18,7 +18,7 @@ const PostInputBoxWrapper = styled.div`
     return css`
       p {
         margin-bottom: 8px;
-        color: ${theme.colors.colorWarning};
+        color: ${theme.WARNING};
         font-size: ${theme.fontSizes.smallMid};
       }
     `;

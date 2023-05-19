@@ -6,9 +6,9 @@ const PostMenuButton = styled(Link)`
     return css`
       width: 50px;
       height: 50px;
-      background-color: ${theme.colors.colorMain};
+      background-color: ${theme.MAIN};
       border-radius: 25px;
-      color: ${theme.colors.colorWhite};
+      color: ${theme.LIGHT_TEXT};
       font-size: ${theme.fontSizes.smallMid};
       display: flex;
       align-items: center;

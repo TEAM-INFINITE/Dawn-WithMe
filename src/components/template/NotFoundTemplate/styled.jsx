@@ -5,7 +5,7 @@ const NotFoundTemplateWrapper = styled.section`
     return css`
       max-width: 600px;
       height: 100%;
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       margin: 0 auto;
       text-align: center;
       overflow: scroll;
@@ -17,7 +17,7 @@ const NotFoundTemplateWrapper = styled.section`
       }
 
       > p {
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         font-size: ${theme.fontSizes.xl};
         line-height: 14px;
         margin-top: 20px;
@@ -31,12 +31,12 @@ const NotFoundTemplateWrapper = styled.section`
         width: 120px;
         padding: 13px 0;
         margin: 20px auto 0;
-        background-color: ${theme.colors.colorMain};
+        background-color: ${theme.MAIN};
         font-size: ${theme.fontSizes.xl};
         font-weight: 500;
         line-height: 18px;
         border-radius: 22px;
-        color: ${theme.colors.colorWhite};
+        color: ${theme.LIGHT_TEXT};
       }
     `;
   }}

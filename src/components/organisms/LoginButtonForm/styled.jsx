@@ -6,7 +6,7 @@ const LoginButtonFormWrapper = styled.div`
       width: 100%;
       height: 319px;
       padding: 50px 34px 82px;
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       border-radius: 20px 20px 0 0;
       position: absolute;
       bottom: 0;
@@ -18,7 +18,7 @@ const LoginButtonFormWrapper = styled.div`
         font-weight: 400;
         font-size: ${theme.fontSizes.smallMid};
         line-height: 15px;
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
       }
 
       a {
@@ -26,7 +26,7 @@ const LoginButtonFormWrapper = styled.div`
         font-weight: 400;
         font-size: ${theme.fontSizes.samllMid};
         line-height: 15px;
-        color: ${theme.colors.color76};
+        color: ${theme.SUB_TEXT};
         margin: 20px 12px 0;
       }
     `;

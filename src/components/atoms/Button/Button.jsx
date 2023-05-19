@@ -30,12 +30,12 @@ const Button = styled.button`
   ${({ theme }) => {
     return css`
       width: ${(props) => props.width};
-      background-color: ${theme.colors.colorMain};
+      background-color: ${theme.MAIN};
       font-size: ${theme.fontSizes.base};
       padding: 7px 0;
       font-weight: 500;
       line-height: 18px;
-      color: ${theme.colors.colorWhite};
+      color: ${theme.LIGHT_TEXT};
     `;
   }}
 
@@ -44,7 +44,7 @@ const Button = styled.button`
   &:disabled {
     ${({ theme }) => {
       return css`
-        background-color: ${theme.colors.colorBorder};
+        background-color: ${theme.DISABLED};
         cursor: not-allowed;
       `;
     }}
@@ -53,8 +53,8 @@ const Button = styled.button`
   &.active {
     ${({ theme }) => {
       return css`
-        background-color: ${theme.colors.colorBg};
-        outline: 1px solid ${theme.colors.colorBorder};
+        background-color: ${theme.BACKGROUND};
+        outline: 1px solid ${theme.DISABLED};
       `;
     }}
   }

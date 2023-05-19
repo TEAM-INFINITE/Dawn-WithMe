@@ -34,7 +34,7 @@ export const ModalBox = styled.div`
       bottom: 0;
       left: 0;
       width: 100%;
-      background-color: #212025;
+      background-color: ${theme.MODAL_BACKGROUND};
       border-radius: 16px 16px 0 0;
       transform: translateY(100%);
       z-index: 9000;
@@ -45,11 +45,11 @@ export const ModalBox = styled.div`
         height: 5px;
         display: block;
         border-radius: 2.5px;
-        background-color: ${theme.colors.colorWhite};
+        background-color: ${theme.LIGHT_TEXT};
         margin: 16px auto;
 
         &:hover {
-          background-color: ${theme.colors.colorMain};
+          background-color: ${theme.MAIN};
         }
       }
 
@@ -60,20 +60,20 @@ export const ModalBox = styled.div`
             width: 100%;
             height: 100%;
             text-align: left;
-            color: ${theme.colors.colorWhite};
+            color: ${theme.LIGHT_TEXT};
             padding: 14px 0 14px 26px;
             font-size: ${theme.fontSizes.base};
             line-height: 18px;
           }
           &:last-child:hover {
             button {
-              color: ${theme.colors.colorMain};
+              color: ${theme.MAIN};
             }
           }
 
           &:first-child:hover {
             button {
-              color: ${theme.colors.colorWarning};
+              color: ${theme.WARNING};
             }
           }
         }

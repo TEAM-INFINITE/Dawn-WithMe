@@ -5,14 +5,14 @@ const TimerWrapper = styled.section`
     return css`
       max-width: 600px;
       height: calc(100vh - 47px);
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       margin: 0 auto;
       padding: 30px 34px 0;
       text-align: center;
 
       h2 {
         margin-top: 50px;
-        color: ${theme.colors.colorWhite};
+        color: ${theme.LIGHT_TEXT};
         font-size: ${theme.fontSizes.title};
       }
 
@@ -21,7 +21,7 @@ const TimerWrapper = styled.section`
         font-weight: 400;
         font-size: ${theme.fontSizes.smallMid};
         line-height: 15px;
-        color: ${theme.colors.colorWhite};
+        color: ${theme.LIGHT_TEXT};
         margin: 5px;
         margin-top: 30px;
       }

@@ -5,7 +5,7 @@ const UserProfileTemplateWrapper = styled.section`
     return css`
       max-width: 600px;
       height: 100%;
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       margin: 0 auto;
       padding: 30px 0 0;
       text-align: center;

@@ -5,13 +5,13 @@ const SignUpWrapper = styled.section`
     return css`
       max-width: 600px;
       height: 100vh;
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       margin: 0 auto;
       padding: 30px 34px 0;
       text-align: center;
 
       h2 {
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         font-weight: 500;
         font-size: ${theme.fontSizes.title};
         line-height: 30px;
@@ -23,7 +23,7 @@ const SignUpWrapper = styled.section`
         font-weight: 400;
         font-size: ${theme.fontSizes.smallMid};
         line-height: 15px;
-        color: ${theme.colors.colorWhite};
+        color: ${theme.LIGHT_TEXT};
         margin-top: 20px;
       }
 

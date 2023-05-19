@@ -7,7 +7,7 @@ const CategoryDetailFeedWrapper = styled.div`
       .title,
       .people {
         font-size: ${theme.fontSizes.base};
-        color: ${theme.colors.colorWhite};
+        color: ${theme.LIGHT_TEXT};
         margin: 16px 0;
       }
       p {
@@ -16,7 +16,7 @@ const CategoryDetailFeedWrapper = styled.div`
         }
 
         > span {
-          color: ${theme.colors.colorMain};
+          color: ${theme.MAIN};
         }
       }
 
@@ -30,7 +30,7 @@ const CategoryDetailFeedWrapper = styled.div`
       }
       .date {
         display: block;
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         font-size: ${theme.fontSizes.small};
       }
     `;

@@ -15,8 +15,8 @@ const ChatInputWrapper = styled.form`
   gap: 8px;
   ${({ theme }) => {
     return css`
-      background-color: ${theme.colors.colorBg};
-      border-top: 1px solid ${theme.colors.colorBorder};
+      background-color: ${theme.BACKGROUND};
+      border-top: 1px solid ${theme.TEXT};
     `;
   }}
 
@@ -45,8 +45,8 @@ const ChatInputWrapper = styled.form`
           font-size: ${theme.fontSizes.base};
           font-weight: 400;
           line-height: 18px;
-          color: ${theme.colors.colorWhite};
-          background-color: ${theme.colors.colorBg};
+          color: ${theme.LIGHT_TEXT};
+          background-color: ${theme.BACKGROUND};
         `;
       }}
     }
@@ -57,15 +57,15 @@ const ChatInputWrapper = styled.form`
     width: 36px;
     ${({ theme }) => {
       return css`
-        background-color: ${theme.colors.colorBg};
-        color: ${theme.colors.colorBorder};
+        background-color: ${theme.BACKGROUND};
+        color: ${theme.TEXT};
       `;
     }}
 
     &:disabled {
       ${({ theme }) => {
         return css`
-          color: ${theme.colors.color76};
+          color: ${theme.SUB_TEXT};
           cursor: not-allowed;
         `;
       }}
@@ -74,8 +74,8 @@ const ChatInputWrapper = styled.form`
     &:active {
       ${({ theme }) => {
         return css`
-          background-color: ${theme.colors.colorBg};
-          color: ${theme.colors.colorBorder};
+          background-color: ${theme.BACKGROUND};
+          color: ${theme.TEXT};
         `;
       }}
     }

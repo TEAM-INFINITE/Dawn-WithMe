@@ -5,20 +5,20 @@ const ProfileSettingWrapper = styled.section`
     return css`
       max-width: 600px;
       height: 100vh;
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       margin: 0 auto;
       padding: 30px 34px 0;
       text-align: center;
 
       h2 {
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         font-weight: 500;
         font-size: ${theme.fontSizes.title};
         line-height: 30px;
       }
 
       .profile-subtit {
-        color: ${theme.colors.color76};
+        color: ${theme.SUB_TEXT};
         font-weight: 400;
         font-size: ${theme.fontSizes.base};
         line-height: 14px;

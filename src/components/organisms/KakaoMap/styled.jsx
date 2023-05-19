@@ -5,7 +5,7 @@ const KakaoMapWrapper = styled.div`
   ${({ theme }) => {
     return css`
       p {
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         font-size: ${theme.fontSizes.xxl};
         margin-bottom: 20px;
       }

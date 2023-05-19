@@ -5,7 +5,7 @@ const CategoryFeedContWrapper = styled.div`
     return css`
       p {
         font-size: ${theme.fontSizes.base};
-        color: ${theme.colors.colorWhite};
+        color: ${theme.LIGHT_TEXT};
         margin: 16px 0;
 
         &:last-child {
@@ -16,7 +16,7 @@ const CategoryFeedContWrapper = styled.div`
         border-radius: 10px;
       }
       span {
-        color: ${theme.colors.colorMain};
+        color: ${theme.MAIN};
       }
     `;
   }}

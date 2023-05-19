@@ -7,10 +7,10 @@ const TopNavBarWarpper = styled.nav`
   padding: 12px 16px;
   ${({ theme }) => {
     return css`
-      border-bottom: 1px solid ${theme.colors.colorDB};
+      border-bottom: 1px solid ${theme.BORDER};
       h2 {
         font-size: ${theme.fontSizes.xxl};
-        color: ${theme.colors.colorBorder};
+        color: ${theme.TEXT};
         line-height: 22px;
         margin-right: auto;
       }
@@ -33,10 +33,10 @@ const TopNavBarWarpper = styled.nav`
         margin: -4px 0 -4px 20px;
         padding: 7px 16px;
         border-radius: 32px;
-        border: 1px solid ${theme.colors.colorBorder};
+        border: 1px solid ${theme.TEXT};
 
         &:focus {
-          border: 1px solid ${theme.colors.colorMain};
+          border: 1px solid ${theme.MAIN};
         }
     `;
   }}

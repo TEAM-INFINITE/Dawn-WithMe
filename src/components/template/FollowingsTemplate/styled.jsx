@@ -5,7 +5,7 @@ const FollowersTemplateWrapper = styled.section`
     return css`
       max-width: 600px;
       height: 100%;
-      background-color: ${theme.colors.colorBg};
+      background-color: ${theme.BACKGROUND};
       margin: 0 auto;
       position: relative;
       overflow: auto;
