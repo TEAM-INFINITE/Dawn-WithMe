@@ -4,22 +4,21 @@ const SplashLogoCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  position: relative;
   top: 10vh;
-  margin: 0 30%;
+  margin: 3% 30%;
 
   img:nth-child(2) {
-    padding-top: 18%;
+    padding-top: 15%;
   }
 
   .moon {
-    height: 9%;
-    width: 8%;
+    height: 7%;
+    width: 6%;
     background: rgb(223, 208, 172);
     border-radius: 41% 59% 100% 0 / 0 34% 66% 100%;
-    position: absolute;
-    top: 77%;
-    left: 23%;
+    bottom: 15%;
+    left: 28%;
     animation: none;
   }
 `;

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import SplashBackground from '../../../assets/images/splash-background.png';
+import SplashBackground from '../../../assets/images/splash-background.jpg';
 
 const ball = keyframes`
   0% {
@@ -27,8 +27,13 @@ export const SplashViewWrapper = styled.div`
   background-size: 100% 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
-  img:last-child {
+  & div {
+    transform: translateY(-55%);
+  }
+
+  img:nth-child(2) {
     animation: ${ball} 0.4s ease-out 0s infinite alternate;
   }
 
